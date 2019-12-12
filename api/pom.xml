@@ -9,8 +9,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+
+    <groupId>com.paisiwater</groupId>
     <artifactId>api</artifactId>
     <packaging>war</packaging>
+    <name>api</name>
 
     <properties>
         <!-- spring版本号 -->

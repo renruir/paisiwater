@@ -8,21 +8,16 @@
     <!-- 日志文件管理 -->
     <context-param>
         <param-name>webAppRootKey</param-name>
-        <param-value>myservice.web.root</param-value>
+        <param-value>myservice.api.root</param-value>
     </context-param>
     <listener>
-  <listener-class>org.springframework.web.util.WebAppRootListener</listener-class>
- </listener>
+        <listener-class>org.springframework.web.util.WebAppRootListener</listener-class>
+    </listener>
 
-    <!--
     <context-param>
         <param-name>log4jConfigLocation</param-name>
         <param-value>classpath:conf/log4j.properties</param-value>
     </context-param>
-
-    <listener>
-        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
-    </listener>-->
 
     <!-- 读取spring配置文件 -->
     <context-param>

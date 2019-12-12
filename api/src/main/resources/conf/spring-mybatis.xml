@@ -50,14 +50,14 @@
 
 	<!-- spring与mybatis整合配置，扫描所有dao ,生成与DAO类相同名字的bean（除了首字母小写）-->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
-		p:basePackage="com/skyworth/**/dao" p:sqlSessionFactoryBeanName="sqlSessionFactory" />
+		p:basePackage="com/paisiwater/**/dao" p:sqlSessionFactoryBeanName="sqlSessionFactory" />
 
 	<!-- 对数据源进行事务管理 -->
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
 		p:dataSource-ref="dataSource" />
 	<task:annotation-driven />
 	<tx:annotation-driven transaction-manager="transactionManager"  />
-	<context:component-scan base-package="com.skyworth.*" />
+	<context:component-scan base-package="com.paisiwater.*" />
 
 	<!--<tx:advice id="txAdvice" transaction-manager="txManager">
 		<tx:attributes>
