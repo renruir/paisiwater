@@ -1,0 +1,422 @@
+.jsqMaskBackground {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    outline: 0;
+    -webkit-overflow-scrolling: touch;
+    background-color: rgb(0, 0, 0);
+    filter: alpha(opacity=60);
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+}
+
+#popupWindow {
+    width: 70%;
+    top: 35%;
+    left: 15%;
+    position: fixed;
+    visibility: visible;
+    margin: 0 auto;
+    vertical-align: middle;
+    /*border: 1px solid #eae6e5;*/
+    background-color: rgba(223, 225, 228, 0);
+}
+
+/*#rinseState {*/
+    /*text-align: center;*/
+    /*color: #eeeeee*/
+/*}*/
+
+#rinseResultComfirm {
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    border-radius: 2em;
+}
+
+#rinseCompletedButton {
+    -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+    box-shadow: inset 0px 1px 0px 0px #ffffff;
+    background-color: #ededed;
+    -webkit-border-top-left-radius: 6px;
+    -moz-border-radius-topleft: 6px;
+    border-top-left-radius: 6px;
+    -webkit-border-top-right-radius: 6px;
+    -moz-border-radius-topright: 6px;
+    border-top-right-radius: 6px;
+    -webkit-border-bottom-right-radius: 6px;
+    -moz-border-radius-bottomright: 6px;
+    border-bottom-right-radius: 6px;
+    -webkit-border-bottom-left-radius: 6px;
+    -moz-border-radius-bottomleft: 6px;
+    border-bottom-left-radius: 6px;
+    text-indent: 0;
+    border: 1px solid #dcdcdc;
+    display: none;
+    color: #777777;
+    font-family: arial;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: normal;
+    height: 50px;
+    line-height: 50px;
+    left: 20%;
+    width: 60%;
+    position: relative;
+    bottom:10px;
+    text-decoration: none;
+    text-align: center;
+    text-shadow: 1px 1px 0px #ffffff;
+}
+
+.buttonStyle:hover {
+    background-color: #dfdfdf;
+}
+
+.buttonStyle:active {
+    position: relative;
+    top: 1px;
+}
+
+.jsqHomeBackground {
+    /*background: -webkit-gradient(linear, left top, right bottom, from(rgb(255,255,255)), to(rgb(62,190,255)));*/
+    position: relative;
+    width:100%;
+    height: 100%;
+    background-color: white;
+}
+
+#TDS_value {
+    position: absolute;
+    top: 44%;
+    margin-top: -40px;
+    font-size: 4.3em;
+    text-align: center;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    font-family: 'Adobe 黑体 Std R', sans-serif;
+    z-index: 9999;
+
+
+}
+
+.myButton {
+    -webkit-border-radius: 4px 3px 6px 10px;
+    -moz-border-radius: 4px 3px 6px 10px;
+    -o-border-radius: 4px 3px 6px 10px;
+    border-radius: 4px 3px 6px 10px;
+}
+
+.big {
+    height: 45px;
+    text-transform: uppercase;
+    font: bold 20px/22px Adobe 黑体 Std R, sans-serif;
+    color: rgb(47,173,245);
+    letter-spacing: 3px;
+}
+
+
+.wave {
+    width:9rem;
+    height: 9rem;
+    overflow: visible;
+    border-radius: 50%;
+    background: rgb(47,173,245);
+    margin: 100px auto;
+    position: relative;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.wave span {
+    display: inline-block;
+    color: #fff;
+    font-size: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.wave canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    border-radius: 50%;
+}
+
+.frameblock {
+    font-size: 18px;
+    color: rgb(22, 155, 213);
+    width: 40%;
+    height: 50px;
+    border: 3px solid rgba(22, 155, 213,1);
+    border-radius: 10px;
+    margin: 10px 0px;
+    /*padding: 0px 10px;*/
+    position: relative;
+    text-align: center;
+}
+.frameblock .small{
+    font-size: 12px;
+    color: rgb(22, 155, 213);
+    width: 40%;
+    float:left;
+    height:inherit;
+    border: 3px solid rgba(22, 155, 213,1);
+    border-radius: 10px;
+    margin: 10px 0px;
+    padding: 0px 10px;
+    position: relative;
+    text-align: center;
+}
+.word-font-family{
+    font-family: 'Microsoft YaHei UI';
+    color: rgb(47,173,245);
+}
+
+/***********************************************************/
+.loading {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.ball-beat {
+    width: 100px;
+    overflow: hidden;
+    text-align: center;
+    position: fixed;
+    height: 100px;
+    padding-top: 40px;
+    top: 40%;
+    left: 50%;
+    margin-left: -50px;
+    z-index: 9999;
+    background: rgba(136, 222, 252, .7);
+    border-radius: 50%;
+}
+
+.ball-beat > div {
+    background-color: #fff;
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    margin: 2px;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    display: inline-block;
+    -webkit-animation: ball-beat 0.7s 0s infinite linear;
+    animation: ball-beat 0.7s 0s infinite linear;
+}
+
+.ball-beat > div:nth-child(2n-1) {
+    -webkit-animation-delay: 0.35s !important;
+    animation-delay: 0.35s !important;
+}
+
+@-webkit-keyframes ball-beat {
+    50% {
+        opacity: 0.2;
+        -webkit-transform: scale(0.75);
+        transform: scale(0.75);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes ball-beat {
+    50% {
+        opacity: 0.2;
+        -webkit-transform: scale(0.75);
+        transform: scale(0.75);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+.model2 {
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    position: fixed;
+    height: 100px;
+    padding-top: 40px;
+    top: 42%;
+    z-index: 9999;
+    background: rgba(255, 255, 255, .0);
+}
+
+.model2 span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    background: rgba(47, 173, 245, .7);
+    -webkit-transform-origin: right bottom;
+    -webkit-animation: load 0.8s ease infinite;
+}
+
+.model2 span:last-child {
+    margin-right: 0px;
+}
+
+@-webkit-keyframes load {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: rotate(90deg);
+    }
+}
+
+.model2 span:nth-child(1) {
+    -webkit-animation-delay: 0.13s;
+}
+
+.model2 span:nth-child(2) {
+    -webkit-animation-delay: 0.26s;
+}
+
+.model2 span:nth-child(3) {
+    -webkit-animation-delay: 0.39s;
+}
+
+.model2 span:nth-child(4) {
+    -webkit-animation-delay: 0.52s;
+}
+
+.model2 span:nth-child(5) {
+    -webkit-animation-delay: 0.65s;
+}
+
+ul {
+    list-style: none;
+    display: block;
+    padding: 0px;
+    margin: 0px auto;
+    border: none;
+}
+
+.func {
+    overflow: hidden
+}
+
+.func li {
+    float: left;
+    width: 25%;
+    padding: 3% 0 2%;
+    margin-left: -1px;
+    text-align: center
+}
+
+.func .radio {
+    display: none;
+}
+
+.func .trigger {
+    font-size: 20px;
+    font-weight: 400;
+    color: rgb(255, 255, 255);
+    height: 100%;
+    background: rgb(47, 173, 245);
+    cursor: pointer;
+    position: relative;
+    border-radius: 14px;
+    display: block;
+    width: 65%;
+    line-height: 4rem;
+    -webkit-transition: background .15s linear;
+    transition: background .15s linear;
+    text-align: center;
+    margin: auto;
+}
+
+.func .radio:checked + .trigger {
+    background: rgb(136, 222, 252)
+}
+
+.blockleft {
+    font-size: 16px;
+    color: rgb(22, 155, 213);
+    width: 40%;
+    float: left;
+    height: 6rem;
+    border: 0.15rem solid rgba(22, 155, 213, 1);
+    border-radius: 0.5rem;
+    margin: 0.2rem 0rem 0.6rem 1rem;
+    line-height: 1.8rem;
+    position: relative;
+    text-align: center;
+}
+
+.blockright {
+    font-size: 16px;
+    color: rgb(22, 155, 213);
+    width: 40%;
+    float: right;
+    height: 6rem;
+    border: 0.15rem solid rgba(22, 155, 213, 1);
+    border-radius: 0.5rem;
+    margin: 0.2rem 1rem 0.6rem 0rem;
+    line-height: 1.8rem;
+    position: relative;
+    text-align: center;
+}
+
+.total {
+    font-size: 20px;
+    color: rgb(22, 155, 213);
+    width: 34%;
+    float: left;
+    height: 7rem;
+    margin: 0.2rem 0.2rem 0.2rem 1.2rem;
+    padding: 0rem 0rem 0rem 1rem;
+    position: relative;
+    text-align: center;
+}
+
+.watermap {
+    font-size: 20px;
+    color: rgb(22, 155, 213);
+    width: 34%;
+    float: right;
+    height: 7rem;
+    margin: 0.2rem 1.2rem 0.2rem 0.2rem;
+    padding: 0rem 1rem 0rem 0rem;
+    position: relative;
+    text-align: center;
+}
+
+.countstyle {
+    font-size: 16px;
+    color: rgb(22, 155, 213);
+    width: 30%;
+    float: left;
+    height: 1rem;
+    border: 0.1rem solid rgba(22, 155, 213, 1);
+    border-radius: 0.5rem;
+    margin: 0.2rem 0rem;
+    position: relative;
+
+}
+.countstylechild {
+    display:inline-block;
+    vertical-align: top;
+    width: 25%;
+    text-align: center;
+}

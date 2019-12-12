@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tjnwater.wechat.dao.WeixinDao">
+
+    <insert id="saveWxAppInfo" parameterType="WxAppInfo">
+		<![CDATA[
+
+
+		replace into wx_app_info(gh_id,app_id,app_secret,token,create_date) values (#{ghId},#{appId},#{appSecret},#{token},sysdate())
+
+
+        ]]>
+	</insert>
+
+    <insert id="saveAccessToken" parameterType="WxAccessToken">
+		<![CDATA[
+
+
+		replace into wx_access_token(app_id,access_token,create_date) values (#{appId},#{accessToken},sysdate())
+
+
+        ]]>
+	</insert>
+
+    <insert id="saveJsApiTicket" parameterType="WxJsApiTicket">
+		<![CDATA[
+
+        
+		replace into wx_jsapi_ticket(app_id,wx_token,wx_ticket,update_time) values (#{appId}, #{token},#{jsApiTicket},sysdate())
+
+
+        ]]>
+	</insert>
+
+    <select id="getAccessToken" parameterType="java.lang.String" resultType="WxAccessToken">
+		<![CDATA[
+
+        
+		select app_id appId,access_token accessToken from wx_access_token where app_id=#{appId}
+
+
+        ]]>
+	</select>
+
+    <select id="getJsApiTicket" parameterType="java.lang.String" resultType="WxJsApiTicket">
+		<![CDATA[
+
+        
+		select app_id appId,wx_ticket jsApiTicket from wx_jsapi_ticket where app_id=#{appId}
+
+
+        ]]>
+	</select>
+
+    <select id="getWxAppInfo" resultType="WxAppInfo" parameterType="WxAppInfo">
+	<![CDATA[
+
+
+		select gh_id ghId,app_id appId,app_secret appSecret,token token,gz_msg gzMsg from wx_app_info where gh_id=#{ghId}
+
+
+        ]]>
+	</select>
+
+    <select id="getWxAppInfoList" resultType="WxAppInfo">
+	<![CDATA[
+
+        
+		select gh_id ghId,app_id appId,app_secret appSecret,token token,gz_msg gzMsg from wx_app_info limit 10
+
+
+        ]]>
+	</select>
+
+    <insert id="saveDeviceInfo" parameterType="DeviceInfo">
+		<![CDATA[
+
+        
+		replace into device_info(device_id,app_id,device_type,mac,seq_num,model,chip,version,create_date,province,city,region) values (#{deviceId},#{appId},#{deviceType},#{mac},#{seqNum},#{model},#{chip},#{version},sysdate(),#{province},#{city},#{region})
+
+
+        ]]>
+	</insert>
+
+    <select id="getDeviceInfo" parameterType="java.lang.String" resultType="DeviceInfo">
+		<![CDATA[
+
+        select device_id deviceId,app_id appId,device_type deviceType,mac mac,seq_num seqNum,model,chip,version,create_date registerTime, city, province, region from device_info where device_id=#{deviceId}
+        ]]>
+	</select>
+
+
+    <select id="getFilterInfo" parameterType="java.lang.String" resultType="FilterInfo">
+		<![CDATA[
+
+		select model,total_filters,grade,filter_name,filter_life,filter_detail,other from filter_info where model=#{model} order by grade
+
+        ]]>
+	</select>
+
+    <insert id="saveDeviceDataStat" parameterType="DeviceDataStat">
+		<![CDATA[
+
+        
+		insert into device_data_stat(device_id,ys_tds,cs_tds,js_total,jhs_size,cjs_size,ys_size,zs_time,create_date) values (#{deviceId},#{ysTds},#{csTds},#{jsTotal},#{jhsSize},#{cjsSize},#{ysSize},#{zsTime},sysdate())
+
+
+        ]]>
+	</insert>
+
+    <!--<select id="getDailyDeviceDataStat" parameterType="Map" resultType="DeviceDataStat">-->
+    <!--<![CDATA[-->
+
+    <!--select device_id deviceId,ys_tds ysTds,cs_tds csTds,js_total jsTotal,jhs_size jhsSize,cjs_size cjsSize,ys_size ysSize,zs_time zsTime,create_date createDate from device_data_stat where device_id=#{deviceId}-->
+    <!--and #{sqlDate}<=create_date and create_date<=sysdate() order BY create_date desc limit 14-->
+
+    <!--]]>-->
+    <!--</select>-->
+
+    <!--<select id="getDeviceDataStat" parameterType="java.sql.Date" resultType="DeviceDataStat">-->
+    <!--<![CDATA[-->
+    <!---->
+    <!--select device_id deviceId,ys_tds ysTds,cs_tds csTds,js_total jsTotal,jhs_size jhsSize,cjs_size cjsSize,ys_size ysSize,zs_time zsTime,create_date createDate from device_data_stat where #{sqlDate}<=create_date and create_date<=sysdate()-->
+
+    <!--]]>-->
+    <!--</select>-->
+
+    <!--<select id="getMonthlyDeviceDataStat" parameterType="Map" resultType="DeviceDataStat">-->
+    <!--<![CDATA[-->
+
+    <!--select device_id deviceId,ys_tds ysTds,cs_tds csTds,js_total jsTotal,jhs_size jhsSize,cjs_size cjsSize,ys_size ysSize,zs_time zsTime,create_date createDate ,mon,grade from (-->
+    <!--select tmp.device_id, tmp.ys_tds, tmp.cs_tds, tmp.js_total, tmp.jhs_size, tmp.cjs_size, tmp.ys_size, tmp.zs_time, tmp.create_date ,tmp.mon,@rownum:=@rownum+1 ,-->
+    <!--if(@mon=tmp.mon,@grade:=@grade+1,@grade:=1) as grade,-->
+    <!--@mon:=tmp.mon-->
+    <!--from (-->
+    <!--select device_id, ys_tds, cs_tds, js_total, jhs_size, cjs_size, ys_size, zs_time, date_format(create_date, '%Y%m')  mon , create_date from device_data_stat-->
+    <!--WHERE device_id=#{deviceId} order BY create_date desc-->
+    <!--) tmp ,(select @rownum :=0 , @mon := null ,@grade:=0) a ) RESULT WHERE RANK=1 order BY create_date desc-->
+
+    <!---->
+    <!--]]>-->
+    <!--</select>-->
+
+    <!--<select id="getYearlyDeviceDataStat" parameterType="Map" resultType="DeviceDataStat">-->
+    <!--<![CDATA[-->
+
+    <!--select device_id deviceId,ys_tds ysTds,cs_tds csTds,js_total jsTotal,jhs_size jhsSize,cjs_size cjsSize,ys_size ysSize,zs_time zsTime,create_date createDate ,year,grade from (-->
+    <!--select tmp.device_id, tmp.ys_tds, tmp.cs_tds, tmp.js_total, tmp.jhs_size, tmp.cjs_size, tmp.ys_size, tmp.zs_time, tmp.create_date ,tmp.year,@rownum:=@rownum+1 ,-->
+    <!--if(@year=tmp.year,@grade:=@grade+1,@grade:=1) as grade,-->
+    <!--@year:=tmp.year-->
+    <!--from (-->
+    <!--select device_id, ys_tds, cs_tds, js_total, jhs_size, cjs_size, ys_size, zs_time, date_format(create_date, '%Y')  year , create_date from device_data_stat-->
+    <!--WHERE device_id=#{deviceId} order BY create_date desc-->
+    <!--) tmp ,(select @rownum :=0 , @year := null ,@grade:=0) a ) RESULT WHERE RANK=1 order BY create_date desc-->
+
+    <!--]]>-->
+    <!--</select>-->
+
+    <delete id="delDeviceDataStat" parameterType="Map">
+		<![CDATA[
+
+
+		delete from device_data_stat where device_id=#{deviceId} and #{sqlDate}<=create_date and create_date<=sysdate()
+
+
+        ]]>
+	</delete>
+
+    <select id="getjsTotal" parameterType="String" resultType="String">
+		<![CDATA[
+
+        
+		select js_total jsTotal from device_data_stat where device_id=#{deviceId} order by row_id desc limit 1
+
+
+        ]]>
+	</select>
+
+    <insert id="saveWxBindInfo" parameterType="WxBindInfo">
+		<![CDATA[
+
+
+		insert into wx_bind(openid,app_id,device_id,device_type,device_name,statu,create_date) values (#{openid},#{appId},#{deviceId},#{deviceType},#{deviceName},#{statu},sysdate())
+
+
+        ]]>
+	</insert>
+
+    <update id="updateWxBindStat" parameterType="WxBindInfo">
+		<![CDATA[
+
+        
+		update wx_bind set statu=#{statu},create_date=sysdate() where openid=#{openid} and device_id=#{deviceId}
+
+
+        ]]>
+	</update>
+
+    <update id="unbindDeviceAllUser" parameterType="WxBindInfo">
+		<![CDATA[
+
+
+		update wx_bind set statu='1',create_date=sysdate() where device_id=#{deviceId}
+
+
+        ]]>
+	</update>
+
+    <update id="unbindUserAllDevice" parameterType="WxBindInfo">
+		<![CDATA[
+
+
+		update wx_bind set statu='1',create_date=sysdate() where openid=#{openid} and app_id=#{appId}
+
+
+        ]]>
+	</update>
+
+    <select id="getWxBindInfo" parameterType="WxBindInfo" resultType="WxBindInfo">
+		<![CDATA[
+
+
+		select openid openid,app_id appId,device_id deviceId,device_type deviceType,device_name deviceName,statu statu from wx_bind where openid=#{openid} and app_id=#{appId} and statu='0' order by row_id desc
+
+
+        ]]>
+	</select>
+
+    <select id="getWxBindInfoByDevice" parameterType="WxBindInfo" resultType="WxBindInfo">
+		<![CDATA[
+
+
+		select openid openid,app_id appId,device_id deviceId,device_type deviceType,device_name deviceName,statu statu from wx_bind where openid=#{openid} and device_id=#{deviceId} and app_id=#{appId} and statu='0' order by row_id desc limit 1
+
+
+        ]]>
+	</select>
+
+    <update id="updateDeviceName" parameterType="WxBindInfo">
+		<![CDATA[
+
+
+		update wx_bind set device_name=#{deviceName},create_date=sysdate() where device_id=#{deviceId}
+
+
+        ]]>
+	</update>
+
+	<update id="updateDeviceModel" parameterType="DeviceInfo">
+		<![CDATA[
+			update device_info set model=#{model},create_date=sysdate() where device_id=#{deviceId}
+		]]>
+	</update>
+
+    <insert id="saveWxUserInfo" parameterType="WxUserInfo">
+		<![CDATA[
+
+
+		replace into wx_user_info(openid,gh_id,nickname,sex,city,province,country,headimgurl,unionid,create_date) values (#{openid},#{ghId},#{nickname},#{sex},#{city},#{province},#{country},#{headimgurl},#{unionid},sysdate())
+
+
+        ]]>
+	</insert>
+
+    <select id="getWxUserInfo" parameterType="java.lang.String" resultType="WxUserInfo">
+		<![CDATA[
+
+
+		select openid,gh_id,nickname,sex,city,province,country,headimgurl,unionid from wx_user_info where openid=#{openid}
+
+
+        ]]>
+	</select>
+
+    <select id="getDeviceVersionUpdateInfo" parameterType="DeviceVersionUpdate" resultType="DeviceVersionUpdate">
+		<![CDATA[
+
+
+		select app_id appId,device_type deviceType,model model,version,pkg_size pkgSize,md5,download_url downloadUrl from device_version_update where model=#{model} and device_type=#{deviceType} limit 1
+
+
+        ]]>
+	</select>
+
+    <insert id="saveDeviceErrorCode" parameterType="DeviceErrorCode">
+	<![CDATA[
+
+
+		insert into device_error_code(device_id,create_date,error_code) values (#{deviceId},sysdate(),#{errorCode})
+
+
+        ]]>
+	</insert>
+
+    <select id="getBindUserOpenId" parameterType="java.lang.String" resultType="java.lang.String">
+		<![CDATA[
+
+
+		SELECT openid FROM wx_bind WHERE device_id=#{device_id} AND statu=0
+
+
+        ]]>
+	</select>
+
+    <select id="getRegisterTime" parameterType="java.lang.String" resultType="java.lang.String">
+		<![CDATA[
+
+
+		SELECT create_date FROM device_info WHERE device_id=#{device_id} limit 1
+
+
+        ]]>
+	</select>
+
+    <select id="getWxUserDetailsInfo" resultType="WxUserDetailsInfo" parameterType="java.lang.String">
+		<![CDATA[
+
+
+		select openid openid,sug_type sugtype,pro_type protype,user_tel usertel,user_name username,province s1,city s2,area s3, addr_detail addrdetail, sug_detail sugdetail from wx_user_detail_info where openid=#{openid}
+
+
+        ]]>
+	</select>
+
+    <insert id="saveWxUserDetailsInfo" parameterType="WxUserDetailsInfo">
+		<![CDATA[
+
+
+		insert into wx_user_detail_info(openid,sug_type,pro_type,user_tel,user_name,province,city,area,addr_detail,sug_detail) values (#{openid},#{sugtype},#{protype},#{usertel},#{username},#{s1},#{s2},#{s3},#{addrdetail},#{sugdetail})
+
+
+        ]]>
+	</insert>
+
+    <select id="getAllProvinceInfo" resultType="ProvinceTds">
+		<![CDATA[
+
+
+        select * from province_info order by row_id
+
+
+        ]]>
+	</select>
+
+    <select id="getProvinceInfo" resultType="ProvinceTds" parameterType="java.lang.String">
+		<![CDATA[
+
+
+		select row_id pro_row_id,province province,pro_tds protds from province_info where province=#{province}
+
+
+        ]]>
+	</select>
+
+    <select id="getAllCityInfo" resultType="CityTds">
+        <![CDATA[
+
+
+        select * from city_info order by row_id
+
+
+        ]]>
+    </select>
+
+    <select id="getCityInfo" resultType="CityTds" parameterType="java.lang.String">
+		<![CDATA[
+
+
+		select row_id city_row_id,province_id province,city city,city_tds citytds from city_info where province_id=#{province}
+
+
+        ]]>
+	</select>
+
+    <select id="getAllRegionInfo" resultType="RegionTds">
+        <![CDATA[
+
+
+        select * from region_info order by row_id
+
+
+        ]]>
+    </select>
+
+    <select id="getRegionInfo" resultType="RegionTds" parameterType="java.lang.String">
+		<![CDATA[
+
+        
+		select row_id region_row_id,city_id city,region region,region_tds regiontds from region_info where city_id=#{city}
+
+
+        ]]>
+	</select>
+
+    <insert id="saveLeaseInfo" parameterType="LeaseInfo">
+		<![CDATA[
+
+
+		replace into lease_device_info(openid, device_id, device_type, seq_num, department, address, tele_num, model, lease_period, start_date, end_date, sales_id, create_date) values(#{openId},#{device_id},1,#{device_sn},#{dept_name},concat(#{province},#{city},#{zone},#{address_detail}),#{phone_number},#{model},#{lease_period},#{start_date},#{end_date},#{sales_id}, sysdate())
+
+
+        ]]>
+	</insert>
+
+    <select id="getLeaseInfos" resultType="LeaseInfo">
+        <![CDATA[
+
+
+        SELECT device_id device_id, seq_num device_sn, department dept_name,address address_detail,tele_num phone_number,model model,lease_period lease_period,start_date start_date, end_date end_date, sales_id sales_id FROM lease_device_info ORDER BY create_date desc
+
+
+        ]]>
+    </select>
+
+    <select id="getGeneralBindCount" resultType="DeviceInfo" parameterType="java.lang.String">
+		<![CDATA[
+
+
+		SELECT * FROM general_device_bind_info WHERE general_id LIKE #{openid}
+
+
+        ]]>
+	</select>
+
+    <insert id="saveGeneralDeviceBindInfo" parameterType="GeneralDeviceInfo">
+        <![CDATA[
+
+
+		replace into general_device_bind_info(general_id,app_id,device_model,device_type,install_date,reset_date,open_id,reminder_circle,nick_name,create_time) values (#{general_id},#{app_id},#{device_model},#{device_type},#{install_date},#{reset_date},#{open_id},#{reminder_circle},#{nick_name},sysdate())
+
+
+        ]]>
+
+	</insert>
+
+    <select id="getGeneralBindInfo" parameterType="GeneralDeviceInfo" resultType="GeneralDeviceInfo">
+		<![CDATA[
+
+
+		SELECT general_id general_id, app_id app_id, device_type device_type, install_date install_date, reset_date reset_date, open_id open_id, reminder_circle reminder_circle,nick_name nick_name, device_model device_model, create_time create_time FROM general_device_bind_info WHERE open_id=#{open_id} and app_id=#{app_id}  ORDER BY create_time desc
+
+
+
+        ]]>
+	</select>
+
+    <select id="getGeneralInfo" parameterType="java.lang.String" resultType="GeneralDeviceInfo">
+		<![CDATA[
+
+        
+
+		SELECT general_id general_id, app_id app_id, device_type device_type, install_date install_date, reset_date reset_date, open_id open_id, reminder_circle reminder_circle,nick_name nick_name, device_model device_model, create_time create_time FROM general_device_bind_info WHERE general_id=#{general_id} limit 1
+
+
+
+        ]]>
+	</select>
+
+
+    <update id="updateGeneralDeviceName" parameterType="GeneralDeviceInfo">
+		<![CDATA[
+
+
+		update general_device_bind_info set nick_name=#{nick_name}, reminder_circle=#{reminder_circle}, reset_date=#{reset_date},create_time=sysdate() where general_id=#{general_id}
+
+        ]]>
+	</update>
+
+    <delete id="deleteGeneralBindDevice" parameterType="java.lang.String">
+
+        <![CDATA[
+
+
+        delete from general_device_bind_info where general_id=#{general_id}
+
+
+        ]]>
+
+    </delete>
+
+    <select id="scanGeneralDeviceInfo" resultType="GeneralDeviceInfo">
+		<![CDATA[
+
+		
+		select * from general_device_bind_info where TO_DAYS(NOW()) - TO_DAYS(reset_date)>reminder_circle
+		
+
+        ]]>
+	</select>
+
+
+</mapper>

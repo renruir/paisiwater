@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 命名空间 -->
+    <typeAliases>
+        <typeAlias alias="User" type="com.paisiwater.model.User"/>
+        <typeAlias alias="WxAppInfo" type="com.paisiwater.model.WxAppInfo"/>
+        <typeAlias alias="WxAccessToken" type="com.paisiwater.model.WxAccessToken"/>
+        <typeAlias alias="WxJsApiTicket" type="com.paisiwater.model.WxJsApiTicket"/>
+        <typeAlias alias="DeviceInfo" type="com.paisiwater.api.model.DeviceInfo"/>
+        <typeAlias alias="FilterInfo" type="com.paisiwater.api.model.FilterInfo"/>
+        <typeAlias alias="DeviceDataStat" type="com.paisiwater.api.model.DeviceDataStat"/>
+        <typeAlias alias="DeviceVersionUpdate" type="com.paisiwater.api.model.DeviceVersionUpdate"/>
+        <typeAlias alias="WxBindInfo" type="com.paisiwater.model.WxBindInfo"/>
+        <typeAlias alias="WxUserInfo" type="com.paisiwater.model.WxUserInfo"/>
+        <typeAlias alias="DeviceErrorCode" type="com.paisiwater.api.model.DeviceErrorCode"/>
+        <typeAlias alias="WxUserDetailsInfo" type="com.paisiwater.model.WxUserDetailsInfo"/>
+        <typeAlias alias="ProvinceTds" type="com.paisiwater.api.model.ProvinceTds"/>
+        <typeAlias alias="CityTds" type="com.paisiwater.api.model.CityTds"/>
+        <typeAlias alias="RegionTds" type="com.paisiwater.api.model.RegionTds"/>
+        <typeAlias alias="LeaseInfo" type="com.paisiwater.device.model.LeaseInfo"/>
+        <typeAlias alias="GeneralDeviceInfo" type="com.paisiwater.api.model.GeneralDeviceInfo"/>
+    </typeAliases>
+</configuration>
