@@ -6,6 +6,7 @@ package com.paisiwater.api.controller.constant;
 public interface WeixinConstant {
 
 	String TOKEN = "WB6PcOTBCDFAgcHjZ1B5E3cL";
+//	String TOKEN = "paisiWB6PcOTBCDFAgcHjZ1B5E3cL";
 
 	String ACCESS_TOKEN_IP = "39.104.94.25";
 

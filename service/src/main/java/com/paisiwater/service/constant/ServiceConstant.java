@@ -8,20 +8,20 @@ public interface ServiceConstant {
 
 	String BIND_STATU = "0";
 
-	String WX_DOMAIN = "http://weixin.tejien.com/";
-//	String WX_DOMAIN = "http://39.104.94.25/";
+	String WX_DOMAIN = "http://wx.mypraise.cn/";
 
-	String appId = "wx013a0b0fac979a5e";
+	String appId = "wxf9c52bdadc627711";
 
 //	final String MQTT_HOST = "ws://conn.doubimeizhi.com:12901";
 	//String MQTT_HOST = "ssl://tjnwater.mqtt.iot.bj.baidubce.com:1884";
-	String MQTT_HOST = "ssl://tjnwater.mqtt.iot.gz.baidubce.com:1884";
+//	String MQTT_HOST = "ssl://tjnwater.mqtt.iot.gz.baidubce.com:1884";
+	String MQTT_HOST = "ws://wx.mypraise.cn:61623";
 
 	//String username = "tjnwater/jindian";
-	String username = "tjnwater/tjnwater";
+	String username = "admin";
 
 	//String password = "ufO80F5sSyin4ArSurBcPJOeeCwK9eA2IR2pHOX3+nY=";
-	String password = "lSbk77hCaG16+C4VJHskMMJqFTsGut5aCF4nBqNz5GI=";
+	String password = "password";
 
 	String QQ_MAP_KEY = "XIQBZ-H2OHF-EXIJR-NIRX5-62OQJ-WUFJI";
 

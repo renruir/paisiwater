@@ -52,24 +52,26 @@ public class MqttService {
             int rdm = (int) (Math.random() * (9000)) + 1000;//产生1000-9999的随机数
             clientId = "mqtt_for_tjn_jsq_" + String.valueOf(rdm);
 
-            TrustManagerFactory tmf = TrustManagerFactory.getInstance("X509");
-            tmf.init((KeyStore)null);
-            TrustManager[] trustManagers = tmf.getTrustManagers();
-
-            SSLContext ctx = SSLContext.getInstance("TLS");
-            ctx.init(null, trustManagers, null);
+//            TrustManagerFactory tmf = TrustManagerFactory.getInstance("X509");
+//            tmf.init((KeyStore)null);
+//            TrustManager[] trustManagers = tmf.getTrustManagers();
+//
+//            SSLContext ctx = SSLContext.getInstance("TLS");
+//            ctx.init(null, trustManagers, null);
 
             mqttClient = new MqttClient(ServiceConstant.MQTT_HOST, clientId);
             MqttConnectOptions connOpts = new MqttConnectOptions();
             connOpts.setCleanSession(true);
             connOpts.setUserName(ServiceConstant.username);
             connOpts.setPassword(ServiceConstant.password.toCharArray());
-            connOpts.setSocketFactory(ctx.getSocketFactory());
+//            connOpts.setSocketFactory(ctx.getSocketFactory());
 
             mqttClient.connect(connOpts);
             mqttClient.subscribe(topic_jsq, WaterPurifierMqttListener.getInstance(weixinService));
-//            mqttClient.subscribe(topic_jhq, new AirPurifierMqttListener(weixinService));
             logger.info("mqtt start success");
+
+//            byte[] head = new byte[]{(byte) 0x7A, (byte) 0x7A, (byte) 0x24, (byte) 0xe6, (byte) 0x13, (byte) 0x00, (byte) 0x00, (byte) 0xc0, (byte) 0x01};
+//            mqttClient.publish("test/test", new MqttMessage(head));
 
             return true;
         } catch (Exception e) {

@@ -43,7 +43,7 @@ public class WechatWebController {
 
     private static final Logger logger = LoggerFactory.getLogger(WechatWebController.class);
 
-    private static final String JSQ_GH_ID = "gh_77b24b246732";
+    private static final String JSQ_GH_ID = "gh_4151d4ce24c0";
 
     private static final String JSQ_DEVICE_TYPE = "1";
 
@@ -54,9 +54,9 @@ public class WechatWebController {
 //    private static final String MQTT_PORT = "12901";
 
     //private static final String MQTT_HOST = "tjnwater.mqtt.iot.bj.baidubce.com";
-    private static final String MQTT_HOST = "tjnwater.mqtt.iot.gz.baidubce.com";
+    private static final String MQTT_HOST = "wx.mypraise.cn";
 
-    private static final String MQTT_PORT = "8884";
+    private static final String MQTT_PORT = "61623";
 
     private static final Integer OneDay_seconds = 24 * 3600 * 1000;
 
@@ -71,111 +71,71 @@ public class WechatWebController {
     @ResponseBody
     public String createJsqMenu() {
         try {
-            String appId = "wx013a0b0fac979a5e";
+            String appId = "wxf9c52bdadc627711";
             WxAccessToken wxAccessToken = weixinService.getAccessToken(appId);
             BaseButton button = new BaseButton();
+
             UrlMenu menu1000 = new UrlMenu();
-            menu1000.setName("特洁恩官网");
+            menu1000.setName("关于派斯");
             menu1000.setType("view");
-            menu1000.setUrl("http://www.tjnwater.com");
+            menu1000.setUrl("https://mp.weixin.qq.com/s/Oc5xd_wM9y5BMb0Z6drAFQ");
 
             UrlMenu menu1001 = new UrlMenu();
-            menu1001.setName("品牌故事");
+            menu1001.setName("京东旗舰店");
             menu1001.setType("view");
-            menu1001.setUrl("https://h5.youzan.com/v2/showcase/mpnews?alias=YZiAX0FPf0");
+            menu1001.setUrl("https://shop.m.jd.com/?shopId=36858&utm_source=iosapp&utm_medium=appshare&utm_campaign=t_335139774&utm_term=CopyURL&ad_od=share");
 
             UrlMenu menu1002 = new UrlMenu();
-            menu1002.setName("合伙人计划");
+            menu1002.setName("有盐软水安装操作");
             menu1002.setType("view");
-            menu1002.setUrl("https://h5.youzan.com/v2/showcase/mpnews?alias=YZRzNruN9D");
-
-            UrlMenu menu1003 = new UrlMenu();
-            menu1003.setName("公益活动");
-            menu1003.setType("view");
-            menu1003.setUrl("http://mp.weixin.qq.com/mp/homepage?__biz=MzA3NzQzOTkzMg==&hid=11&sn=3cd4b5cf694a36dd820f06f0c860f1ce#wechat_redirect");
-
-            UrlMenu menu1004 = new UrlMenu();
-            menu1004.setName("净水关怀");
-            menu1004.setType("view");
-            menu1004.setUrl("http://mp.weixin.qq.com/mp/homepage?__biz=MzA3NzQzOTkzMg==&hid=8&sn=d932840e7f93dff78c38e0ca388f8383#wechat_redirect");
-
-           /* UrlMenu menu1002 = new UrlMenu();
-            menu1002.setName("水质地图");
-            menu1002.setType("view");
-            menu1002.setUrl("http://mp.weixin.qq.com/mp/homepage?__biz=MzA3NzQzOTkzMg==&hid=9&sn=bceaa5d5b84ec797a878ebbb849e59fa#wechat_redirect");*/
-
-
-            /*UrlMenu menu1003 = new UrlMenu();
-            menu1003.setName("净水贴士");
-            menu1003.setType("view");
-            menu1003.setUrl("http://mp.weixin.qq.com/mp/homepage?__biz=MzA3NzQzOTkzMg==&hid=8&sn=d932840e7f93dff78c38e0ca388f8383#wechat_redirect");*/
-
-            /*UrlMenu menu1004 = new UrlMenu();
-            menu1004.setName("签到抽奖");
-            menu1004.setType("view");
-            menu1004.setUrl("https://h5.youzan.com/v2/showcase/mpnews?alias=25jhkqop");*/
+            menu1002.setUrl("http://mp.weixin.qq.com/s?__biz=MzIzMTc0OTcyMw==&mid=100000018&idx=1&sn=081c05f6711b67b6947bcc6fe1c5a915&chksm=689e20265fe9a930d64d325f4dca28ee90440df4d5f0e1e54ae3a6aad402f44bbdf36583d86e&scene=18#wechat_redirect");
 
             List<Object> list10 = new ArrayList<Object>();
             list10.add(menu1000);
             list10.add(menu1001);
             list10.add(menu1002);
-            list10.add(menu1003);
-            list10.add(menu1004);
-            /*list10.add(menu1002);
-            list10.add(menu1003);
-            list10.add(menu1004);*/
 
             SubButton subButton10 = new SubButton();
             //subButton10.setName("结缘特洁恩");
-            subButton10.setName("懂得");
+            subButton10.setName("关于派斯");
             subButton10.setSub_button(list10);
 
-            /*UrlMenu menu2001 = new UrlMenu();
-            menu2001.setName("京东商城旗舰店");
-            menu2001.setType("view");
-            menu2001.setUrl("http://wq.jd.com/mshop/gethomepage?ptag=7001.1.21&venderId=129853&source=1&sid=&loginFlag=1");*/
-
-            UrlMenu menu2001 = new UrlMenu();
-            menu2001.setName("微信小店");
-            menu2001.setType("view");
-            menu2001.setUrl("http://mp.weixin.qq.com/bizmall/mallshelf?id=&t=mall/list&biz=MzA3NzQzOTkzMg==&shelf_id=2&showwxpaytitle=1#wechat_redirect");
-
-            /*UrlMenu menu2002 = new UrlMenu();
-            menu2002.setName("有赞商城");
-            menu2002.setType("view");
-            menu2002.setUrl("https://h5.youzan.com/v2/showcase/homepage?alias=ogv8ipgh");*/
-
             UrlMenu menu2002 = new UrlMenu();
-            menu2002.setName("线上活动");
+            menu2002.setName("全自动前置过滤器");
             menu2002.setType("view");
-            menu2002.setUrl("http://wq.jd.com/mshop/gethomepage?ptag=7001.1.21&venderId=129853&source=1&sid=&loginFlag=1");
+            menu2002.setUrl("https://e.eqxiu.com/s/BIo3A2VM");
 
             UrlMenu menu2003 = new UrlMenu();
-            menu2003.setName("购买滤芯");
+            menu2003.setName("RO-500双出水机");
             menu2003.setType("view");
-            menu2003.setUrl("https://h5.youzan.com/v2/showcase/homepage?alias=ogv8ipgh");
+            menu2003.setUrl("https://x.eqxiu.com/s/X8b0W1uN");
 
             UrlMenu menu2004 = new UrlMenu();
-            menu2004.setName("互动有礼");
+            menu2004.setName("派斯全屋净水器");
             menu2004.setType("view");
-            menu2004.setUrl("http://wxcrm.me/wxcrm-mobile/wx013a0b0fac979a5e/index.html#/member/point-get");
+            menu2004.setUrl("http://h5.eqxiu.com/ls/ECts8HcZ");
             //menu2004.setUrl("https://h5.youzan.com/v2/showcase/mpnews?alias=25jhkqop");
 
             UrlMenu menu2005 = new UrlMenu();
-            menu2005.setName("更多期待");
+            menu2005.setName("金滤媒厨下净水器");
             menu2005.setType("view");
-            menu2005.setUrl("https://h5.youzan.com/v2/showcase/mpnews?alias=YZm6BkK6Pc");
+            menu2005.setUrl("http://h5.eqxiu.com/ls/olC7Spdg");
+
+            UrlMenu menu2006 = new UrlMenu();
+            menu2006.setName("SSP阻垢软水机");
+            menu2006.setType("view");
+            menu2006.setUrl("http://h5.eqxiu.com/ls/mQXjjCeI");
 
             List<Object> list20 = new ArrayList<Object>();
-            list20.add(menu2001);
             list20.add(menu2002);
             list20.add(menu2003);
             list20.add(menu2004);
             list20.add(menu2005);
+            list20.add(menu2006);
 
             SubButton subButton20 = new SubButton();
             //subButton20.setName("官方商城");
-            subButton20.setName("实惠");
+            subButton20.setName("派斯产品");
             subButton20.setSub_button(list20);
 
             UrlMenu menu3001 = new UrlMenu();
@@ -200,36 +160,21 @@ public class WechatWebController {
             menu3004.setType("view");
             menu3004.setUrl("http://mp.weixin.qq.com/mp/homepage?__biz=MzA3NzQzOTkzMg==&hid=10&sn=e75356a2dd7e1bf81c461101a83fe8bc#wechat_redirect");
 
-            /*UrlMenu menu3002 = new UrlMenu();
-            menu3002.setName("VIP优惠");
-            menu3002.setType("view");
-            menu3002.setUrl("https://shop2479063.koudaitong.com/v2/showcase/mpnews?alias=y1y5c9td&sf=wx_sm");
-
-            UrlMenu menu3003 = new UrlMenu();
-            menu3003.setName("预约售后");
-            menu3003.setType("view");
-            menu3003.setUrl("http://weixin.tejien.com/web/wechat/customer_service.html");
-
-            UrlMenu menu3004 = new UrlMenu();
-            menu3004.setName("联网绑定");
-            menu3004.setType("view");
-            menu3004.setUrl("http://weixin.tejien.com/web/wechat/net_setting.html");*/
-
             UrlMenu menu3005 = new UrlMenu();
             menu3005.setName("我的设备");
             menu3005.setType("view");
-            menu3005.setUrl("http://weixin.tjnwater.com/web/wechat/index.html");
+            menu3005.setUrl("http://wx.mypraise.cn/api/wechat/index.html");
 
             List<Object> list30 = new ArrayList<Object>();
-            list30.add(menu3001);
-            list30.add(menu3002);
-            list30.add(menu3003);
-            list30.add(menu3004);
+//            list30.add(menu3001);
+//            list30.add(menu3002);
+//            list30.add(menu3003);
+//            list30.add(menu3004);
             list30.add(menu3005);
 
             SubButton subButton30 = new SubButton();
             //subButton30.setName("自助服务");
-            subButton30.setName("呼叫");
+            subButton30.setName("客户服务");
             subButton30.setSub_button(list30);
 
 
@@ -257,6 +202,7 @@ public class WechatWebController {
             wxAppInfo = weixinService.getWxAppInfo(wxAppInfo);
             String appId = wxAppInfo.getAppId();
             String appSecret = wxAppInfo.getAppSecret();
+            logger.info("appId："+appId);
             String cookieUid = CookieUtil.getCookie(appId + "_uid", request);
             logger.info("cookieUid = " + cookieUid);
             if (cookieUid != null && !"".equals(cookieUid)) {
@@ -271,7 +217,7 @@ public class WechatWebController {
                     }
                 }
             } else {
-                String homeUrl = ServiceConstant.WX_DOMAIN + "web/wechat/index.html";
+                String homeUrl = ServiceConstant.WX_DOMAIN + "api/wechat/index.html";
                 try {
                     homeUrl = URLEncoder.encode(homeUrl, "utf-8");
                 } catch (UnsupportedEncodingException e) {
@@ -279,7 +225,7 @@ public class WechatWebController {
                 String homeMenuUrl = WeixinConstant.OAUTH_URL;
                 homeMenuUrl = homeMenuUrl.replace("${appid}", appId);
                 homeMenuUrl = homeMenuUrl.replace("${redirect_uri}", homeUrl);
-
+                logger.info("redirect url: " + homeMenuUrl);
                 return "redirect:" + homeMenuUrl;
             }
 
@@ -409,7 +355,7 @@ public class WechatWebController {
                         }
                     }
 
-                    String url = "http://weixin.tjnwater.com/web/wechat/my_devices.html?deviceId=" + deviceId + "&type=" + deviceType;
+                    String url = "http://wx.mypraise.cn/api/wechat/my_devices.html?deviceId=" + deviceId + "&type=" + deviceType;
                     String signature = getSignature(url, wxTicket.getJsApiTicket());
                     model.addAttribute("wxBindInfo", wxBindInfo);
                     Map<String, String> serverInfo = new HashMap<String, String>();
@@ -826,7 +772,7 @@ public class WechatWebController {
                 serverInfo.put("appId", appId);
                 model.addAttribute("serverInfo", serverInfo);
             } else {
-                return "redirect:http://weixin.tjnwater.com/web/error.html";
+                return "redirect:http://wx.mypraise.cn/api/error.html";
             }
 
         } catch (Exception e) {
@@ -893,7 +839,7 @@ public class WechatWebController {
                 attributes.addAttribute("headimg", wxUserInfo.getHeadimgurl());
                 return "redirect:" + redirctUrl;
             } else {
-                String redUrl = "http://weixin.tejien.com/web/wechat/getWxPageAuthInfo.html?backurl=" + redirctUrl;
+                String redUrl = "http://wx.mypraise.cn/api/wechat/getWxPageAuthInfo.html?backurl=" + redirctUrl;
                 String tempUrl = URLEncoder.encode(redUrl, "utf-8");
                 String url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + appId + "&redirect_uri=" + tempUrl + "&response_type=code&scope=snsapi_userinfo&state=" + redirctUrl + "#wechat_redirect";
 
