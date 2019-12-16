@@ -25,8 +25,6 @@ public interface ServiceConstant {
 
 	String QQ_MAP_KEY = "XIQBZ-H2OHF-EXIJR-NIRX5-62OQJ-WUFJI";
 
-	String HF_FREE_API_KEY = "88a762d5e04b4484b8a70f391b173d99";
-
 	//模板消息model id
 	String FILTER_NOTICE_MODEL_ID = "vm57vp42bcICgttmdED-Vm581j6p3cip8h4rQenksrY";
 

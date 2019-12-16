@@ -253,7 +253,7 @@ public class WechatWebController {
             wxAppInfo = weixinService.getWxAppInfo(wxAppInfo);
             String appId = wxAppInfo.getAppId();
             String appSecret = wxAppInfo.getAppSecret();
-            String cookieUid = "ovAFut6Jkhz9z2a6Egmh7CVSzorM";
+            String cookieUid = "oW5agwLRWH0kW-zuuOt0cbnQwhOs";
             logger.info("cookieUid: " + cookieUid);
             if (cookieUid != null && !"".equals(cookieUid)) {
                 CookieUtil.setCookie(appId + "_uid", cookieUid, response);
@@ -397,9 +397,9 @@ public class WechatWebController {
             WxAppInfo wxAppInfo = new WxAppInfo();
             wxAppInfo.setGhId(JSQ_GH_ID);
             wxAppInfo = weixinService.getWxAppInfo(wxAppInfo);
-            String appId = "wx013a0b0fac979a5e";
-            String appSecret = "1f8fae3cd8034dd40d7e39b73083a445";
-            String cookieUid = "ovAFut6Jkhz9z2a6Egmh7CVSzorM";
+            String appId = "wxf9c52bdadc627711";
+            String appSecret = "f67286267e092865f3b2c0374d9ef0e3";
+            String cookieUid = "oW5agwLRWH0kW-zuuOt0cbnQwhOs";
             logger.info("cookieUid: " + cookieUid);
             WxBindInfo wxBindInfo = new WxBindInfo();
             wxBindInfo.setOpenid(cookieUid);
@@ -429,7 +429,7 @@ public class WechatWebController {
             model.addAttribute("serverInfo", serverInfo);
             model.addAttribute("deviceInfo", deviceInfo);
             model.addAttribute("filterInfo", filterInfos);
-            return "jsq_home_new";
+            return "jsq_home";
         } catch (Exception e) {
             logger.error(e.getMessage());
             return "";
