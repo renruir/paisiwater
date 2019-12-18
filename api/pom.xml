@@ -13,7 +13,7 @@
     <groupId>com.paisiwater</groupId>
     <artifactId>api</artifactId>
     <packaging>war</packaging>
-    <name>api</name>
+    <name>web</name>
 
     <properties>
         <!-- spring版本号 -->
@@ -182,7 +182,7 @@
     </dependencies>
 
     <build>
-        <finalName>api</finalName>
+        <finalName>web</finalName>
     </build>
 
 </project>

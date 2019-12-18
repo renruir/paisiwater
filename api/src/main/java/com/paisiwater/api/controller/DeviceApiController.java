@@ -93,6 +93,8 @@ public class DeviceApiController {
                 content.append(authDevice.getMac());
                 content.append(authDevice.getProductId());
                 content.append(authDevice.getAppId());
+                content.append(WeixinConstant.APP_ID);//appId
+                content.append(WeixinConstant.PRODUCT_ID);//appId
                 content.append(WeixinConstant.AUTH_KEY);
 
                 String serverToken = ShaUtil.stringSHA1(content.toString());
@@ -132,6 +134,7 @@ public class DeviceApiController {
         String region = null;
         try {
             if (deviceInfo != null) {
+                deviceInfo.setAppId(WeixinConstant.APP_ID);
                 String deviceId = deviceInfo.getDeviceId();
                 logger.info("Register device Id:" + deviceId);
                 String[] deviceIdArr = deviceId.split("_");
@@ -285,7 +288,7 @@ public class DeviceApiController {
             if ("".equals(openId) || openId != null) {
                 WxBindInfo wxBindInfo = new WxBindInfo();
                 wxBindInfo.setOpenid(openId);
-                wxBindInfo.setAppId("wx9b5c8824203f4718");
+                wxBindInfo.setAppId(WeixinConstant.APP_ID);
 
                 List<WxBindInfo> bindInfos = weixinService.getWxBindInfo(wxBindInfo);
                 List<DeviceAllInfo> deviceAllInfos = new ArrayList<DeviceAllInfo>();

@@ -11,4 +11,8 @@ public interface WeixinConstant {
 	String ACCESS_TOKEN_IP = "39.104.94.25";
 
 	String AUTH_KEY = "jsq_tjnwater_6868";
+
+	String APP_ID = "wxf9c52bdadc627711";
+
+	String PRODUCT_ID = "55574";
 }

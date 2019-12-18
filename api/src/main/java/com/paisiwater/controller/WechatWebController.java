@@ -355,7 +355,7 @@ public class WechatWebController {
                         }
                     }
 
-                    String url = "http://wx.mypraise.cn/api/wechat/my_devices.html?deviceId=" + deviceId + "&type=" + deviceType;
+                    String url = "http://wx.mypraise.cn/web/wechat/my_devices.html?deviceId=" + deviceId + "&type=" + deviceType;
                     String signature = getSignature(url, wxTicket.getJsApiTicket());
                     model.addAttribute("wxBindInfo", wxBindInfo);
                     Map<String, String> serverInfo = new HashMap<String, String>();
