@@ -429,7 +429,7 @@ public class WechatWebController {
             model.addAttribute("serverInfo", serverInfo);
             model.addAttribute("deviceInfo", deviceInfo);
             model.addAttribute("filterInfo", filterInfos);
-            return "jsq_home";
+            return "paisijsq";
         } catch (Exception e) {
             logger.error(e.getMessage());
             return "";

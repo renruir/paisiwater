@@ -1,0 +1,39 @@
+.background_above {
+    background: #ffffff;
+    width: 100%;
+    height: 30%;
+    text-align: center;
+}
+
+.background_bottom {
+    background: #92cdf5;
+    width: 100%;
+    height: 70%;
+    position: fixed;
+    top: 30%;
+}
+
+.tds-value {
+    color: #0075c2;
+    font-size: 4rem;
+    text-align: center;
+}
+
+.jsq-state {
+    color: #009bf3;
+    font-size: 0.8rem;
+    top: 2.5rem;
+    position: fixed;
+}
+
+.tds-string {
+    font-size: 0.8rem;
+    top: 3.5rem;
+    position: fixed;
+    color: #009bf3;
+}
+.water-qa{
+    font-size: 0.6rem;
+    color: #009bf3;
+    margin-top: -1rem;
+}
