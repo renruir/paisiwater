@@ -6,7 +6,7 @@
 }
 
 .background_bottom {
-    background: #92cdf5;
+    /*background: #92cdf5;*/
     width: 100%;
     height: 70%;
     position: fixed;
@@ -15,25 +15,220 @@
 
 .tds-value {
     color: #0075c2;
-    font-size: 4rem;
+    font-size: 5rem;
     text-align: center;
 }
 
 .jsq-state {
     color: #009bf3;
     font-size: 0.8rem;
-    top: 2.5rem;
+    top: 4rem;
     position: fixed;
 }
 
 .tds-string {
     font-size: 0.8rem;
-    top: 3.5rem;
+    top: 5rem;
     position: fixed;
     color: #009bf3;
 }
-.water-qa{
+
+.water-qa {
     font-size: 0.6rem;
     color: #009bf3;
     margin-top: -1rem;
+}
+
+.progressContainer {
+    height: 10px;
+    width: 60%;
+    border-radius: 10px;
+    background-color: #ddd;
+    margin-left: 2%;
+}
+
+.progress {
+    background-color: #1C8DE0;
+    border-radius: 10px;
+    height: 10px;
+    line-height: 20px;
+}
+
+.filter-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.filter-text {
+    font-size: 0.5rem;
+    color: #000;
+    padding: 0 0.2rem;
+    width: 3rem;
+}
+
+#filter-life {
+    padding: 0.2rem 0;
+}
+
+#filters {
+    padding: 0 1rem 0 1rem;
+    margin-top: 3rem;
+}
+
+.btn-area {
+    width: 100%;
+    bottom: 3rem;
+    position: fixed;
+}
+
+.filter-rinse {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #1C8DE0;
+    border-radius: 1rem;
+}
+
+#device-info {
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    position: fixed;
+    bottom: 1.5rem;
+    font-size: 0.5rem;
+    color: rgba(106, 106, 106, 0.67);
+}
+
+.factory-info {
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    position: fixed;
+    bottom: 5px;
+    font-size: 0.5rem;
+    color: rgba(106, 106, 106, 0.67);
+    border-top-style: solid;
+    border-color: rgba(141, 141, 141, 0.56);
+    border-width: 1px;
+}
+
+.dialog-mask {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    /*background-color: #000;*/
+    background-size: contain;
+    background: url(../images/filter-background.png) no-repeat center center;
+    opacity: 0.6;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+}
+
+.circle-chart {
+    margin: 0 auto;
+}
+.donut-chart {
+    position: relative;
+    width: 12rem;
+    height: 12rem;
+    margin: 55px auto;
+    border-radius: 100%
+}
+
+.donut-chart .center {
+    background: #fff;
+    border-radius: 50%;
+    width: 70%;
+    height: 70%;
+    left: 15%;
+    top: 15%;
+    position: absolute;
+}
+/*a {*/
+/*    color: #2ACBF8;*/
+/*    display: block;*/
+/*    font-size: 24px;*/
+/*    font-weight: 600;*/
+/*    left: 50%;*/
+/*    position: absolute;*/
+/*    top: 40%;*/
+/*    transform: translate(-50%, -50%);*/
+/*}*/
+.filter-percent-text {
+    color: #0e2a53;
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.name-text{
+    font-size: 0.6rem;
+    font-weight: 100;
+    text-align: center;
+}
+
+.clip {
+    border-radius: 50%;
+    clip: rect(0px 12rem 12rem 6rem);
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.item {
+    border-radius: 50%;
+    clip: rect(0px 6rem 12rem 0px);
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+#section1 {
+    transform: rotate(0deg);
+}
+
+#section1 .item {
+    background-color: #2270ca;
+    transform: rotate(180deg);
+}
+
+#section2 {
+    transform: rotate(180deg);
+}
+
+#section2 .item {
+    background-color: #bfe2f9;
+    /*background-color: #f90a1a;*/
+    transform: rotate(180deg);
+}
+
+.filter-reset{
+    bottom: 1.5rem;
+    position: fixed;
+    right: 0px;
+    left: 0px;
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #1C8DE0;
+    border-radius: 1rem;
+}
+
+#filter-description{
+    display: flex;
+    position: relative;
+    margin-top: 5rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+#back-main-div{
+    position: fixed;
+    width:40px;
+    margin:0.5rem
 }

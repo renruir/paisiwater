@@ -232,7 +232,7 @@
 		<![CDATA[
 
 
-		select openid openid,app_id appId,device_id deviceId,device_type deviceType,device_name deviceName,statu statu from wx_bind where openid=#{openid} and device_id=#{deviceId} and app_id=#{appId} and statu='0' order by row_id desc limit 1
+		select openid openid,app_id appId,device_id deviceId,device_type deviceType,device_name deviceName,statu statu from wx_bind where openid=#{openid} and app_id=#{appId} and statu='0' order by row_id desc limit 1
 
 
         ]]>

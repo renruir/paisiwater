@@ -47,13 +47,6 @@ public class WechatWebController {
 
     private static final String JSQ_DEVICE_TYPE = "1";
 
-    private static final String JHQ_DEVICE_TYPE = "2";
-
-//    private static final String MQTT_HOST = "conn.doubimeizhi.com";
-//
-//    private static final String MQTT_PORT = "12901";
-
-    //private static final String MQTT_HOST = "tjnwater.mqtt.iot.bj.baidubce.com";
     private static final String MQTT_HOST = "wx.mypraise.cn";
 
     private static final String MQTT_PORT = "61623";
@@ -391,8 +384,8 @@ public class WechatWebController {
     @RequestMapping(value = "test_new.html")
     public String test_new(HttpServletRequest request, HttpServletResponse response, String code, Model model) {
         try {
-            String deviceId = request.getParameter("deviceId");
-            String deviceType = request.getParameter("type");
+//            String deviceId = request.getParameter("deviceId");
+//            String deviceType = request.getParameter("type");
 
             WxAppInfo wxAppInfo = new WxAppInfo();
             wxAppInfo.setGhId(JSQ_GH_ID);
@@ -404,10 +397,12 @@ public class WechatWebController {
             WxBindInfo wxBindInfo = new WxBindInfo();
             wxBindInfo.setOpenid(cookieUid);
             wxBindInfo.setAppId(appId);
-            wxBindInfo.setDeviceId(deviceId);
-            wxBindInfo.setDeviceType(deviceType);
+//            wxBindInfo.setDeviceId(deviceId);
+//            wxBindInfo.setDeviceType(deviceType);
 
             wxBindInfo = weixinService.getWxBindInfoByDevice(wxBindInfo);
+            logger.info("wxBindInfo:"+wxBindInfo);
+//            logger.info("wxBindInfo:"+wxBindInfo.getDeviceId());
             model.addAttribute("updateDeviceInfo", null);
             DeviceInfo deviceInfo = null;
             List<FilterInfo> filterInfos = null;
