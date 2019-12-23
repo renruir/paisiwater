@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--<%@ taglib prefix="java" uri="http://java.sun.com/jsp/jstl/core" %>--%>
 <%--
   Created by IntelliJ IDEA.
   User: admin
@@ -276,13 +276,10 @@
             mainDiv.sourcetds = jsqInfo.source_water_TDS;
             mainDiv.watertemp = jsqInfo.pure_water_temperature;
             mainDiv.jsqstate = jsqInfo.working_state;
-            mainDiv.filters.progress
-            // for (var i = 0; i < filterRanks; i++) {
-            //     perunused[i] = jsqInfo.filter[i];
-            //     $("#filter-surplus-" + (i + 1)).html(perunused[i] + "%");
-            //     $('#filter-progress-' + (i + 1)).css('width', perunused[i] + '%');
-            // }
-            mainDiv.updateProgress(0, perunused[0]);
+            console.log("========"+filters.length);
+            for (var i = 0; i < filterInfo.length;i++) {
+                mainDiv.updateProgress(i, jsqInfo.filter[i]);
+            }
             Rinse.rinse(jsqInfo.rinse_state);
         } else {//故障
             isError = 1;
@@ -337,7 +334,7 @@
             },
             updateProgress: function (index, progress) {
                 console.log("55555555: "+progress)
-                Vue.set(mainDiv.filters, index, {name: '滤芯', progress: progress})
+                Vue.set(mainDiv.filters, index, {name: filterInfo[index].name, progress: progress})
             }
         },
         watch: {
@@ -345,8 +342,8 @@
                 for (var i = 0; i < val.length; i++) {
                     console.log("new name: " + val[i].name)
                     console.log("new progress: " + val[i].progress)
-                    this.filters[i].name = val[i].name;
-                    this.filters[i].progress = 65;
+                    // this.filters[i].name = val[i].name;
+                    // this.filters[i].progress = 65;
                 }
             },
             jsqstate: function (val) {
@@ -447,7 +444,7 @@
 
     var Rinse = (function () {
         var timeout = 0;
-        var rinseTimeOut;
+        var rinsingTimeout;
 
         function rinse(rinseState) {
             console.log("rinseState: " + rinseState);
@@ -462,12 +459,12 @@
         function startRinse() {
             sendCommand2Devices(COMMAND_RINSE, deviceId);
             createBasicDialog(true, false, false);
-            rinseTimeOut = setTimeout(rinseTimeout, 10000);
+            rinsingTimeout = setTimeout(rinseTimeout, 10000);
         }
 
         function startSuccess() {
             if (typeof (rinseTimeout) != "undefined") {
-                clearTimeout(rinseTimeOut)
+                clearTimeout(rinsingTimeout)
             }
 
             dianCount = 1;
@@ -501,7 +498,9 @@
         }
 
         function rinseCompleted(displayArg) {
+            console.log("rinseCompleted......" + rinsingTimeout)
             if (typeof (rinsingTimeout) != "undefined") {
+                console.log("rinseCompleted.3333333333")
                 clearTimeout(rinsingTimeout)
             }
             if (dianIntervalId != null) {
