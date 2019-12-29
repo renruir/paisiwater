@@ -22,7 +22,7 @@
     <link href="/web/css/jsq_home.css?v=1.1" rel="stylesheet"/>
     <link href="/web/css/swiper-3.4.1.min.css" rel="stylesheet"/>
     <link href="/web/css/weui.min.css" rel="stylesheet"/>
-    <link href="/web/css/psjsq.css?v=1.0" rel="stylesheet"/>
+    <link href="/web/css/psjsq.css?v=1.1" rel="stylesheet"/>
     <link rel="stylesheet" href="/web/css/popup_dialog.css">
 </head>
 <body style="width: 100%;height: 100%;margin: 0;padding: 0;">
@@ -111,10 +111,14 @@
 
     <div id="filter-description">
         <img src="/web/images/wicon.png" style="height:25px;padding: 0 10px">
-        <span style="font-size: 0.6rem">{{filterdes}}</span>
+        <div>
+            <p style="font-size: 0.6rem">{{filterdes}}</p>
+            <p style="font-size: 0.6rem">{{filterlife}}</p>
+        </div>
+
     </div>
     <div class="filter-reset" id="filter-reset">
-        <a class="weui-btn weui-btn_primary" @click="filterReset()"
+        <a class="weui-btn weui-btn_primary" @click="resetFilter()"
            style="background-color: #1C8DE0;border-radius: 1rem;" id="filterReset">滤芯复位</a>
     </div>
 </div>
@@ -132,7 +136,7 @@
 <script src="/web/js/vue.min.js" type="text/javascript"></script>
 <script src="https://res.wx.qq.com/open/libs/weuijs/1.1.1/weui.min.js" type="text/javascript"></script>
 <script src="/web/js/arc_progress.js"></script>
-<script src="/web/js/popup_dialgo.js?v=1.3"></script>
+<script src="/web/js/popup_dialgo.js?v=1.1"></script>
 
 <script type="text/javascript">
     var deviceId = "${wxBindInfo.deviceId}";
@@ -149,17 +153,18 @@
 
     <c:forEach items="${filterInfo}" var="FilterInfo">
     var filter = {
-        grade: "${FilterInfo.getGrade()}",
-        name: "${FilterInfo.getFilter_name()}",
-        life: "${FilterInfo.getFilter_life()}",
-        detail: "${FilterInfo.getFilter_detail()}",
-        other: "${FilterInfo.getOther()}",
+        grade: "${FilterInfo.getRank()}",
+        name: "${FilterInfo.getFilterName()}",
+        life: "${FilterInfo.getFilterLife()}",
+        detail: "${FilterInfo.getFilterDetail()}",
+        other: "${FilterInfo.getOtherInfo()}",
     }
     filterInfo.push(filter);
     </c:forEach>
 
     var dianIntervalId = null;
     var dianCount = 1;
+    var filterIndex = 0;
 
     function mqttInit(host, port, openid) {
         console.log("mqtt init");
@@ -244,6 +249,16 @@
 
     var isError = 0;
 
+    function updataFilterAfterReset(arr) {
+        var filterInfo = getFilterResetState(arr);
+        //process filter info
+        if (filterInfo.is_reset_success) {
+            // resetresult(filterInfo.reset_series - 1, true);
+        } else {
+            // resetresult(filterInfo.reset_series - 1, false);
+        }
+    }
+
     function updateDevicesState(jsqInfo) {
         if (!jsqInfo.is_fault) {
             if (isError == 1) {
@@ -303,47 +318,60 @@
         data() {
             return {
                 showMain: true,
-                tds: '25',
-                jsqstate: '待机',
-                sourcetds: '136',
-                watertemp: '13',
-                devicemodel: 'PS-M20',
+                tds: '0',
+                jsqstate: '未知',
+                sourcetds: '0',
+                watertemp: '0',
+                devicemodel: '未知',
                 devicesn: '1234567890',
                 filters: [
-                    {name: filterInfo[0].name, progress: 0},
-                    {name: filterInfo[1].name, progress: 0},
-                    {name: filterInfo[2].name, progress: 0},
-                    {name: filterInfo[3].name, progress: 0},
+                    {name: "滤芯1", progress: 0},
+                    {name: "滤芯2", progress: 0},
+                    {name: "滤芯3", progress: 0},
+                    {name: "滤芯4", progress: 0},
+                    // {name: filterInfo[1].name, progress: 0},
+                    // {name: filterInfo[2].name, progress: 0},
+                    // {name: filterInfo[3].name, progress: 0},
                 ],
             }
         },
+        created:function(){
+        },
         mounted: function () {
+            console.log("deviceId: "+deviceId);
             this.devicemodel = model;
             this.devicesn = sn;
-            mqttInit(host, port, deviceId)
+            if (deviceId == null || deviceId == "" || openid == null || openid == "") {
+                alert("您还没有绑定净水器设备！");
+            } else {
+                mqttInit(host, port, openid);
+                console.log("filterInfo:"+filterInfo.length);
+                for(var i= 0; i< filterInfo.length; i++){
+                    this.filters.splice(i, filterInfo.length, {name: filterInfo[i].name, progress: 0});
+                }
+            }
         },
         methods: {
             filterdetail: function (index) {
                 console.log(this.filters[index].name);
+                filterIndex = index;
                 filter.clickFilter = true;
                 this.showMain = false;
                 filter.filtername = this.filters[index].name;
                 console.log(filterInfo[index].detail)
                 filter.filterdes = filterInfo[index].detail;
-                filter.updateDonut(95);
+                filter.filterlife = filterInfo[index].life;
+                filter.updateDonut(perunused[index]);
             },
             updateProgress: function (index, progress) {
-                console.log("55555555: "+progress)
+                console.log("new progress: "+progress)
                 Vue.set(mainDiv.filters, index, {name: filterInfo[index].name, progress: progress})
             }
         },
         watch: {
             filters: function (val) {
                 for (var i = 0; i < val.length; i++) {
-                    console.log("new name: " + val[i].name)
-                    console.log("new progress: " + val[i].progress)
-                    // this.filters[i].name = val[i].name;
-                    // this.filters[i].progress = 65;
+                    perunused[i]=val[i].progress;
                 }
             },
             jsqstate: function (val) {
@@ -352,24 +380,24 @@
         }
     })
 
-    mainDiv.$watch('filters', function () {
+    // mainDiv.$watch('filters', function () {
+    //
+    // })
 
-    })
-
-    // mainDiv.devicemodel = model;
 
     var filter = new Vue({
         el: "#filter-details-dialog",
         data: {
             clickFilter: false,
             filtername: '滤芯名',
-            filterdes: '滤芯膜的描述'
+            filterdes: '滤芯膜的描述',
+            filterlife:'滤芯膜的寿命'
         },
         created() {
 
         },
         mounted() {
-            this.updateDonut(40) // 初始化百分比
+            this.updateDonut(100) // 初始化百分比
         },
         methods: {
             updateDonut(percent) {
@@ -398,8 +426,59 @@
                 mainDiv.showMain = true;
             },
 
+            filterReset(){
+                console.log("reset");
+                // $.MsgBox.Confirm(filterInfo[filterIndex].name, "");
+                // $.MsgBox.InformWait("重置","dddd");
+                resetFilter();
+            }
+
         }
     });
+
+    function resetFilter() {
+        $.MsgBox.Confirm(filterInfo[filterIndex].name, startResetFilter);
+    }
+
+    function startResetFilter() {
+        console.log("filterIndex:"+filterIndex);
+        sendCommand2Devices(COMMAND_FILTER_RESET, deviceId, filterIndex);
+        dianCount = 1;
+        if(dianIntervalId!=null){
+            clearInterval(dianIntervalId);
+        }
+        dianIntervalId =  setInterval(function(){
+            var dian= "";
+            if(dianCount ==1){
+                dian= "·<span style=\"color: whitesmoke;\">·····</span>";
+            }else if(dianCount ==2){
+                dian= "··<span style=\"color: whitesmoke;\">····</span>";
+            }else if(dianCount ==3){
+                dian= "···<span style=\"color: whitesmoke;\">···</span>";
+            }else if(dianCount ==4){
+                dian= "····<span style=\"color: whitesmoke;\">··</span>";
+            }else if(dianCount ==5){
+                dian= "·····<span style=\"color: whitesmoke;\">·</span>";
+            }else if(dianCount ==6){
+                dian= "······";
+            }
+            var title= "";
+            var content = "正在重置中"+dian;
+            $.MsgBox.InformWait(title,content);
+            dianCount = dianCount+1;
+            if(dianCount>6){
+                dianCount = 1;
+            }
+        },200);
+        filterResetTimer = setTimeout(function () {
+            if(dianIntervalId!=null){
+                clearInterval(dianIntervalId);
+            }
+            var title = "";
+            var content = "响应超时";
+            $.MsgBox.InformFail(title,content);
+        }, 10000);
+    }
 
     function resineFilter() {
         var currentState = $("#current_state").text();

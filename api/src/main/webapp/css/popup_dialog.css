@@ -30,12 +30,12 @@ body, html {
 }
 
 .common{
-    width: 6.5rem;
+    width: 7.2rem;
     border-radius: 3px;
     background-color: whitesmoke;
     position: absolute;
     top: 1.85rem;
-    right: 0.57rem;
+    /*right: 0.57rem;*/
 }
 .popup_dialog_title{
     height: 1.69rem;
@@ -137,4 +137,6 @@ body, html {
 }
 .popup_dialog{
     height:7.5rem;
+    position: fixed;
+    top: 9em;
 }

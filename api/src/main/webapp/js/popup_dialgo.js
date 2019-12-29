@@ -44,7 +44,7 @@
             "                    </div>\n" +
             "                    <div class=\"popup_dialog_content\">\n" +
             "                        <div class=\"popup_dialog_content_comfirm\">\n" +
-            "                            <label style=\"font-size: 0.24rem;line-height:0.48rem\">重置滤芯会讲滤芯的使用状态重置，并从头计数。此功能针对新购买滤芯替换以后，重置状态，重新计数。\n" +
+            "                            <label style=\"font-size: 0.4rem;line-height:0.48rem\">重置滤芯会讲滤芯的使用状态重置，并从头计数。此功能针对新购买滤芯替换以后，重置状态，重新计数。\n" +
             "                                <b>是否确认对<label style=\"color:#5cd1e7\">"+ text +"</label>进行重置？</b>\n" +
             "                            </label>\n" +
             "                        </div>\n" +
@@ -54,7 +54,7 @@
             "                    </div>\n" +
             "                </div>\n" +
             "            </div>";
-        $("body").append(_html);
+        $("#filter-details-dialog").append(_html);
     }
 
     var GenerateInformHtml_success = function (title,content) {
@@ -89,7 +89,7 @@
             "                <div class=\"popup_dialog_content\">\n" +
             "                    <div class=\"popup_dialog_content_inform\">\n" +
             "                        <div style=\"height: 1.04rem;\"><div class=\"popup_dialog_content_inform_fail_icon\"></div><label class=\"popup_dialog_content_inform_text\"><b>"+ content +"</b></label></div>\n" +
-            "                        <div style=\"font-size:0.24rem;color:#666666;letter-spacing: 1px;\">请检查网络或者净水器</div>\n" +
+            "                        <div style=\"font-size:0.4rem;color:#666666;letter-spacing: 1px;\">请检查网络或者净水器</div>\n" +
             "                    </div>\n" +
             "                </div>\n" +
             "                <div class=\"popup_dialog_bottom\">\n" +

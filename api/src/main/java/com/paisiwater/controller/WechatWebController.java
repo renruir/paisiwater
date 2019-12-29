@@ -132,37 +132,23 @@ public class WechatWebController {
             subButton20.setSub_button(list20);
 
             UrlMenu menu3001 = new UrlMenu();
-            //menu3001.setName("会员中心");
-            menu3001.setName("会员绑定");
+            menu3001.setName("机器视频安装");
             menu3001.setType("view");
-            menu3001.setUrl("http://wxcrm.me/wxcrm-mobile/wx013a0b0fac979a5e/index.html#/member/center");
-            //menu3001.setUrl("http://vipportal.ecp100.com/61459fc0-af81-11e5-b6b1-00163e02034c/login?returnurl=http%253a%252f%252fvipportal.ecp100.com%252f61459fc0-af81-11e5-b6b1-00163e02034c%252fhome");
+            menu3001.setUrl("http://wx.mypraise.cn/web/wechat/devices-install.html");
 
             UrlMenu menu3002 = new UrlMenu();
-            menu3002.setName("订单查询");
+            menu3002.setName("咨询服务");
             menu3002.setType("view");
-            menu3002.setUrl("http://weixin.tjnwater.com/web/order/search_by_order.html?v=1.5");
-
-            UrlMenu menu3003 = new UrlMenu();
-            menu3003.setName("安装维修");
-            menu3003.setType("view");
-            menu3003.setUrl("http://weixin.tjnwater.com/web/order/install_repair.html?v=1.5");
-
-            UrlMenu menu3004 = new UrlMenu();
-            menu3004.setName("常见问题");
-            menu3004.setType("view");
-            menu3004.setUrl("http://mp.weixin.qq.com/mp/homepage?__biz=MzA3NzQzOTkzMg==&hid=10&sn=e75356a2dd7e1bf81c461101a83fe8bc#wechat_redirect");
+            menu3002.setUrl("http://wx.mypraise.cn/web/wechat/consult-service.html");
 
             UrlMenu menu3005 = new UrlMenu();
             menu3005.setName("我的设备");
             menu3005.setType("view");
-            menu3005.setUrl("http://wx.mypraise.cn/api/wechat/index.html");
+            menu3005.setUrl("http://wx.mypraise.cn/web/wechat/index.html");
 
             List<Object> list30 = new ArrayList<Object>();
-//            list30.add(menu3001);
-//            list30.add(menu3002);
-//            list30.add(menu3003);
-//            list30.add(menu3004);
+            list30.add(menu3001);
+            list30.add(menu3002);
             list30.add(menu3005);
 
             SubButton subButton30 = new SubButton();
@@ -187,6 +173,18 @@ public class WechatWebController {
         return null;
     }
 
+    @RequestMapping(value = "devices-install.html")
+    public String devicesInstall(HttpServletRequest request, HttpServletResponse response, String code, Model model) {
+//        String deviceId = request.getParameter("device_id");
+        return "device_install";
+    }
+
+    @RequestMapping(value = "consult-service.html")
+    public String serice(HttpServletRequest request, HttpServletResponse response, String code, Model model) {
+//        String deviceId = request.getParameter("device_id");
+        return "consult_service";
+    }
+
     @RequestMapping(value = "index.html")
     public String index(HttpServletRequest request, HttpServletResponse response, String code, Model model) {
         try {
@@ -195,7 +193,7 @@ public class WechatWebController {
             wxAppInfo = weixinService.getWxAppInfo(wxAppInfo);
             String appId = wxAppInfo.getAppId();
             String appSecret = wxAppInfo.getAppSecret();
-            logger.info("appId："+appId);
+            logger.info("appId：" + appId);
             String cookieUid = CookieUtil.getCookie(appId + "_uid", request);
             logger.info("cookieUid = " + cookieUid);
             if (cookieUid != null && !"".equals(cookieUid)) {
@@ -210,7 +208,7 @@ public class WechatWebController {
                     }
                 }
             } else {
-                String homeUrl = ServiceConstant.WX_DOMAIN + "api/wechat/index.html";
+                String homeUrl = ServiceConstant.WX_DOMAIN + "web/wechat/index.html";
                 try {
                     homeUrl = URLEncoder.encode(homeUrl, "utf-8");
                 } catch (UnsupportedEncodingException e) {
@@ -223,19 +221,42 @@ public class WechatWebController {
             }
 
             if (StrUtil.strIsNotNull(cookieUid)) {
+                WxBindInfo wxBindInfo = new WxBindInfo();
+                wxBindInfo.setOpenid(cookieUid);
+                wxBindInfo.setAppId(appId);
+                wxBindInfo.setDeviceType(JSQ_DEVICE_TYPE);
+
+                if (weixinService.getWxBindInfo(wxBindInfo) != null && weixinService.getWxBindInfo(wxBindInfo).size() > 0){
+                    wxBindInfo = weixinService.getWxBindInfo(wxBindInfo).get(0);
+                } else {
+
+                }
+//                model.addAttribute("updateDeviceInfo", null);
+                DeviceInfo deviceInfo = null;
+                String jsTotal = null;
+                List<FilterInfo> filterInfos = null;
+                if (wxBindInfo != null && StrUtil.strIsNotNull(wxBindInfo.getDeviceId())) {
+                    deviceInfo = weixinService.getDeviceInfo(wxBindInfo.getDeviceId());
+                    if (deviceInfo != null) {
+                        filterInfos = weixinService.getFilterInfo(deviceInfo.getModel());
+                        for (FilterInfo info : filterInfos) {
+//                            logger.info("filter" + info.getRank() + " name: " + info.getFilterName());
+                        }
+                    }
+                }
+                model.addAttribute("wxBindInfo", wxBindInfo);
                 Map<String, String> serverInfo = new HashMap<String, String>();
                 serverInfo.put("host", MQTT_HOST);
                 serverInfo.put("port", MQTT_PORT);
-                serverInfo.put("appId", appId);
-//                serverInfo.put("openId", cookieUid);
                 model.addAttribute("serverInfo", serverInfo);
-                return "index";
+                model.addAttribute("deviceInfo", deviceInfo);
+                model.addAttribute("filterInfo", filterInfos);
+                return "paisijsq";
             }
-
         } catch (Exception e) {
             logger.error(e.getMessage());
         }
-        return null;
+        return "";
     }
 
     @RequestMapping(value = "test_index.html")
@@ -312,7 +333,7 @@ public class WechatWebController {
                     }
                 }
             } else {
-                String homeUrl = ServiceConstant.WX_DOMAIN + "web/wechat/index.html";
+                String homeUrl = ServiceConstant.WX_DOMAIN + "web/wechat/my_devices.html";
                 try {
                     homeUrl = URLEncoder.encode(homeUrl, "utf-8");
                 } catch (UnsupportedEncodingException e) {
@@ -401,7 +422,7 @@ public class WechatWebController {
 //            wxBindInfo.setDeviceType(deviceType);
 
             wxBindInfo = weixinService.getWxBindInfoByDevice(wxBindInfo);
-            logger.info("wxBindInfo:"+wxBindInfo);
+            logger.info("wxBindInfo:" + wxBindInfo);
 //            logger.info("wxBindInfo:"+wxBindInfo.getDeviceId());
             model.addAttribute("updateDeviceInfo", null);
             DeviceInfo deviceInfo = null;
@@ -412,7 +433,7 @@ public class WechatWebController {
                 if (deviceInfo != null) {
                     filterInfos = weixinService.getFilterInfo(deviceInfo.getModel());
                     for (FilterInfo info : filterInfos) {
-                        logger.info("filter" + info.getGrade() + " name: " + info.getFilter_name());
+                        logger.info("filter" + info.getRank() + " name: " + info.getFilterName());
                     }
                 }
             }
@@ -956,6 +977,5 @@ public class WechatWebController {
         Pattern pattern = Pattern.compile("^[-\\+]?[\\d]*$");
         return pattern.matcher(str).matches();
     }
-
 
 }

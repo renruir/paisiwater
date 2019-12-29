@@ -119,8 +119,8 @@
     /*background-color: #000;*/
     background-size: contain;
     background: url(../images/filter-background.png) no-repeat center center;
-    opacity: 0.6;
-    z-index: 10000;
+    /*opacity: 0.6;*/
+    z-index: 10;
     left: 0;
     top: 0;
 }
@@ -182,7 +182,7 @@
 
 .item {
     border-radius: 50%;
-    clip: rect(0px 6rem 12rem 0px);
+    clip: rect(0px 6.1rem 12rem 0px);
     height: 100%;
     position: absolute;
     width: 100%;

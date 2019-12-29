@@ -93,12 +93,10 @@ public class DeviceApiController {
                 content.append(authDevice.getMac());
                 content.append(authDevice.getProductId());
                 content.append(authDevice.getAppId());
-                content.append(WeixinConstant.APP_ID);//appId
-                content.append(WeixinConstant.PRODUCT_ID);//appId
                 content.append(WeixinConstant.AUTH_KEY);
 
                 String serverToken = ShaUtil.stringSHA1(content.toString());
-
+//                logger.info("server Token: " + serverToken);
                 if (serverToken != null && serverToken.equals(token)) {
                     boolean auth = weixinService.authorizeDevice(authDevice.getDeviceId(), authDevice.getMac(), authDevice.getProductId(), authDevice.getAppId());
 
@@ -108,7 +106,7 @@ public class DeviceApiController {
                 } else {
                     returnCode.setErrorCode(ApiErrorCode.AUTH_CODE);
                 }
-
+                logger.info("auth result: " + returnCode.toString());
             }
         } catch (Exception e) {
             logger.error(e.getMessage());

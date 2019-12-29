@@ -95,7 +95,7 @@
     <select id="getFilterInfo" parameterType="java.lang.String" resultType="FilterInfo">
 		<![CDATA[
 
-		select model,total_filters,grade,filter_name,filter_life,filter_detail,other from filter_info where model=#{model} order by grade
+		select model model, total_filters totalFilters, grade grade, filter_name filterName, filter_life filterLife, filter_detail filterDetail, other otherInfo FROM filter_info WHERE model=#{model} ORDER BY row_id
 
         ]]>
 	</select>

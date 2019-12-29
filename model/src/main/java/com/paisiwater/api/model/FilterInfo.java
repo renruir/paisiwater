@@ -5,12 +5,12 @@ package com.paisiwater.api.model;
  */
 public class FilterInfo {
     private String model;
-    private int total_filters;
-    private int grade;
-    private String filter_name;
-    private String filter_life;
-    private String filter_detail;
-    private String other;
+    private int totalFilters;
+    private int rank;
+    private String filterName;
+    private String filterLife;
+    private String filterDetail;
+    private String otherInfo;
 
     public String getModel() {
         return model;
@@ -20,51 +20,51 @@ public class FilterInfo {
         this.model = model;
     }
 
-    public int getTotal_filters() {
-        return total_filters;
+    public int getTotalFilters() {
+        return totalFilters;
     }
 
-    public void setTotal_filters(int total_filters) {
-        this.total_filters = total_filters;
+    public void setTotalFilters(int totalFilters) {
+        this.totalFilters = totalFilters;
     }
 
-    public int getGrade() {
-        return grade;
+    public int getRank() {
+        return rank;
     }
 
-    public void setGrade(int grade) {
-        this.grade = grade;
+    public void setRank(int rank) {
+        this.rank = rank;
     }
 
-    public String getFilter_name() {
-        return filter_name;
+    public String getFilterName() {
+        return filterName;
     }
 
-    public void setFilter_name(String filter_name) {
-        this.filter_name = filter_name;
+    public void setFilterName(String filterName) {
+        this.filterName = filterName;
     }
 
-    public String getFilter_life() {
-        return filter_life;
+    public String getFilterLife() {
+        return filterLife;
     }
 
-    public void setFilter_life(String filter_life) {
-        this.filter_life = filter_life;
+    public void setFilterLife(String filterLife) {
+        this.filterLife = filterLife;
     }
 
-    public String getFilter_detail() {
-        return filter_detail;
+    public String getFilterDetail() {
+        return filterDetail;
     }
 
-    public void setFilter_detail(String filter_detail) {
-        this.filter_detail = filter_detail;
+    public void setFilterDetail(String filterDetail) {
+        this.filterDetail = filterDetail;
     }
 
-    public String getOther() {
-        return other;
+    public String getOtherInfo() {
+        return otherInfo;
     }
 
-    public void setOther(String other) {
-        this.other = other;
+    public void setOtherInfo(String otherInfo) {
+        this.otherInfo = otherInfo;
     }
 }
