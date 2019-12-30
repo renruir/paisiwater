@@ -11,31 +11,97 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>派斯净水器安装视频</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>派斯净水器安装</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
 </head>
 <body>
-<div style="margin: 0 auto; text-align: center; font-size: 2rem">
+<div>
 
+    <div class="content native-scroll">
+        <p>其他内容区域</p>
+        <p>其他内容区域</p>
+        <p>其他内容区域</p>
+        <p>其他内容区域</p>
+        <p>其他内容区域</p>
+        <div class="buttons-tab fixed-tab" data-offset="44" style="top: 0px;">
+            <a href="#tab1" class="tab-link button active">前置过滤器</a>
+            <a href="#tab2" class="tab-link button">金滤媒系列</a>
+            <a href="#tab3" class="tab-link button">全屋净水</a>
+            <a href="#tab4" class="tab-link button">纯水机</a>
+            <a href="#tab5" class="tab-link button">有盐软水</a>
+            <a href="#tab6" class="tab-link button">PS-D系列</a>
+        </div>
 
-    <div>
-        <a href="https://mp.weixin.qq.com/s?__biz=MzIzMTc0OTcyMw==&tempkey=MTA0MV9wb25vaHUvdGsvbitMdjJLa01jRHo5cm5NM1FhNUZ5VzBSWGFoVjlLUWhyVldHMFRWal9lRzJSNVhCRmg1MUhkay0tbFphQklnRXg0MUh2YlE3TFVyZkVlWVVKa3dPOWQ3bVVzVWw4X0ZDSGtqUHlvZTVJeDFabVdvMXhtV2Rxc2puQTUzOUU3S1VVazFERTlOQnhCblEtQmh3VXpZa1BYckgzUGxBfn4%3D&chksm=689e202e5fe9a9384dc3ac89c3ec4b4f651d87421cf73c1986665bec2389ef0e683080547b38#rd">前置过滤器</a>
-    </div>
-    <div>
-        <a href="https://mp.weixin.qq.com/s?__biz=MzIzMTc0OTcyMw==&tempkey=MTA0MV9LRDNJb1dlMXFnOE52Tk5ma01jRHo5cm5NM1FhNUZ5VzBSWGFoVjlLUWhyVldHMFRWal9lRzJSNVhCR1BIRHVzR1BZTEtJNllqWlRNbTlZSGpQa2dTeVViZlFzUmJUNEc5Ty04N0hBNHFhTk9BV1BBbTA5UUVaMWtnbXJSUWNQSnp6NVQyOERILWhrNEQ1amdHNzQ1MXhFd09IQ3dBVmZyel9Wa01nfn4%3D&chksm=689e202e5fe9a9387d16d8b70c3f73f80278fa61baf62b6166c486a9fd2c4191a2a8b767474d#rd">金滤媒系列</a>
-    </div>
-    <div>
-        <a href="https://mp.weixin.qq.com/s?__biz=MzIzMTc0OTcyMw==&tempkey=MTA0MV9FeU5HYzNPMWR5dnJvcGdTa01jRHo5cm5NM1FhNUZ5VzBSWGFoVjlLUWhyVldHMFRWal9lRzJSNVhCSEtKTlVBT0piZDQwYi1nb0ZGbHh6SFBydDJjZTJEbXlhYWtUVFpCNnp4b2FJRG9CSkZLSTNSMThpVnFobmhraHhqTGo4alFCTmI5aU1tRzRSVlJiaXdRYU5kSkVnekI2SEN5QXNOLUh2a1Fnfn4%3D&chksm=689e202e5fe9a9384a28c7b6a0b5bc1d748243b9c76ecf2c41db9a55cf20be4bf6e5d7e3f2de#rd">全屋净水/SSP系列</a>
-    </div>
-    <div>
-        <a href="https://mp.weixin.qq.com/s?__biz=MzIzMTc0OTcyMw==&tempkey=MTA0MV9oQXdveHhlZFNmVllBUDB4a01jRHo5cm5NM1FhNUZ5VzBSWGFoVjlLUWhyVldHMFRWal9lRzJSNVhCSGozLTlXRlVhdlJzUTY1ejQ3N092ZXU0X1phWVU4WjZhcDdBZUVPR2tUMkxiZmNyaGNzUW9GNDF2WExJNG9MN3ZvTDlpb2VLZXhWTGpmR0gxRnlWT2E0aHdUZkFZa015RGFwQ2J4Zm9BYlFRfn4%3D&chksm=689e20255fe9a9335eb8473785ec7d009328cd3b57804eb8a7284da1c7febd5749fc70999c89#rd">纯水机系列</a>
-    </div>
-    <div>
-        <a href="https://mp.weixin.qq.com/s?__biz=MzIzMTc0OTcyMw==&tempkey=MTA0MV91Nzl2akZZVEZSdWVISVpza01jRHo5cm5NM1FhNUZ5VzBSWGFoVjlLUWhyVldHMFRWal9lRzJSNVhCR0dMa2FWZm40alVEclRiVGFIUWVjX00xU2NpRmZEQVpCTExhdjhfYkZGNWlRSWdlMzJFNFFaVzhmb2lQVGF5dXlhQ0g4aGVuTnBrdHUyeFptVnh6VVpDRmRMWDVzQ2VlVGJGOW5IWEZabTd3fn4%3D&chksm=689e20265fe9a930d64d325f4dca28ee90440df4d5f0e1e54ae3a6aad402f44bbdf36583d86e#rd">有盐软水机</a>
-    </div>
-    <div>
-        <a href="https://mp.weixin.qq.com/s?__biz=MzIzMTc0OTcyMw==&tempkey=MTA0MV9MRjBnUDhhSGRtbzcrYmkwa01jRHo5cm5NM1FhNUZ5VzBSWGFoVjlLUWhyVldHMFRWal9lRzJSNVhCRzBnV29QV1ZPaTQyNnFmVjl5Mnh1ZHRXampKcnU5MlVsWF93MGRnMnV1dVZSdE1OU1JQRWlHZGFVTHpFZ2Z2bjFrczAzTG01NzZId0VuZEJUZlAzazNrVFVkM1lNVnBXSWQ2U2N1dlFUSExBfn4%3D&chksm=689e202e5fe9a9388e7570af04526a9b810f9afdf5bd4f6494c6573846abf3105613ef322f34#rd">PS-D系列商用机头调试</a>
+        <div class="tabs">
+            <div id="tab1" class="tab active">
+                <div class="content-block" style="margin: 0; padding: 0;">
+                    <div class="buttons-row">
+                        <div class="list-block media-list" style="margin: 0; width:100%">
+                            <ul>
+                                <li>
+                                    <a href="#" class="item-link item-content">
+                                        <div class="item-media"><img
+                                                src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
+                                                width="80"></div>
+                                        <div class="item-inner" style="display: flex;">
+                                            <div id="0">PS-1安装</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="item-link item-content">
+                                        <div class="item-media"><img
+                                                src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
+                                                width="80"></div>
+                                        <div class="item-inner" style="display: flex;">
+                                            <div id="1">金滤媒厨下PS-1</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="item-link item-content">
+                                        <div class="item-media"><img
+                                                src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
+                                                width="80"></div>
+                                        <div class="item-inner" style="display: flex;">
+                                            <div id="2">金滤媒PS-50</div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div id="tab2" class="tab">
+                <div class="content-block">
+                    <p style="height:600px">This is tab 2 content start</p>
+                    <p>This is tab 2 content end</p>
+                </div>
+            </div>
+            <div id="tab3" class="tab">
+                <div class="content-block">
+                    <p style="height:600px">This is tab 3 content start</p>
+                    <p>This is tab 3 content end</p>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+    <script type="text/javascript">
+    </script>
 </div>
 </body>
 </html>
