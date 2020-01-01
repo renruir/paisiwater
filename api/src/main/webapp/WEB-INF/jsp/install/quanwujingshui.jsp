@@ -1,0 +1,80 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: renrui
+  Date: 2020/1/1 0001
+  Time: 9:17
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>全屋净水系列</title>
+    <meta name="description" content="MSUI: Build mobile apps with simple HTML, CSS, and JS components.">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Google Web Fonts -->
+
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+
+    <script src="//hm.baidu.com/hm.js?ba76f8230db5f616edc89ce066670710"></script>
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+    <script type="text/javascript">
+        //ga
+    </script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?ba76f8230db5f616edc89ce066670710";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+</head>
+<body style="">
+<div class="page-group">
+    <div id="page-simple-list" class="page page-current">
+        <div class="content native-scroll">
+            <div class="content-block-title">全屋净水系列安装视频</div>
+            <div class="list-block media-list">
+                <ul>
+                    <li>
+                        <div class="item-content" onclick="jump()">
+                            <div class="item-media">
+                                <img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
+                                     width="44"></div>
+                            <div class="item-inner" style="display: flex;">
+                                <div class="item-title">全屋净水PS-100/200/300、SSP系列安装视频</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="modal-overlay"></div>
+
+<script src="/web/js/vue.min.js" type="text/javascript"></script>
+<script>
+
+    function jump() {
+        window.location.href = "https://mp.weixin.qq.com/s?__biz=MzIzMTc0OTcyMw==&tempkey=MTA0MV9GMDRVeEVRRWJaQ3BlaUNEa01jRHo5cm5NM1FhNUZ5VzBSWGFoVjlLUWhyVldHMFRWal9lRzJSNVhCSEtKTlVBT0piZDQwYi1nb0ZGbHh6SFBydDJjZTJEbXlhYWtUVFpCNnp4b2FJRG9CSkZLSTNSMThpVnFobmhraHpNRWE3OEtwZGdqZTVNOEgwRTlRRjNoWU1WM0xMX3FQVmxZZ1d1dVl1V21Bfn4%3D&chksm=689e202e5fe9a9384a28c7b6a0b5bc1d748243b9c76ecf2c41db9a55cf20be4bf6e5d7e3f2de#rd"
+    }
+
+
+</script>
+</body>
+</html>

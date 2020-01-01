@@ -26,74 +26,80 @@
 <div>
 
     <div class="content native-scroll">
-        <p>其他内容区域</p>
-        <p>其他内容区域</p>
-        <p>其他内容区域</p>
-        <p>其他内容区域</p>
-        <p>其他内容区域</p>
-        <div class="buttons-tab fixed-tab" data-offset="44" style="top: 0px;">
-            <a href="#tab1" class="tab-link button active">前置过滤器</a>
-            <a href="#tab2" class="tab-link button">金滤媒系列</a>
-            <a href="#tab3" class="tab-link button">全屋净水</a>
-            <a href="#tab4" class="tab-link button">纯水机</a>
-            <a href="#tab5" class="tab-link button">有盐软水</a>
-            <a href="#tab6" class="tab-link button">PS-D系列</a>
+        <div>
+            <img src="/web/images/aftersale-title.png" style="width: 100%; height: 7rem">
+            <span style="margin-left: 0.5rem">尊敬的用户，您好</span>
         </div>
 
-        <div class="tabs">
-            <div id="tab1" class="tab active">
-                <div class="content-block" style="margin: 0; padding: 0;">
-                    <div class="buttons-row">
-                        <div class="list-block media-list" style="margin: 0; width:100%">
-                            <ul>
-                                <li>
-                                    <a href="#" class="item-link item-content">
-                                        <div class="item-media"><img
-                                                src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
-                                                width="80"></div>
-                                        <div class="item-inner" style="display: flex;">
-                                            <div id="0">PS-1安装</div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="item-link item-content">
-                                        <div class="item-media"><img
-                                                src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
-                                                width="80"></div>
-                                        <div class="item-inner" style="display: flex;">
-                                            <div id="1">金滤媒厨下PS-1</div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="item-link item-content">
-                                        <div class="item-media"><img
-                                                src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
-                                                width="80"></div>
-                                        <div class="item-inner" style="display: flex;">
-                                            <div id="2">金滤媒PS-50</div>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+        <div class="content-block" style="margin: 0; padding: 0;">
+            <div class="buttons-row">
+                <div class="list-block media-list" style="margin: 0; width:100%">
+                    <ul>
+                        <li>
+                            <a href="qianzhi.html" class="item-link item-content">
+                                <div class="item-media"><img
+                                        src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
+                                        width="80" style="width: 2.5rem"></div>
+                                <div class="item-inner" style="display: flex;">
+                                    <div id="0">前置过滤器</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="jinlvmei.html" class="item-link item-content">
+                                <div class="item-media"><img
+                                        src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
+                                        width="80" style="width: 2.5rem"></div>
+                                <div class="item-inner" style="display: flex;">
+                                    <div id="1">金滤媒系列</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="quanwujingshui.html" class="item-link item-content">
+                                <div class="item-media"><img
+                                        src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
+                                        width="80" style="width: 2.5rem"></div>
+                                <div class="item-inner" style="display: flex;">
+                                    <div id="2">全屋净水/SSP系列</div>
+                                </div>
+                            </a>
+                        </li>
 
+                        <li>
+                            <a href="chunshuiji.html" class="item-link item-content">
+                                <div class="item-media"><img
+                                        src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
+                                        width="80" style="width: 2.5rem"></div>
+                                <div class="item-inner" style="display: flex;">
+                                    <div id="3">纯水机系列</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="ruanshuiji.html" class="item-link item-content">
+                                <div class="item-media"><img
+                                        src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
+                                        width="80" style="width: 2.5rem"></div>
+                                <div class="item-inner" style="display: flex;">
+                                    <div id="4">有盐软水系列</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="psdshangyong.html" class="item-link item-content">
+                                <div class="item-media"><img
+                                        src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
+                                        width="80" style="width: 2.5rem"></div>
+                                <div class="item-inner" style="display: flex;">
+                                    <div id="5">PS-D系列商用机头调试视频</div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div id="tab2" class="tab">
-                <div class="content-block">
-                    <p style="height:600px">This is tab 2 content start</p>
-                    <p>This is tab 2 content end</p>
-                </div>
-            </div>
-            <div id="tab3" class="tab">
-                <div class="content-block">
-                    <p style="height:600px">This is tab 3 content start</p>
-                    <p>This is tab 3 content end</p>
-                </div>
-            </div>
+
         </div>
     </div>
 

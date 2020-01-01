@@ -132,7 +132,7 @@ public class WechatWebController {
             subButton20.setSub_button(list20);
 
             UrlMenu menu3001 = new UrlMenu();
-            menu3001.setName("机器视频安装");
+            menu3001.setName("机器安装视频");
             menu3001.setType("view");
             menu3001.setUrl("http://wx.mypraise.cn/web/wechat/devices-install.html");
 
@@ -669,6 +669,35 @@ public class WechatWebController {
         return "/Customer/cs";
     }
 
+    @RequestMapping(value = "qianzhi.html")
+    public String qianzhi(HttpServletRequest request, HttpServletResponse response, String code, Model model){
+        return "/install/qianzhi";
+    }
+
+    @RequestMapping(value = "jinlvmei.html")
+    public String jinlvmei(HttpServletRequest request, HttpServletResponse response, String code, Model model){
+        return "/install/jinlvmei";
+    }
+
+    @RequestMapping(value = "chunshuiji.html")
+    public String chunshuiji(HttpServletRequest request, HttpServletResponse response, String code, Model model){
+        return "/install/chunshuiji";
+    }
+
+    @RequestMapping(value = "quanwujingshui.html")
+    public String quanwujingshui(HttpServletRequest request, HttpServletResponse response, String code, Model model){
+        return "/install/quanwujingshui";
+    }
+
+    @RequestMapping(value = "ruanshuiji.html")
+    public String ruanshuiji(HttpServletRequest request, HttpServletResponse response, String code, Model model){
+        return "/install/ruanshuiji";
+    }
+
+    @RequestMapping(value = "psdshangyong.html")
+    public String psdshangyong(HttpServletRequest request, HttpServletResponse response, String code, Model model){
+        return "/install/psdshangyong";
+    }
     @RequestMapping(value = "aftersale_service.html")
     public String installAndRepair(HttpServletRequest request, HttpServletResponse response, String code, Model model) {
         String category = request.getParameter("category");
