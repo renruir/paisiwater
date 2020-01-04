@@ -69,7 +69,7 @@ public class WechatWebController {
             BaseButton button = new BaseButton();
 
             UrlMenu menu1000 = new UrlMenu();
-            menu1000.setName("关于派斯");
+            menu1000.setName("走进派斯");
             menu1000.setType("view");
             menu1000.setUrl("https://mp.weixin.qq.com/s/Oc5xd_wM9y5BMb0Z6drAFQ");
 
@@ -78,46 +78,40 @@ public class WechatWebController {
             menu1001.setType("view");
             menu1001.setUrl("https://shop.m.jd.com/?shopId=36858&utm_source=iosapp&utm_medium=appshare&utm_campaign=t_335139774&utm_term=CopyURL&ad_od=share");
 
-            UrlMenu menu1002 = new UrlMenu();
-            menu1002.setName("有盐软水安装操作");
-            menu1002.setType("view");
-            menu1002.setUrl("http://mp.weixin.qq.com/s?__biz=MzIzMTc0OTcyMw==&mid=100000018&idx=1&sn=081c05f6711b67b6947bcc6fe1c5a915&chksm=689e20265fe9a930d64d325f4dca28ee90440df4d5f0e1e54ae3a6aad402f44bbdf36583d86e&scene=18#wechat_redirect");
-
             List<Object> list10 = new ArrayList<Object>();
             list10.add(menu1000);
             list10.add(menu1001);
-            list10.add(menu1002);
 
             SubButton subButton10 = new SubButton();
             //subButton10.setName("结缘特洁恩");
-            subButton10.setName("关于派斯");
+            subButton10.setName("走进派斯");
             subButton10.setSub_button(list10);
 
             UrlMenu menu2002 = new UrlMenu();
-            menu2002.setName("全自动前置过滤器");
+            menu2002.setName("中央前置过滤器");
             menu2002.setType("view");
-            menu2002.setUrl("https://e.eqxiu.com/s/BIo3A2VM");
+            menu2002.setUrl("http://wx.mypraise.cn/web/wechat/zhongyangqianzhi.html");
 
             UrlMenu menu2003 = new UrlMenu();
-            menu2003.setName("RO-500双出水机");
+            menu2003.setName("金滤媒厨下/中央系列");
             menu2003.setType("view");
-            menu2003.setUrl("https://x.eqxiu.com/s/X8b0W1uN");
+            menu2003.setUrl("http://wx.mypraise.cn/web/wechat/jinlvmeizhongyang.html");
 
             UrlMenu menu2004 = new UrlMenu();
-            menu2004.setName("派斯全屋净水器");
+            menu2004.setName("涅普顿厨下系列");
             menu2004.setType("view");
-            menu2004.setUrl("http://h5.eqxiu.com/ls/ECts8HcZ");
+            menu2004.setUrl("https://d.eqxiu.com/s/SO6NLehf?eqrcode=1");
             //menu2004.setUrl("https://h5.youzan.com/v2/showcase/mpnews?alias=25jhkqop");
 
             UrlMenu menu2005 = new UrlMenu();
-            menu2005.setName("金滤媒厨下净水器");
+            menu2005.setName("RO反渗透机器");
             menu2005.setType("view");
-            menu2005.setUrl("http://h5.eqxiu.com/ls/olC7Spdg");
+            menu2005.setUrl("http://wx.mypraise.cn/web/wechat/rofanshengtou.html");
 
             UrlMenu menu2006 = new UrlMenu();
             menu2006.setName("SSP阻垢软水机");
             menu2006.setType("view");
-            menu2006.setUrl("http://h5.eqxiu.com/ls/mQXjjCeI");
+            menu2006.setUrl("http://h5.eqxiu.com/ls/mQXjjCeI?eqrcode=1");
 
             List<Object> list20 = new ArrayList<Object>();
             list20.add(menu2002);
@@ -141,6 +135,11 @@ public class WechatWebController {
             menu3002.setType("view");
             menu3002.setUrl("http://wx.mypraise.cn/web/wechat/consult-service.html");
 
+            UrlMenu menu3003 = new UrlMenu();
+            menu3003.setName("设备配网");
+            menu3003.setType("view");
+            menu3003.setUrl("http://wx.mypraise.cn/web/wechat/net-setting.html");
+
             UrlMenu menu3005 = new UrlMenu();
             menu3005.setName("我的设备");
             menu3005.setType("view");
@@ -149,6 +148,7 @@ public class WechatWebController {
             List<Object> list30 = new ArrayList<Object>();
             list30.add(menu3001);
             list30.add(menu3002);
+            list30.add(menu3003);
             list30.add(menu3005);
 
             SubButton subButton30 = new SubButton();
@@ -667,6 +667,26 @@ public class WechatWebController {
             logger.error(e.getMessage());
         }
         return "/Customer/cs";
+    }
+
+    @RequestMapping(value = "net-setting.html")
+    public String netsetting(HttpServletRequest request, HttpServletResponse response, String code, Model model){
+        return "net-setting";
+    }
+
+    @RequestMapping(value = "zhongyangqianzhi.html")
+    public String zhongyangqianzhi(HttpServletRequest request, HttpServletResponse response, String code, Model model){
+        return "/product/zhongyangqianzhi";
+    }
+
+    @RequestMapping(value = "jinlvmeizhongyang.html")
+    public String jinlvmeizhongyang(HttpServletRequest request, HttpServletResponse response, String code, Model model){
+        return "/product/jinlvmeizhongyang";
+    }
+
+    @RequestMapping(value = "rofanshengtou.html")
+    public String rofanshengtou(HttpServletRequest request, HttpServletResponse response, String code, Model model){
+        return "/product/rofanshengtou";
     }
 
     @RequestMapping(value = "qianzhi.html")

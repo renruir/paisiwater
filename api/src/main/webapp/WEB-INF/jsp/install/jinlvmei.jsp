@@ -81,11 +81,11 @@
 <script>
 
     function jump1() {
-        window.location.href = "https://mp.weixin.qq.com/s?__biz=MzIzMTc0OTcyMw==&tempkey=MTA0MV9wQnFqZmN4dG5OVGdHZVlua01jRHo5cm5NM1FhNUZ5VzBSWGFoVjlLUWhyVldHMFRWal9lRzJSNVhCR1BIRHVzR1BZTEtJNllqWlRNbTlZSGpQa2dTeVViZlFzUmJUNEc5Ty04N0hBNHFhTk9BV1BBbTA5UUVaMWtnbW9pOHNTbDRRNkV6YUNtSXVMRmd0R0RZX3JLUWlybmRIZHVPckdLdGNtWlhnfn4%3D&chksm=689e202e5fe9a9387d16d8b70c3f73f80278fa61baf62b6166c486a9fd2c4191a2a8b767474d#rd"
+        window.location.href = "https://mp.weixin.qq.com/s/ZLDu-Iv_undOIkkeIBHJUA"
     }
 
     function jump2() {
-        window.location.href ="https://mp.weixin.qq.com/s?__biz=MzIzMTc0OTcyMw==&tempkey=MTA0MV9wY3ZWQ05BZ3Q0SE1xWExCa01jRHo5cm5NM1FhNUZ5VzBSWGFoVjlLUWhyVldHMFRWal9lRzJSNVhCRUJIUXBCLXFRNks2dGZEcnduYTVYVVhOWkU1NDB1SFpQYm9uQlhjMlBJbXJ4bjVDRVJOVTB0RGgyb1QyTndzeXg4UVpTdk1nOFVLNkY3YzMxV2NJRGtCaTE4QW5XYV8xTWxqNDE0R01TMnJ3fn4%3D&chksm=689e202e5fe9a938d0fc0c3c4c4a63d3acc1368ea2416700e56fb09c9fe8671e04adf75ee5d1#rd";
+        window.location.href = "https://mp.weixin.qq.com/s/YW4p9Rv4WHjjrYhc-1HUnA";
     }
 
 </script>

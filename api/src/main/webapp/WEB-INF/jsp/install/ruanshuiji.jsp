@@ -71,7 +71,7 @@
 <script>
 
     function jump() {
-        window.location.href = "https://mp.weixin.qq.com/s?__biz=MzIzMTc0OTcyMw==&tempkey=MTA0MV9QY1FnYmRHajB6N2YvQm5oa01jRHo5cm5NM1FhNUZ5VzBSWGFoVjlLUWhyVldHMFRWal9lRzJSNVhCR0dMa2FWZm40alVEclRiVGFIUWVjX00xU2NpRmZEQVpCTExhdjhfYkZGNWlRSWdlMzJFNFFaVzhmb2lQVGF5dXpkcjVhMHRLYmUySWNGazNIbkJ5aTZySHNJb0JnYnZpckdUTG40VHFoVVFnfn4%3D&chksm=689e20265fe9a930d64d325f4dca28ee90440df4d5f0e1e54ae3a6aad402f44bbdf36583d86e#rd"
+        window.location.href = "https://mp.weixin.qq.com/s/d-GcMnWAkHHyOxpjGQ1bLg"
     }
 
 

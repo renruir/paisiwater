@@ -45,7 +45,7 @@
 <div class="page-group">
     <div id="page-simple-list" class="page page-current">
         <div class="content native-scroll">
-            <div class="content-block-title">简单列表</div>
+            <div class="content-block-title">前置过滤器</div>
             <div class="list-block media-list">
                 <ul>
                     <li>
@@ -71,7 +71,7 @@
 <script>
     
     function jump() {
-        window.location.href="https://mp.weixin.qq.com/s?__biz=MzIzMTc0OTcyMw==&tempkey=MTA0MV93VzBsSDQrdjFSS2M4N2s2a01jRHo5cm5NM1FhNUZ5VzBSWGFoVjlLUWhyVldHMFRWal9lRzJSNVhCRmg1MUhkay0tbFphQklnRXg0MUh2YlE3TFVyZkVlWVVKa3dPOWQ3bVVzVWw4X0ZDSGtqUHlvZTVJeDFabVdvMXh2RHVrMm1KeF9mS2x2aTV4V05Vdy0yRnp6b2Ixc09MVzBoT09MTWJBamp3fn4%3D&chksm=689e202e5fe9a9384dc3ac89c3ec4b4f651d87421cf73c1986665bec2389ef0e683080547b38#rd"
+        window.location.href="https://mp.weixin.qq.com/s/Ln1uip6JJpYqzMKVIU6W7w"
     }
 
 

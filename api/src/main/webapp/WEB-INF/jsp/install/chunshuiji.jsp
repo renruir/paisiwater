@@ -65,7 +65,7 @@
                                 <img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
                                      width="44"></div>
                             <div class="item-inner" style="display: flex;">
-                                <div class="item-title">PS-RO1纯水机安装视频</div>
+                                <div class="item-title">PS-X3即热型</div>
                             </div>
                         </div>
                     </li>
@@ -82,11 +82,11 @@
 <script>
 
     function jump1() {
-        window.location.href = "https://mp.weixin.qq.com/s?__biz=MzIzMTc0OTcyMw==&tempkey=MTA0MV9jUmRHWDcwSS9POHVaRUlPa01jRHo5cm5NM1FhNUZ5VzBSWGFoVjlLUWhyVldHMFRWal9lRzJSNVhCR20yUGtxS1UzN0NyQndwUmRfX2F5bkdJOXAzQS1hR2tYQmpidU9TaXBoa2VfWTZGS2V3RTk2WENLamQ0S0tUdEdzaWZvZlFKMEh1UVRaSk5WRnYwVUJsMERwdTE2RzZGRThueUhFbzhPQUFnfn4%3D&chksm=689e20255fe9a9335ec40b3290c6a90fa9e468ad913b0c1cc70ea264b817fa0bdc8980885f23#rd"
+        window.location.href = "https://mp.weixin.qq.com/s/tnZ_tYK9Fybvre1nvT7Wzw"
     }
 
     function jump2() {
-        window.location.href = "https://mp.weixin.qq.com/s?__biz=MzIzMTc0OTcyMw==&tempkey=MTA0MV8wS3dHT0Y1L2JWb1NWMTBna01jRHo5cm5NM1FhNUZ5VzBSWGFoVjlLUWhyVldHMFRWal9lRzJSNVhCSGozLTlXRlVhdlJzUTY1ejQ3N092ZXU0X1phWVU4WjZhcDdBZUVPR2tUMkxiZmNyaGNzUW9GNDF2WExJNG9MN3VJcExST3I5OEgtdVJoVVlQZTFROTROSWlGZVNhVGtGOFFkNXZ0X3I3blBRfn4%3D&chksm=689e20255fe9a9335eb8473785ec7d009328cd3b57804eb8a7284da1c7febd5749fc70999c89#rd"
+        window.location.href = "https://mp.weixin.qq.com/s/EwSxbP0E_Wn4AD4nCZzyuw"
     }
 
 </script>
