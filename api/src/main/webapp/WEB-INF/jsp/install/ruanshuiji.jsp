@@ -51,8 +51,7 @@
                     <li>
                         <div class="item-content" onclick="jump()">
                             <div class="item-media">
-                                <img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
-                                     width="44"></div>
+                                <img src="/web/images/product/ruanshuiji-RS100.jpg" width="44"></div>
                             <div class="item-inner" style="display: flex;">
                                 <div class="item-title">派斯有盐软水机RS100/200/300的安装操作</div>
                             </div>

@@ -51,7 +51,7 @@
                     <li>
                         <div class="item-content" onclick="jump()">
                             <div class="item-media">
-                                <img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
+                                <img src="/web/images/product/shangyong-PS-D.png"
                                      width="44"></div>
                             <div class="item-inner" style="display: flex;">
                                 <div class="item-title">PS-D系列商用机机头调试视频</div>

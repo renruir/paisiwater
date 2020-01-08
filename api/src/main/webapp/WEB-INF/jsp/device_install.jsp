@@ -38,8 +38,8 @@
                         <li>
                             <a href="qianzhi.html" class="item-link item-content">
                                 <div class="item-media"><img
-                                        src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
-                                        width="80" style="width: 2.5rem"></div>
+                                        src="/web/images/product/qianzhi-PS-1.jpg" width="80" style="width: 2.5rem">
+                                </div>
                                 <div class="item-inner" style="display: flex;">
                                     <div id="0">前置过滤器</div>
                                 </div>
@@ -48,8 +48,7 @@
                         <li>
                             <a href="jinlvmei.html" class="item-link item-content">
                                 <div class="item-media"><img
-                                        src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
-                                        width="80" style="width: 2.5rem"></div>
+                                        src="/web/images/product/jinlvmei-PS-10.jpg"  width="80" style="width: 2.5rem"></div>
                                 <div class="item-inner" style="display: flex;">
                                     <div id="1">金滤媒系列</div>
                                 </div>
@@ -58,8 +57,8 @@
                         <li>
                             <a href="quanwujingshui.html" class="item-link item-content">
                                 <div class="item-media"><img
-                                        src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
-                                        width="80" style="width: 2.5rem"></div>
+                                        src="/web/images/product/quanwojingshui-PS100.jpg" width="80" style="width: 2.5rem">
+                                </div>
                                 <div class="item-inner" style="display: flex;">
                                     <div id="2">全屋净水/SSP系列</div>
                                 </div>
@@ -69,8 +68,7 @@
                         <li>
                             <a href="chunshuiji.html" class="item-link item-content">
                                 <div class="item-media"><img
-                                        src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
-                                        width="80" style="width: 2.5rem"></div>
+                                        src="/web/images/product/RO150.png" width="80" style="width: 2.5rem"></div>
                                 <div class="item-inner" style="display: flex;">
                                     <div id="3">纯水机系列</div>
                                 </div>
@@ -79,8 +77,8 @@
                         <li>
                             <a href="ruanshuiji.html" class="item-link item-content">
                                 <div class="item-media"><img
-                                        src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
-                                        width="80" style="width: 2.5rem"></div>
+                                        src="/web/images/product/ruanshuiji-RS100.jpg" width="80" style="width: 2.5rem">
+                                </div>
                                 <div class="item-inner" style="display: flex;">
                                     <div id="4">有盐软水系列</div>
                                 </div>
@@ -89,8 +87,8 @@
                         <li>
                             <a href="psdshangyong.html" class="item-link item-content">
                                 <div class="item-media"><img
-                                        src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
-                                        width="80" style="width: 2.5rem"></div>
+                                        src="/web/images/product/shangyong-PS-D.png" width="80" style="width: 2.5rem">
+                                </div>
                                 <div class="item-inner" style="display: flex;">
                                     <div id="5">PS-D系列商用机头调试视频</div>
                                 </div>

@@ -51,7 +51,7 @@
                     <li>
                         <div class="item-content" onclick="jump1()">
                             <div class="item-media">
-                                <img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
+                                <img src="/web/images/product/RO150.png"
                                      width="44"></div>
                             <div class="item-inner" style="display: flex;">
                                 <div class="item-title">双出水PS-RO150净水器安装视频</div>
@@ -62,7 +62,7 @@
                     <li>
                         <div class="item-content" onclick="jump2()">
                             <div class="item-media">
-                                <img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
+                                <img src="/web/images/product/RO-5000.png"
                                      width="44"></div>
                             <div class="item-inner" style="display: flex;">
                                 <div class="item-title">PS-X3即热型</div>

@@ -51,8 +51,7 @@
                     <li>
                         <div class="item-content" onclick="jump1()">
                             <div class="item-media">
-                                <img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
-                                     width="44"></div>
+                                <img src="/web/images/product/jinlvmei-PS-50.png" width="44"></div>
                             <div class="item-inner" style="display: flex;">
                                 <div class="item-title">金滤媒 PS-50净水器安装视频</div>
                             </div>
@@ -61,8 +60,7 @@
                     <li>
                         <div class="item-content" onclick="jump2()">
                             <div class="item-media">
-                                <img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
-                                     width="44"></div>
+                                <img src="/web/images/product/jinlvmei-PS-10.jpg"  width="44"></div>
                             <div class="item-inner" style="display: flex;">
                                 <div class="item-title">金滤媒厨下净水器 PS-10净水器安装视频</div>
                             </div>
