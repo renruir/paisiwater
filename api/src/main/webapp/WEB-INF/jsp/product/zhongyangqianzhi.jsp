@@ -37,8 +37,8 @@
                         <li>
                             <a href="http://h5.eqxiu.com/ls/yqYIKGDv" class="item-link item-content">
                                 <div class="item-media"><img
-                                        src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
-                                        width="80" style="width: 2.5rem"></div>
+                                        src="/web/images/product/qianzhi-PS-1.jpg"
+                                        width="80" style="width: 2.5rem; height: 2.5rem"></div>
                                 <div class="item-inner" style="display: flex;">
                                     <div id="0">前置过滤器PS-1</div>
                                 </div>
@@ -47,8 +47,8 @@
                         <li>
                             <a href="https://b.eqxiu.com/s/BIo3A2VM?eqrcode=1" class="item-link item-content">
                                 <div class="item-media"><img
-                                        src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
-                                        width="80" style="width: 2.5rem"></div>
+                                        src="/web/images/product/qianzhi-PS-3.png"
+                                        width="80" style="width: 2.5rem; height: 2.5rem"></div>
                                 <div class="item-inner" style="display: flex;">
                                     <div id="1">全自动前置过滤器PS-3</div>
                                 </div>

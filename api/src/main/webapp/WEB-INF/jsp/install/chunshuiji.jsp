@@ -52,7 +52,7 @@
                         <div class="item-content" onclick="jump1()">
                             <div class="item-media">
                                 <img src="/web/images/product/RO150.png"
-                                     width="44"></div>
+                                     width="44" style="width: 2.5rem; height: 2.5rem"></div>
                             <div class="item-inner" style="display: flex;">
                                 <div class="item-title">双出水PS-RO150净水器安装视频</div>
                             </div>
@@ -62,8 +62,19 @@
                     <li>
                         <div class="item-content" onclick="jump2()">
                             <div class="item-media">
+                                <img src="/web/images/product/RO-500.jpg"
+                                     width="44" style="width: 2.5rem; height: 2.5rem"></div>
+                            <div class="item-inner" style="display: flex;">
+                                <div class="item-title">RO-500安装视频</div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="item-content" onclick="jump3()">
+                            <div class="item-media">
                                 <img src="/web/images/product/RO-5000.png"
-                                     width="44"></div>
+                                     width="44" style="width: 2.5rem; height: 2.5rem"></div>
                             <div class="item-inner" style="display: flex;">
                                 <div class="item-title">PS-X3即热型</div>
                             </div>
@@ -86,6 +97,10 @@
     }
 
     function jump2() {
+        window.location.href = "https://mp.weixin.qq.com/s/okxcS60OwxY6SBT87kOD7w"
+    }
+
+    function jump3() {
         window.location.href = "https://mp.weixin.qq.com/s/EwSxbP0E_Wn4AD4nCZzyuw"
     }
 

@@ -30,11 +30,9 @@ public class MqttService {
 
     private static String clientId = "";
 
-    private static final String topic_jsq = "nodes/tjn_jsq_state/status";
+    private static final String topic_jsq = "nodes/paisi_jsq_state/status";
 
-    private static final String topic_jhq = "nodes/tjn_jhq_state/status";
-
-    private static final String topic_query = "nodes/tjn_jsq_state/query";
+    private static final String topic_query = "nodes/paisi_jsq_state/query";
 
     private MqttClient mqttClient;
 

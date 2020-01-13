@@ -52,7 +52,7 @@
                         <div class="item-content" onclick="jump()">
                             <div class="item-media">
                                 <img src="/web/images/product/shangyong-PS-D.png"
-                                     width="44"></div>
+                                     width="44" style="width: 2.5rem; height: 2.5rem"></div>
                             <div class="item-inner" style="display: flex;">
                                 <div class="item-title">PS-D系列商用机机头调试视频</div>
                             </div>

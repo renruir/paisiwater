@@ -52,7 +52,7 @@
                         <div class="item-content" onclick="jump()">
                             <div class="item-media">
                                 <img src="/web/images/product/quanwojingshui-PS100.jpg"
-                                     width="44"></div>
+                                     width="44" style="width: 2.5rem; height: 2.5rem"></div>
                             <div class="item-inner" style="display: flex;">
                                 <div class="item-title">全屋净水PS-100/200/300、SSP系列安装视频</div>
                             </div>

@@ -37,8 +37,8 @@
                         <li>
                             <a href="https://e.eqxiu.com/s/X8b0W1uN?eqrcode=1" class="item-link item-content">
                                 <div class="item-media"><img
-                                        src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
-                                        width="80" style="width: 2.5rem"></div>
+                                        src="/web/images/product/RO-500.jpg"
+                                        width="80" style="width: 2.5rem; height: 2.5rem"></div>
                                 <div class="item-inner" style="display: flex;">
                                     <div>RO-500纯净双出水</div>
                                 </div>
@@ -47,8 +47,8 @@
                         <li>
                             <a href="http://h5.eqxiu.com/ls/vYl7m8Yf" class="item-link item-content">
                                 <div class="item-media"><img
-                                        src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
-                                        width="80" style="width: 2.5rem"></div>
+                                        src="/web/images/product/RO150.png"
+                                        width="80" style="width: 2.5rem; height: 2.5rem"></div>
                                 <div class="item-inner" style="display: flex;">
                                     <div>RO-150纯净双出水</div>
                                 </div>
@@ -58,8 +58,8 @@
                         <li>
                             <a href="http://h5.eqxiu.com/ls/r7jEV7BP" class="item-link item-content">
                                 <div class="item-media"><img
-                                        src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
-                                        width="80" style="width: 2.5rem"></div>
+                                        src="/web/images/product/RO-5000.png"
+                                        width="80" style="width: 2.5rem; height: 2.5rem"></div>
                                 <div class="item-inner" style="display: flex;">
                                     <div>PS-X3/RO-5000</div>
                                 </div>

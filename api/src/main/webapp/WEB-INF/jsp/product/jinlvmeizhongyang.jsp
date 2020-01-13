@@ -37,8 +37,8 @@
                         <li>
                             <a href="http://h5.eqxiu.com/ls/olC7Spdg" class="item-link item-content">
                                 <div class="item-media"><img
-                                        src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
-                                        width="80" style="width: 2.5rem"></div>
+                                        src="/web/images/product/jinlvmei-PS-10.jpg"
+                                        width="80" style="width: 2.5rem; height: 2.5rem"></div>
                                 <div class="item-inner" style="display: flex;">
                                     <div id="0">金滤媒厨下PS-10</div>
                                 </div>
@@ -47,8 +47,8 @@
                         <li>
                             <a href="http://h5.eqxiu.com/ls/EkCgWnUC?eqrcode=1" class="item-link item-content">
                                 <div class="item-media"><img
-                                        src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
-                                        width="80" style="width: 2.5rem"></div>
+                                        src="/web/images/product/jinlvmei-PS-50.png"
+                                        width="80" style="width: 2.5rem; height: 2.5rem"></div>
                                 <div class="item-inner" style="display: flex;">
                                     <div id="1">金滤媒PS-50</div>
                                 </div>
@@ -57,8 +57,8 @@
                         <li>
                             <a href="http://h5.eqxiu.com/ls/ECts8HcZ?eqrcode=1" class="item-link item-content">
                                 <div class="item-media"><img
-                                        src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
-                                        width="80" style="width: 2.5rem"></div>
+                                        src="/web/images/product/jinlvmei-PS-100.png"
+                                        width="80" style="width: 2.5rem; height: 2.5rem"></div>
                                 <div class="item-inner" style="display: flex;">
                                     <div>金滤媒全屋净水器PS-100/200/300</div>
                                 </div>

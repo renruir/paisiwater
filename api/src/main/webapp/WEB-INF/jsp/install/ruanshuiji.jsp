@@ -49,11 +49,21 @@
             <div class="list-block media-list">
                 <ul>
                     <li>
-                        <div class="item-content" onclick="jump()">
+                        <div class="item-content" onclick="jump1()">
                             <div class="item-media">
-                                <img src="/web/images/product/ruanshuiji-RS100.jpg" width="44"></div>
+                                <img src="/web/images/product/ruanshuiji-RS100.jpg" width="44" style="width: 2.5rem; height: 2.5rem"></div>
                             <div class="item-inner" style="display: flex;">
-                                <div class="item-title">派斯有盐软水机RS100/200/300的安装操作</div>
+                                <div class="item-title">有盐软水机RS100/200/300安装操作</div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="item-content" onclick="jump2()">
+                            <div class="item-media">
+                                <img src="/web/images/product/ruanshuiji-wuyan.jpg" width="44" style="width: 2.5rem; height: 2.5rem"></div>
+                            <div class="item-inner" style="display: flex;">
+                                <div class="item-title">无盐软水新机头安装视频</div>
                             </div>
                         </div>
                     </li>
@@ -69,10 +79,13 @@
 <script src="/web/js/vue.min.js" type="text/javascript"></script>
 <script>
 
-    function jump() {
+    function jump1() {
         window.location.href = "https://mp.weixin.qq.com/s/d-GcMnWAkHHyOxpjGQ1bLg"
     }
 
+    function jump2() {
+        window.location.href = "https://mp.weixin.qq.com/s/e3ukOyZ83W65j8nSLSyeiw"
+    }
 
 </script>
 </body>
