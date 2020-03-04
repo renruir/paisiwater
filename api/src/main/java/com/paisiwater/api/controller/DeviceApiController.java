@@ -1,6 +1,8 @@
 package com.paisiwater.api.controller;
 
+import com.alibaba.druid.util.StringUtils;
 import com.alibaba.fastjson.JSON;
+import com.paisi.utils.HttpClientUtil;
 import com.paisi.utils.ShaUtil;
 import com.paisiwater.api.controller.constant.ApiErrorCode;
 import com.paisiwater.api.controller.constant.WeixinConstant;
@@ -13,10 +15,12 @@ import com.paisiwater.service.WeixinService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.InetAddress;
@@ -52,7 +56,7 @@ public class DeviceApiController {
      *
      * @return
      */
-    @RequestMapping(value = "weixinToken", method = RequestMethod.GET)
+    @RequestMapping(value = "miniProgramToken", method = RequestMethod.GET)
     public String weixinToken(String signature, String timestamp, String nonce, String echostr) {
         try {
             BaseDataProcess dataProcess = new WaterDataProcess();
@@ -73,6 +77,30 @@ public class DeviceApiController {
         try {
             BaseDataProcess dataProcess = new WaterDataProcess();
             return dataProcess.processPost(requestMsg, weixinMsgExecute);
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+        }
+        return "";
+    }
+
+    @RequestMapping(value = "code2Session", method = RequestMethod.GET)
+    public String code2Session(HttpServletRequest request, HttpServletResponse response, String code, Model model) {
+        logger.info("code: " + request.getParameter("js_code"));
+        String js_code = request.getParameter("js_code");
+        if (StringUtils.isEmpty(js_code)) {
+            return "error:code is empty";
+        }
+        String appid = "wx47e14a868fafb7c0";
+        String secret = "3b8428425469ecda8acf7b9e8d309462";
+        try {
+            String url = "https://api.weixin.qq.com/sns/jscode2session?appid=" + appid + "" +
+                    "&secret=" + secret + "&js_code=" + js_code + "&grant_type=authorization_code";
+            String returnStr = HttpClientUtil.httpsRequest(url, "GET", null);
+            if (returnStr != null && !"".equals(returnStr)) {
+                Map<String, Object> returnMap = (Map<String, Object>) JSON.parse(returnStr);
+                String ret = JSON.toJSONString(returnMap);
+                return ret;
+            }
         } catch (Exception e) {
             logger.error(e.getMessage());
         }
