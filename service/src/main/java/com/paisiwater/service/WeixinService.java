@@ -368,5 +368,9 @@ public interface WeixinService {
 	 */
 	public List<GeneralDeviceInfo> scanGeneralDeviceInfo() throws Exception;
 
+	/**
+	 * 通过unionid获取微信信息
+	 */
+	public WxUserInfo getWxUserInfoByUnionId(String unionid) throws Exception;
 
 }

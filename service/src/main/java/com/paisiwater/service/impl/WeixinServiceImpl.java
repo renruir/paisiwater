@@ -379,5 +379,10 @@ public class WeixinServiceImpl implements WeixinService {
         return weixinDao.scanGeneralDeviceInfo();
     }
 
+    @Override
+    public WxUserInfo getWxUserInfoByUnionId(String unionid) throws Exception {
+        return weixinDao.getWxUserInfoByUnionId(unionid);
+    }
+
 
 }

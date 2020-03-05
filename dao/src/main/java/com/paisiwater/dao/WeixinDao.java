@@ -307,6 +307,11 @@ public interface WeixinDao {
      */
     public List<GeneralDeviceInfo> scanGeneralDeviceInfo();
 
+    /**
+     * 通过unionid获取微信信息
+     */
+    public WxUserInfo getWxUserInfoByUnionId(String unionid);
+
 }
 
 

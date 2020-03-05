@@ -490,5 +490,11 @@
         ]]>
 	</select>
 
+	<select id="getWxUserInfoByUnionId" parameterType="java.lang.String" resultType="WxUserInfo">
+		<![CDATA[
+		select openid,gh_id,nickname,sex,city,province,country,headimgurl,unionid from wx_user_info where unionid=#{unionid}
+		 ]]>
+	</select>
+
 
 </mapper>

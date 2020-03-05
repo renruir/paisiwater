@@ -90,8 +90,8 @@ public class DeviceApiController {
         if (StringUtils.isEmpty(js_code)) {
             return "error:code is empty";
         }
-        String appid = "wx47e14a868fafb7c0";
-        String secret = "3b8428425469ecda8acf7b9e8d309462";
+        String appid = "wxb6b2e39f8eab751c";
+        String secret = "a416c4efff675a04861ca97b0d3dc4a7";
         try {
             String url = "https://api.weixin.qq.com/sns/jscode2session?appid=" + appid + "" +
                     "&secret=" + secret + "&js_code=" + js_code + "&grant_type=authorization_code";
