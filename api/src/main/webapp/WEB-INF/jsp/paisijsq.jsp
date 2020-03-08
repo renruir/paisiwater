@@ -45,7 +45,6 @@
                 <a>℃</a>
             </div>
         </div>
-
     </div>
     <div class="background_bottom">
         <div id="filters">

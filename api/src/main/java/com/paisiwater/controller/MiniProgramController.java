@@ -60,6 +60,9 @@ public class MiniProgramController {
                     zInfo.put("deviceId", deviceInfo.getDeviceId());
                     zInfo.put("seqNum", deviceInfo.getSeqNum());
                     zInfo.put("model", deviceInfo.getModel());
+                    String filters = JSON.toJSONString(filterInfos);
+                    logger.info("json: " + filters);
+                    zInfo.put("filters", filters);
                     zInfo.put("filter1", filterInfos.get(0).getFilterName());
                     zInfo.put("filter2", filterInfos.get(1).getFilterName());
                     zInfo.put("filter3", filterInfos.get(2).getFilterName());
