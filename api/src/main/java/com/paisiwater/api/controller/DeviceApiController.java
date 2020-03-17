@@ -10,6 +10,7 @@ import com.paisiwater.api.model.*;
 import com.paisiwater.execute.msg.WeixinMsgExecute;
 import com.paisiwater.handler.BaseDataProcess;
 import com.paisiwater.handler.WaterDataProcess;
+import com.paisiwater.model.MiniProgramInfo;
 import com.paisiwater.model.WxBindInfo;
 import com.paisiwater.service.WeixinService;
 import org.slf4j.Logger;
@@ -84,14 +85,16 @@ public class DeviceApiController {
     }
 
     @RequestMapping(value = "code2Session", method = RequestMethod.GET)
-    public String code2Session(HttpServletRequest request, HttpServletResponse response, String code, Model model) {
+    public String code2Session(HttpServletRequest request, HttpServletResponse response, String code, Model model) throws Exception {
         logger.info("code: " + request.getParameter("js_code"));
         String js_code = request.getParameter("js_code");
         if (StringUtils.isEmpty(js_code)) {
             return "error:code is empty";
         }
-        String appid = "wxb6b2e39f8eab751c";
-        String secret = "a416c4efff675a04861ca97b0d3dc4a7";
+        MiniProgramInfo miniProgramInfo = weixinService.getMiniProgramInfo(WeixinConstant.MINI_PROGRAM_GH_ID);
+        String appid = miniProgramInfo.getAppId();
+        String secret = miniProgramInfo.getAppSecret();
+        logger.info("appid:" + appid + ", secretid: " + secret);
         try {
             String url = "https://api.weixin.qq.com/sns/jscode2session?appid=" + appid + "" +
                     "&secret=" + secret + "&js_code=" + js_code + "&grant_type=authorization_code";

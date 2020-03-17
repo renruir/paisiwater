@@ -63,10 +63,10 @@ public class MiniProgramController {
                     String filters = JSON.toJSONString(filterInfos);
                     logger.info("json: " + filters);
                     zInfo.put("filters", filters);
-                    zInfo.put("filter1", filterInfos.get(0).getFilterName());
-                    zInfo.put("filter2", filterInfos.get(1).getFilterName());
-                    zInfo.put("filter3", filterInfos.get(2).getFilterName());
-                    zInfo.put("filter4", filterInfos.get(3).getFilterName());
+//                    zInfo.put("filter1", filterInfos.get(0).getFilterName());
+//                    zInfo.put("filter2", filterInfos.get(1).getFilterName());
+//                    zInfo.put("filter3", filterInfos.get(2).getFilterName());
+//                    zInfo.put("filter4", filterInfos.get(3).getFilterName());
                     return JSON.toJSONString(zInfo);
                 }
             }

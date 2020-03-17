@@ -312,6 +312,11 @@ public interface WeixinDao {
      */
     public WxUserInfo getWxUserInfoByUnionId(String unionid);
 
+    /**
+     *获取小程序app_id和secret id
+     */
+    public MiniProgramInfo getMiniProgramInfo(String ghId);
+
 }
 
 

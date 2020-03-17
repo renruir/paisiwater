@@ -384,5 +384,10 @@ public class WeixinServiceImpl implements WeixinService {
         return weixinDao.getWxUserInfoByUnionId(unionid);
     }
 
+    @Override
+    public MiniProgramInfo getMiniProgramInfo(String ghId) throws Exception {
+        return weixinDao.getMiniProgramInfo(ghId);
+    }
+
 
 }
