@@ -48,7 +48,7 @@ public class MqttService {
             logger.info("mqtt open start");
             wxAccessToken = weixinService.getAccessToken(ServiceConstant.appId);
             int rdm = (int) (Math.random() * (9000)) + 1000;//产生1000-9999的随机数
-            clientId = "mqtt_for_tjn_jsq_" + String.valueOf(rdm);
+            clientId = "mqtt_for_paisi_jsq_" + String.valueOf(rdm);
 
 //            TrustManagerFactory tmf = TrustManagerFactory.getInstance("X509");
 //            tmf.init((KeyStore)null);
