@@ -22,5 +22,6 @@
         <typeAlias alias="RegionTds" type="com.paisiwater.api.model.RegionTds"/>
         <typeAlias alias="LeaseInfo" type="com.paisiwater.device.model.LeaseInfo"/>
         <typeAlias alias="GeneralDeviceInfo" type="com.paisiwater.api.model.GeneralDeviceInfo"/>
+        <typeAlias alias="MiniProgramInfo" type="com.paisiwater.model.MiniProgramInfo"/>
     </typeAliases>
 </configuration>

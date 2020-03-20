@@ -50,23 +50,14 @@ public class MiniProgramController {
             List<FilterInfo> filterInfos = null;
             if (wxBindInfo != null && StrUtil.strIsNotNull(wxBindInfo.getDeviceId())) {
                 deviceInfo = weixinService.getDeviceInfo(wxBindInfo.getDeviceId());
-                logger.info("model: " + deviceInfo.getModel());
                 if (deviceInfo != null) {
                     filterInfos = weixinService.getFilterInfo(deviceInfo.getModel());
-                    for (FilterInfo info : filterInfos) {
-                        logger.info("filter" + info.getRank() + " name: " + info.getFilterName());
-                    }
                     zInfo.put("unionid", wxUserInfo.getUnionid());
                     zInfo.put("deviceId", deviceInfo.getDeviceId());
                     zInfo.put("seqNum", deviceInfo.getSeqNum());
                     zInfo.put("model", deviceInfo.getModel());
                     String filters = JSON.toJSONString(filterInfos);
-                    logger.info("json: " + filters);
                     zInfo.put("filters", filters);
-                    zInfo.put("filter1", filterInfos.get(0).getFilterName());
-                    zInfo.put("filter2", filterInfos.get(1).getFilterName());
-                    zInfo.put("filter3", filterInfos.get(2).getFilterName());
-                    zInfo.put("filter4", filterInfos.get(3).getFilterName());
                     return JSON.toJSONString(zInfo);
                 }
             }
