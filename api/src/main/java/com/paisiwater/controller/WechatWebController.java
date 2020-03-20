@@ -95,7 +95,7 @@ public class WechatWebController {
             UrlMenu menu2003 = new UrlMenu();
             menu2003.setName("金滤媒厨下/中央系列");
             menu2003.setType("view");
-            menu2003.setUrl("http://wx.mypraise.cn/web/wechat/jinlvmeizhongyang.html");
+            menu2003.setUrl("https://wx.mypraise.cn/web/wechat/jinlvmeizhongyang.html");
 
             UrlMenu menu2004 = new UrlMenu();
             menu2004.setName("涅普顿厨下系列");
@@ -106,12 +106,12 @@ public class WechatWebController {
             UrlMenu menu2005 = new UrlMenu();
             menu2005.setName("RO反渗透机器");
             menu2005.setType("view");
-            menu2005.setUrl("http://wx.mypraise.cn/web/wechat/rofanshengtou.html");
+            menu2005.setUrl("https://wx.mypraise.cn/web/wechat/rofanshengtou.html");
 
             UrlMenu menu2006 = new UrlMenu();
             menu2006.setName("SSP阻垢软水机");
             menu2006.setType("view");
-            menu2006.setUrl("http://h5.eqxiu.com/ls/mQXjjCeI?eqrcode=1");
+            menu2006.setUrl("https://h5.eqxiu.com/ls/mQXjjCeI?eqrcode=1");
 
             List<Object> list20 = new ArrayList<Object>();
             list20.add(menu2002);
@@ -128,22 +128,22 @@ public class WechatWebController {
             UrlMenu menu3001 = new UrlMenu();
             menu3001.setName("机器安装视频");
             menu3001.setType("view");
-            menu3001.setUrl("http://wx.mypraise.cn/web/wechat/devices-install.html");
+            menu3001.setUrl("https://wx.mypraise.cn/web/wechat/devices-install.html");
 
             UrlMenu menu3002 = new UrlMenu();
             menu3002.setName("咨询服务");
             menu3002.setType("view");
-            menu3002.setUrl("http://wx.mypraise.cn/web/wechat/consult-service.html");
+            menu3002.setUrl("https://wx.mypraise.cn/web/wechat/consult-service.html");
 
             UrlMenu menu3003 = new UrlMenu();
             menu3003.setName("设备配网");
             menu3003.setType("view");
-            menu3003.setUrl("http://wx.mypraise.cn/web/wechat/net-setting.html");
+            menu3003.setUrl("https://wx.mypraise.cn/web/wechat/net-setting.html");
 
             UrlMenu menu3005 = new UrlMenu();
             menu3005.setName("我的设备");
             menu3005.setType("view");
-            menu3005.setUrl("http://wx.mypraise.cn/web/wechat/index.html");
+            menu3005.setUrl("https://wx.mypraise.cn/web/wechat/index.html");
 
             List<Object> list30 = new ArrayList<Object>();
             list30.add(menu3001);
