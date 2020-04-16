@@ -57,7 +57,18 @@ public class DeviceApiController {
      *
      * @return
      */
-    @RequestMapping(value = "miniProgramToken", method = RequestMethod.GET)
+//    @RequestMapping(value = "miniProgramToken", method = RequestMethod.GET)
+//    public String weixinToken(String signature, String timestamp, String nonce, String echostr) {
+//        try {
+//            BaseDataProcess dataProcess = new WaterDataProcess();
+//            return dataProcess.token(signature, timestamp, nonce, echostr, WeixinConstant.TOKEN);
+//        } catch (Exception e) {
+//            logger.error(e.getMessage());
+//        }
+//        return "";
+//    }
+
+    @RequestMapping(value = "weixinToken", method = RequestMethod.GET)
     public String weixinToken(String signature, String timestamp, String nonce, String echostr) {
         try {
             BaseDataProcess dataProcess = new WaterDataProcess();

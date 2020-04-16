@@ -44,6 +44,7 @@ public class WaterMsgExecuteImpl implements WeixinMsgExecute {
                 if (userInfoMap != null && userInfoMap.get("nickname") != null) {
                     WxUserInfo wxUserInfo = new WxUserInfo();
                     wxUserInfo.setOpenid(StrUtil.objectToString(userInfoMap.get("openid")));
+                    wxUserInfo.setUnionid(StrUtil.objectToString(userInfoMap.get("unionid")));
                     wxUserInfo.setGhId(toUserName);
                     wxUserInfo.setCity(StrUtil.objectToString(userInfoMap.get("city")));
                     wxUserInfo.setCountry(StrUtil.objectToString(userInfoMap.get("country")));

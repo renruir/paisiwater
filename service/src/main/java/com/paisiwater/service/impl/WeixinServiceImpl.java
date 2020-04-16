@@ -388,6 +388,4 @@ public class WeixinServiceImpl implements WeixinService {
     public MiniProgramInfo getMiniProgramInfo(String ghId) throws Exception {
         return weixinDao.getMiniProgramInfo(ghId);
     }
-
-
 }

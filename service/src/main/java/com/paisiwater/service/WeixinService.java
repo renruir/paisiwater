@@ -377,5 +377,10 @@ public interface WeixinService {
 	 *获取小程序app_id和secret id
 	 */
 	public MiniProgramInfo getMiniProgramInfo(String ghId) throws Exception;
+//
+//	/**
+//	 * 根据openid获取unionid
+//	 */
+//	public String getUnionId(String token, String openId) throws Exception;
 
 }
