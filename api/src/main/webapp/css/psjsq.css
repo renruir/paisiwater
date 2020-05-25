@@ -174,7 +174,7 @@
 
 .clip {
     border-radius: 50%;
-    clip: rect(0px 12rem 12rem 6rem);
+    clip: rect(0px 12rem 12rem 5.8rem);
     height: 100%;
     position: absolute;
     width: 100%;
@@ -221,8 +221,9 @@
 
 #filter-description{
     display: flex;
-    position: relative;
-    margin-top: 5rem;
+    position: fixed;
+    /*margin-top: 6rem;*/
+    bottom: 5rem;
     margin-right: 1rem;
     margin-left: 1rem;
 }

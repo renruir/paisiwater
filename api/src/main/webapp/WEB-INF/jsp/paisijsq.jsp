@@ -22,7 +22,7 @@
     <link href="/web/css/jsq_home.css?v=1.1" rel="stylesheet"/>
     <link href="/web/css/swiper-3.4.1.min.css" rel="stylesheet"/>
     <link href="/web/css/weui.min.css" rel="stylesheet"/>
-    <link href="/web/css/psjsq.css?v=1.1" rel="stylesheet"/>
+    <link href="/web/css/psjsq.css?v=1.0" rel="stylesheet"/>
     <link rel="stylesheet" href="/web/css/popup_dialog.css">
 </head>
 <body style="width: 100%;height: 100%;margin: 0;padding: 0;">
@@ -39,13 +39,12 @@
                 TDS
             </a>
             <div class="water-qa">
-                <a>原水TDS:<b style="font-size: 0.8rem">{{sourcetds}}</b></a>
+                <a>原水TDS：<b style="font-size: 0.8rem">{{sourcetds}}</b></a>
                 <a>&nbsp;&nbsp;/&nbsp;&nbsp;</a>
                 <a>水温：<b style="font-size: 0.8rem">{{watertemp}}</b></a>
                 <a>℃</a>
             </div>
         </div>
-
     </div>
     <div class="background_bottom">
         <div id="filters">
