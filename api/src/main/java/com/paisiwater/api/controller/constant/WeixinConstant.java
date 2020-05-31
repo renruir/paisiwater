@@ -15,4 +15,6 @@ public interface WeixinConstant {
 	String APP_ID = "wxf9c52bdadc627711";
 
 	String PRODUCT_ID = "55574";
+
+	String MINI_PROGRAM_GH_ID = "gh_ed83621ec4e3";
 }

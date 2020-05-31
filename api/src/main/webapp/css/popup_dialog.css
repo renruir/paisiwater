@@ -25,12 +25,12 @@ body, html {
     width: 7.20rem;
     height: 100%;
     position: absolute;
-    margin-left: -3.6rem;
+    margin-left: -5rem;
     left: 50%;
 }
 
 .common{
-    width: 7.2rem;
+    width: 10rem;
     border-radius: 3px;
     background-color: whitesmoke;
     position: absolute;
@@ -69,12 +69,12 @@ body, html {
 }
 
 .popup_dialog_content {
-    height: 3.66rem;
+    height: 6rem;
 }
 .popup_dialog_content_comfirm{
     padding: 0.84rem 0.4rem 0 0.64rem;
-    line-height: 0.5rem;
-    font-size: 0.4rem;
+    line-height: 0.8rem;
+    font-size: 1rem;
     letter-spacing: 0.03rem;
 }
 
@@ -125,9 +125,8 @@ body, html {
 }
 .popup_dialog_bottom_button{
     padding: 0;
-    width: 3.64rem;
-    height: 0.95rem;
-    font-size: 0.3rem;
+    width: 5rem;
+    font-size: 0.6rem;
     position: relative;
     background-image: url("../images/popup_dialog/bg_popput_button.png");
     background-repeat:no-repeat; background-size:100% 100%;-moz-background-size:100% 100%;
@@ -136,7 +135,7 @@ body, html {
     color: white;
 }
 .popup_dialog{
-    height:7.5rem;
+    height:9rem;
     position: fixed;
-    top: 9em;
+    top: 5em;
 }

@@ -307,6 +307,16 @@ public interface WeixinDao {
      */
     public List<GeneralDeviceInfo> scanGeneralDeviceInfo();
 
+    /**
+     * 通过unionid获取微信信息
+     */
+    public WxUserInfo getWxUserInfoByUnionId(String unionid);
+
+    /**
+     *获取小程序app_id和secret id
+     */
+    public MiniProgramInfo getMiniProgramInfo(String ghId);
+
 }
 
 

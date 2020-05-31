@@ -29,7 +29,7 @@ public class WaterDataProcess extends BaseDataProcess{
 				if(MessageUtil.EVENT_TYPE_SUBSCRIBE.equals(eventType)){
 					respContent = weixinMsgExecute.subscribeMsg(requestMap);
 				}else if(MessageUtil.EVENT_TYPE_UNSUBSCRIBE.equals(eventType)){
-//					respContent = weixinMsgExecute.unsubscribeMsg(requestMap);
+					respContent = weixinMsgExecute.unsubscribeMsg(requestMap);
 				}
 			}else if(MessageUtil.REQ_MESSAGE_TYPE_DEVICE_EVENT.equals(msgType)){
 				String eventType = requestMap.get("Event");

@@ -207,12 +207,19 @@
     transform: rotate(180deg);
 }
 
+.filter-button{
+    display: inline-flex;
+    position: fixed;
+    bottom: 1rem;
+    right: 0;
+    left: 0;
+}
+
 .filter-reset{
     bottom: 1.5rem;
-    position: fixed;
     right: 0px;
     left: 0px;
-    width: 60%;
+    width: 40%;
     margin: 0 auto;
     text-align: center;
     background-color: #1C8DE0;

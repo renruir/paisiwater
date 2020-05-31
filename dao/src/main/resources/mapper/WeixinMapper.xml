@@ -490,5 +490,17 @@
         ]]>
 	</select>
 
+	<select id="getWxUserInfoByUnionId" parameterType="java.lang.String" resultType="WxUserInfo">
+		<![CDATA[
+		select openid,gh_id,nickname,sex,city,province,country,headimgurl,unionid from wx_user_info where unionid=#{unionid}
+		 ]]>
+	</select>
+
+	<select id="getMiniProgramInfo" parameterType="java.lang.String" resultType="MiniProgramInfo">
+		<![CDATA[
+		select gh_id ghId,app_id appId,app_secret appSecret,token token from miniprogram_info where gh_id=#{ghId}
+		 ]]>
+	</select>
+
 
 </mapper>

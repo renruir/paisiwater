@@ -420,3 +420,44 @@ ul {
     width: 25%;
     text-align: center;
 }
+.my-device-list {
+    background-color: #ffffff;
+    margin: 1rem;
+    padding: 0.5rem;
+    border-radius: 6px;
+    margin-bottom: 2px;
+    color: #8a8a8a;
+}
+.my-device-list-title {
+    color: #202020;
+    font-size: 1.5rem;
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem
+}
+.show-more-info {
+    position: relative;
+    width: 100%;
+    height: 16px
+}
+
+.show-more-info-icon {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    float: right;
+    margin-right: 1rem;
+}
+
+.item-select {
+    border-right: #000000 1px solid;
+    border-top: #ffffff 1px solid;
+    font-size: 15px;
+    border-left: #ffffff 1px solid;
+    color: #6a6f77;
+    border-bottom: #000000 1px solid;
+    background-color: #f4f4f4;
+}
+
+.weui-form-title-width {
+    /*width: 4.5rem !important;*/
+    color: #0f6be2 !important;
+}

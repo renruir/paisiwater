@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+
+	<title>添加设备</title>
+
+	<style type="text/css">
+		html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:1.6;margin:0;padding:0;font-size: 100px;}
+		body{-webkit-touch-callout:none;font-family:"Helvetica Neue",Helvetica,"Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;background-color:#fff;line-height:inherit;margin:0;padding:0;color: #444444;font-size: 0.24rem;}
+
+		a{ text-decoration:none; }
+		ul{ list-style: none;margin: 0;padding: 0; }
+
+		a,
+		input,div {
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		}
+
+
+		.add_device_main{
+			width: 7.20rem;
+			height: 100%;
+			min-height:10rem;
+			position: absolute;
+			margin-left:-3.6rem;
+			top:0;
+			left:50%;
+		}
+
+		.add_device_content{
+			width: 7.20rem;
+			height:100%;
+			position: relative;
+			overflow: hidden;
+		}
+
+
+
+		.home_content_bg{
+			width: 7.20rem;
+			height:100%;
+			top:0;
+			left:0;
+			position: absolute;
+			background: url("../images/add_device_bg.png") no-repeat;
+			background-size: cover;
+		}
+
+
+		.select_device_text{
+			color: #515c6f;
+			font-size: 0.28rem;
+			margin-top: 1.8rem;
+			text-align: center;
+		}
+
+		.js_btn{
+			width: 3.7rem;
+			height: 1.02rem;
+			margin: 0 auto;
+			margin-top: 1.1rem;
+			line-height: 1.02rem;
+			text-align: center;
+			font-size: 0.35rem;
+			color:#fff;
+			background: url("images/add_device_btn.png") no-repeat;
+			background-size:3.7rem 1.02rem;
+		}
+
+		.kj_btn{
+			width: 3.7rem;
+			height: 1.02rem;
+			margin: 0 auto;
+			margin-top: 1rem;
+			line-height: 1.02rem;
+			text-align: center;
+			font-size: 0.35rem;
+			color:#fff;
+			background: url("images/add_device_btn.png") no-repeat;
+			background-size:3.7rem 1.02rem;
+		}
+		.peiwang{text-align: center;
+			padding-top:1.50rem;
+			line-height: 0.84rem;
+			color: #4B5567;
+			font-size:0.26rem;
+			font-weight:bold ;
+			display: none;
+		}
+		.icon{
+			vertical-align:middle;
+
+		}
+	</style>
+
+	<script>(function (doc, win) { var docEl = doc.documentElement, resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize', recalc = function () { var clientWidth = docEl.clientWidth; if (!clientWidth) return; if(clientWidth>560){clientWidth=560;} docEl.style.fontSize = 100 * (clientWidth / 720) + 'px'; }; recalc(); if (!doc.addEventListener) return; win.addEventListener(resizeEvt, recalc, false); /* doc.addEventListener('DOMContentLoaded', recalc, false); */})(document, window);
+	</script>
+</head>
+<body>
+<div class="add_device_main">
+
+	<div class="add_device_content">
+		<div class="home_content_bg">
+
+			<div class="select_device_text">请选择要添加的设备类型</div>
+
+			<div class="js_btn" onclick="add_new_device();">智能净水</div>
+
+			<div class="kj_btn" onclick="add_general_device()">前置过滤器</div>
+
+			<div class="kj_btn">智能空净</div>
+
+
+			<div class='peiwang'><img class="icon" src="../images/icon_warning.png"><span>查看配网指引</span></div>
+
+		</div>
+	</div>
+
+</div>
+
+<script>
+	function add_new_device() {
+		window.location.href = "/web/wechat/net-setting.html"
+	}
+
+	function add_general_device() {
+        window.location.href = "/web/wechat/add-general-device.html"
+    }
+</script>
+</body>
+</html>

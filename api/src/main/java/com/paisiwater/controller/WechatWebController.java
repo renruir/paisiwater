@@ -90,12 +90,12 @@ public class WechatWebController {
             UrlMenu menu2002 = new UrlMenu();
             menu2002.setName("中央前置过滤器");
             menu2002.setType("view");
-            menu2002.setUrl("http://wx.mypraise.cn/web/wechat/zhongyangqianzhi.html");
+            menu2002.setUrl("https://wx.mypraise.cn/web/wechat/zhongyangqianzhi.html");
 
             UrlMenu menu2003 = new UrlMenu();
             menu2003.setName("金滤媒厨下/中央系列");
             menu2003.setType("view");
-            menu2003.setUrl("http://wx.mypraise.cn/web/wechat/jinlvmeizhongyang.html");
+            menu2003.setUrl("https://wx.mypraise.cn/web/wechat/jinlvmeizhongyang.html");
 
             UrlMenu menu2004 = new UrlMenu();
             menu2004.setName("涅普顿厨下系列");
@@ -106,12 +106,12 @@ public class WechatWebController {
             UrlMenu menu2005 = new UrlMenu();
             menu2005.setName("RO反渗透机器");
             menu2005.setType("view");
-            menu2005.setUrl("http://wx.mypraise.cn/web/wechat/rofanshengtou.html");
+            menu2005.setUrl("https://wx.mypraise.cn/web/wechat/rofanshengtou.html");
 
             UrlMenu menu2006 = new UrlMenu();
             menu2006.setName("SSP阻垢软水机");
             menu2006.setType("view");
-            menu2006.setUrl("http://h5.eqxiu.com/ls/mQXjjCeI?eqrcode=1");
+            menu2006.setUrl("https://h5.eqxiu.com/ls/mQXjjCeI?eqrcode=1");
 
             List<Object> list20 = new ArrayList<Object>();
             list20.add(menu2002);
@@ -128,22 +128,22 @@ public class WechatWebController {
             UrlMenu menu3001 = new UrlMenu();
             menu3001.setName("机器安装视频");
             menu3001.setType("view");
-            menu3001.setUrl("http://wx.mypraise.cn/web/wechat/devices-install.html");
+            menu3001.setUrl("https://wx.mypraise.cn/web/wechat/devices-install.html");
 
             UrlMenu menu3002 = new UrlMenu();
             menu3002.setName("咨询服务");
             menu3002.setType("view");
-            menu3002.setUrl("http://wx.mypraise.cn/web/wechat/consult-service.html");
+            menu3002.setUrl("https://wx.mypraise.cn/web/wechat/consult-service.html");
 
             UrlMenu menu3003 = new UrlMenu();
             menu3003.setName("设备配网");
             menu3003.setType("view");
-            menu3003.setUrl("http://wx.mypraise.cn/web/wechat/net-setting.html");
+            menu3003.setUrl("https://wx.mypraise.cn/web/wechat/net-setting.html");
 
             UrlMenu menu3005 = new UrlMenu();
             menu3005.setName("我的设备");
             menu3005.setType("view");
-            menu3005.setUrl("http://wx.mypraise.cn/web/wechat/index.html");
+            menu3005.setUrl("https://wx.mypraise.cn/web/wechat/index.html");
 
             List<Object> list30 = new ArrayList<Object>();
             list30.add(menu3001);
@@ -175,18 +175,16 @@ public class WechatWebController {
 
     @RequestMapping(value = "devices-install.html")
     public String devicesInstall(HttpServletRequest request, HttpServletResponse response, String code, Model model) {
-//        String deviceId = request.getParameter("device_id");
         return "device_install";
     }
 
     @RequestMapping(value = "consult-service.html")
     public String serice(HttpServletRequest request, HttpServletResponse response, String code, Model model) {
-//        String deviceId = request.getParameter("device_id");
         return "consult_service";
     }
 
-    @RequestMapping(value = "index.html")
-    public String index(HttpServletRequest request, HttpServletResponse response, String code, Model model) {
+    @RequestMapping(value = "my_devices.html")
+    public String paisijsq(HttpServletRequest request, HttpServletResponse response, String code, Model model) {
         try {
             WxAppInfo wxAppInfo = new WxAppInfo();
             wxAppInfo.setGhId(JSQ_GH_ID);
@@ -226,23 +224,28 @@ public class WechatWebController {
                 wxBindInfo.setAppId(appId);
                 wxBindInfo.setDeviceType(JSQ_DEVICE_TYPE);
 
-                if (weixinService.getWxBindInfo(wxBindInfo) != null && weixinService.getWxBindInfo(wxBindInfo).size() > 0){
+                if (weixinService.getWxBindInfo(wxBindInfo) != null && weixinService.getWxBindInfo(wxBindInfo).size() > 0) {
                     wxBindInfo = weixinService.getWxBindInfo(wxBindInfo).get(0);
                 } else {
 
                 }
 //                model.addAttribute("updateDeviceInfo", null);
                 DeviceInfo deviceInfo = null;
-                String jsTotal = null;
                 List<FilterInfo> filterInfos = null;
                 if (wxBindInfo != null && StrUtil.strIsNotNull(wxBindInfo.getDeviceId())) {
                     deviceInfo = weixinService.getDeviceInfo(wxBindInfo.getDeviceId());
                     if (deviceInfo != null) {
                         filterInfos = weixinService.getFilterInfo(deviceInfo.getModel());
-                        for (FilterInfo info : filterInfos) {
-//                            logger.info("filter" + info.getRank() + " name: " + info.getFilterName());
-                        }
                     }
+                }
+
+                WxUserInfo wxUserInfo = weixinService.getWxUserInfo(cookieUid);
+                if (wxUserInfo.getUnionid() == null || "".equals(wxUserInfo.getUnionid())) {
+                    Map<String, Object> weixinUserInfo = WeixinServerEngin.getWxUserInfo(cookieUid, weixinService.getAccessToken(appId).getAccessToken());
+                    logger.info("wxUserInfo: " + weixinUserInfo.toString());
+                    String unionId = (String) weixinUserInfo.get("unionid");
+                    wxUserInfo.setUnionid(unionId);
+                    weixinService.saveWxUserInfo(wxUserInfo);
                 }
                 model.addAttribute("wxBindInfo", wxBindInfo);
                 Map<String, String> serverInfo = new HashMap<String, String>();
@@ -257,6 +260,44 @@ public class WechatWebController {
             logger.error(e.getMessage());
         }
         return "";
+    }
+
+    @RequestMapping(value = "index.html")
+    public String index(HttpServletRequest request, HttpServletResponse response, String code, Model model) {
+        try {
+            WxAppInfo wxAppInfo = new WxAppInfo();
+            wxAppInfo.setGhId(JSQ_GH_ID);
+            wxAppInfo = weixinService.getWxAppInfo(wxAppInfo);
+            String appId = wxAppInfo.getAppId();
+            String appSecret = wxAppInfo.getAppSecret();
+            String cookieUid = CookieUtil.getCookie(appId + "_uid", request);
+            logger.info("cookieUid: " + cookieUid);
+            if (cookieUid != null && !"".equals(cookieUid)) {
+                CookieUtil.setCookie(appId + "_uid", cookieUid, response);
+            } else if (code != null && !"".equals(code)) {
+                Map<Object, Object> openidMap = WeixinServerEngin.getOauthUserId(code, appId, appSecret);
+                if (openidMap != null) {
+                    cookieUid = StrUtil.objectToString(openidMap.get("openid"));
+
+                    if (cookieUid != null && !"".equals(cookieUid)) {
+                        CookieUtil.setCookie(appId + "_uid", cookieUid, response);
+                    }
+                }
+            }
+            if (StrUtil.strIsNotNull(cookieUid)) {
+                Map<String, String> serverInfo = new HashMap<String, String>();
+                serverInfo.put("host", MQTT_HOST);
+                serverInfo.put("port", MQTT_PORT);
+                serverInfo.put("appId", appId);
+//                serverInfo.put("openId", cookieUid);
+                model.addAttribute("serverInfo", serverInfo);
+                return "index";
+            }
+
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+        }
+        return null;
     }
 
     @RequestMapping(value = "test_index.html")
@@ -291,111 +332,6 @@ public class WechatWebController {
                 return "index";
             }
 
-        } catch (Exception e) {
-            logger.error(e.getMessage());
-        }
-        return null;
-    }
-
-
-    @RequestMapping(value = "my_devices.html")
-    public String myDevices(HttpServletRequest request, HttpServletResponse response, String code, Model model) {
-        try {
-            DeviceVersionUpdate updateDeviceInfo = new DeviceVersionUpdate();
-            String deviceId = request.getParameter("deviceId");
-            String deviceType = request.getParameter("type");
-            String update = request.getParameter("update");
-            if (!"".equals(update) && update != null) {
-                updateDeviceInfo.setVersion(request.getParameter("version"));
-                updateDeviceInfo.setDeviceType(deviceType);
-                updateDeviceInfo.setDownloadUrl(request.getParameter("url"));
-                updateDeviceInfo.setPkgSize(request.getParameter("size"));
-                updateDeviceInfo.setMd5(request.getParameter("md5"));
-
-            }
-            WxAppInfo wxAppInfo = new WxAppInfo();
-            wxAppInfo.setGhId(JSQ_GH_ID);
-            wxAppInfo = weixinService.getWxAppInfo(wxAppInfo);
-            String appId = wxAppInfo.getAppId();
-            String appSecret = wxAppInfo.getAppSecret();
-            String cookieUid = CookieUtil.getCookie(appId + "_uid", request);
-            WxJsApiTicket wxTicket = weixinService.getJsApiTicket(appId);
-            logger.info("my_devices cookieUid: " + cookieUid);
-            if (cookieUid != null && !"".equals(cookieUid)) {
-                CookieUtil.setCookie(appId + "_uid", cookieUid, response);
-            } else if (code != null && !"".equals(code)) {
-                Map<Object, Object> openidMap = WeixinServerEngin.getOauthUserId(code, appId, appSecret);
-                if (openidMap != null) {
-                    cookieUid = StrUtil.objectToString(openidMap.get("openid"));
-
-                    if (cookieUid != null && !"".equals(cookieUid)) {
-                        CookieUtil.setCookie(appId + "_uid", cookieUid, response);
-                    }
-                }
-            } else {
-                String homeUrl = ServiceConstant.WX_DOMAIN + "web/wechat/my_devices.html";
-                try {
-                    homeUrl = URLEncoder.encode(homeUrl, "utf-8");
-                } catch (UnsupportedEncodingException e) {
-                }
-                String homeMenuUrl = WeixinConstant.OAUTH_URL;
-                homeMenuUrl = homeMenuUrl.replace("${appid}", appId);
-                homeMenuUrl = homeMenuUrl.replace("${redirect_uri}", homeUrl);
-//                logger.info("redirect url: " + homeMenuUrl);
-                return "redirect:" + homeMenuUrl;
-            }
-
-            if (StrUtil.strIsNotNull(cookieUid)) {
-                logger.info("cookieUid: " + cookieUid);
-                WxBindInfo wxBindInfo = new WxBindInfo();
-                wxBindInfo.setOpenid(cookieUid);
-                wxBindInfo.setAppId(appId);
-                wxBindInfo.setDeviceId(deviceId);
-                wxBindInfo.setDeviceType(deviceType);
-
-                wxBindInfo = weixinService.getWxBindInfoByDevice(wxBindInfo);
-                logger.info("wxbindInfo: type= " + wxBindInfo.getDeviceType() + ", deviceid=" + wxBindInfo.getDeviceId() +
-                        ", deviceName=" + wxBindInfo.getDeviceName());
-                DeviceInfo deviceInfo;
-
-                List<FilterInfo> filterInfos = null;
-
-                if (wxBindInfo != null && StrUtil.strIsNotNull(wxBindInfo.getDeviceId())) {
-                    deviceInfo = weixinService.getDeviceInfo(wxBindInfo.getDeviceId());
-                    logger.info("device model: " + deviceInfo.getModel());
-                    if ("1".equals(wxBindInfo.getDeviceType())) {
-                        if (deviceInfo != null) {
-                            filterInfos = weixinService.getFilterInfo(deviceInfo.getModel());
-                        }
-                    }
-
-                    String url = "http://wx.mypraise.cn/web/wechat/my_devices.html?deviceId=" + deviceId + "&type=" + deviceType;
-                    String signature = getSignature(url, wxTicket.getJsApiTicket());
-                    model.addAttribute("wxBindInfo", wxBindInfo);
-                    Map<String, String> serverInfo = new HashMap<String, String>();
-                    serverInfo.put("host", MQTT_HOST);
-                    serverInfo.put("port", MQTT_PORT);
-                    serverInfo.put("noncestr", noncestr);
-                    serverInfo.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-                    serverInfo.put("signature", signature.toLowerCase());
-                    model.addAttribute("serverInfo", serverInfo);
-                    model.addAttribute("deviceInfo", deviceInfo);
-
-                    if (!"".equals(update) && update != null) {
-                        model.addAttribute("updateDeviceInfo", updateDeviceInfo);
-                    }
-                    if ("1".equals(wxBindInfo.getDeviceType())) {
-                        model.addAttribute("filterInfo", filterInfos);
-                        model.addAttribute("filterRank", request.getParameter("filterRank"));
-                    }
-
-                    if ("1".equals(wxBindInfo.getDeviceType())) {
-                        return "jsq_home_new";
-                    } else if ("2".equals(wxBindInfo.getDeviceType())) {
-                        return "air_purifier";
-                    }
-                }
-            }
         } catch (Exception e) {
             logger.error(e.getMessage());
         }
@@ -464,7 +400,6 @@ public class WechatWebController {
             info.setOpen_id(openId);
             info.setApp_id(appId);
             generalDeviceInfos = weixinService.getGeneralBindInfo(info);
-//            logger.info("general info: " + generalDeviceInfos);
             return generalDeviceInfos;
         } catch (Exception e) {
             logger.error(e.getMessage());
@@ -670,54 +605,55 @@ public class WechatWebController {
     }
 
     @RequestMapping(value = "net-setting.html")
-    public String netsetting(HttpServletRequest request, HttpServletResponse response, String code, Model model){
+    public String netsetting(HttpServletRequest request, HttpServletResponse response, String code, Model model) {
         return "net-setting";
     }
 
     @RequestMapping(value = "zhongyangqianzhi.html")
-    public String zhongyangqianzhi(HttpServletRequest request, HttpServletResponse response, String code, Model model){
+    public String zhongyangqianzhi(HttpServletRequest request, HttpServletResponse response, String code, Model model) {
         return "/product/zhongyangqianzhi";
     }
 
     @RequestMapping(value = "jinlvmeizhongyang.html")
-    public String jinlvmeizhongyang(HttpServletRequest request, HttpServletResponse response, String code, Model model){
+    public String jinlvmeizhongyang(HttpServletRequest request, HttpServletResponse response, String code, Model model) {
         return "/product/jinlvmeizhongyang";
     }
 
     @RequestMapping(value = "rofanshengtou.html")
-    public String rofanshengtou(HttpServletRequest request, HttpServletResponse response, String code, Model model){
+    public String rofanshengtou(HttpServletRequest request, HttpServletResponse response, String code, Model model) {
         return "/product/rofanshengtou";
     }
 
     @RequestMapping(value = "qianzhi.html")
-    public String qianzhi(HttpServletRequest request, HttpServletResponse response, String code, Model model){
+    public String qianzhi(HttpServletRequest request, HttpServletResponse response, String code, Model model) {
         return "/install/qianzhi";
     }
 
     @RequestMapping(value = "jinlvmei.html")
-    public String jinlvmei(HttpServletRequest request, HttpServletResponse response, String code, Model model){
+    public String jinlvmei(HttpServletRequest request, HttpServletResponse response, String code, Model model) {
         return "/install/jinlvmei";
     }
 
     @RequestMapping(value = "chunshuiji.html")
-    public String chunshuiji(HttpServletRequest request, HttpServletResponse response, String code, Model model){
+    public String chunshuiji(HttpServletRequest request, HttpServletResponse response, String code, Model model) {
         return "/install/chunshuiji";
     }
 
     @RequestMapping(value = "quanwujingshui.html")
-    public String quanwujingshui(HttpServletRequest request, HttpServletResponse response, String code, Model model){
+    public String quanwujingshui(HttpServletRequest request, HttpServletResponse response, String code, Model model) {
         return "/install/quanwujingshui";
     }
 
     @RequestMapping(value = "ruanshuiji.html")
-    public String ruanshuiji(HttpServletRequest request, HttpServletResponse response, String code, Model model){
+    public String ruanshuiji(HttpServletRequest request, HttpServletResponse response, String code, Model model) {
         return "/install/ruanshuiji";
     }
 
     @RequestMapping(value = "psdshangyong.html")
-    public String psdshangyong(HttpServletRequest request, HttpServletResponse response, String code, Model model){
+    public String psdshangyong(HttpServletRequest request, HttpServletResponse response, String code, Model model) {
         return "/install/psdshangyong";
     }
+
     @RequestMapping(value = "aftersale_service.html")
     public String installAndRepair(HttpServletRequest request, HttpServletResponse response, String code, Model model) {
         String category = request.getParameter("category");
@@ -741,12 +677,7 @@ public class WechatWebController {
     }
 
 
-    @RequestMapping(value = "net_setting.html")
-    public String netSetting(HttpServletRequest request, HttpServletResponse response, String code, Model model) {
-        return "netsetting";
-    }
-
-    @RequestMapping(value = "add_general_device.html")
+    @RequestMapping(value = "add-general-device.html")
     public String addNewDevice(HttpServletRequest request, HttpServletResponse response, String code, Model model) {
         String productModel = request.getParameter("productModel");
         logger.info("product model : " + productModel);
@@ -754,7 +685,7 @@ public class WechatWebController {
         return "add_general_device";
     }
 
-    @RequestMapping(value = "pre_filter.html")
+    @RequestMapping(value = "pre-filter.html")
     public String preFilter(HttpServletRequest request, HttpServletResponse response, String code, Model model) {
         String generalId = request.getParameter("generalId");
         logger.info("general id: " + generalId);
@@ -837,7 +768,7 @@ public class WechatWebController {
                 serverInfo.put("appId", appId);
                 model.addAttribute("serverInfo", serverInfo);
             } else {
-                return "redirect:http://wx.mypraise.cn/api/error.html";
+                return "redirect:http://wx.mypraise.cn/web/error.html";
             }
 
         } catch (Exception e) {

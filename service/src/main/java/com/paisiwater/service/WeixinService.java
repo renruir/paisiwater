@@ -368,5 +368,19 @@ public interface WeixinService {
 	 */
 	public List<GeneralDeviceInfo> scanGeneralDeviceInfo() throws Exception;
 
+	/**
+	 * 通过unionid获取微信信息
+	 */
+	public WxUserInfo getWxUserInfoByUnionId(String unionid) throws Exception;
+
+	/**
+	 *获取小程序app_id和secret id
+	 */
+	public MiniProgramInfo getMiniProgramInfo(String ghId) throws Exception;
+//
+//	/**
+//	 * 根据openid获取unionid
+//	 */
+//	public String getUnionId(String token, String openId) throws Exception;
 
 }

@@ -116,10 +116,18 @@
         </div>
 
     </div>
-    <div class="filter-reset" id="filter-reset">
-        <a class="weui-btn weui-btn_primary" @click="resetFilter()"
-           style="background-color: #1C8DE0;border-radius: 1rem;" id="filterReset">滤芯复位</a>
+
+    <div class="filter-button">
+        <div class="filter-reset">
+            <a class="weui-btn weui-btn_primary" @click="buyFilter()"
+               style="background-color: #1C8DE0;border-radius: 1rem;" id="buyFilter">购买滤芯</a>
+        </div>
+        <div class="filter-reset" id="filter-reset">
+            <a class="weui-btn weui-btn_primary" @click="resetFilter()"
+               style="background-color: #1C8DE0;border-radius: 1rem;" id="filterReset">滤芯复位</a>
+        </div>
     </div>
+
 </div>
 
 </div>
@@ -147,6 +155,8 @@
     var sn = "${deviceInfo.seqNum}";
     var hardwareVersion = "${deviceInfo.version}";
     var perunused = [0, 0, 0, 0, 0, 0];
+
+    var loading;
 
     var filterInfo = new Array();
 
@@ -193,10 +203,6 @@
         console.log("arrived msg: " + bytes2StrForPrint(arr));
         try {
             if ((arr.length == 3) && (arr[0] == 111) && (arr[1] == 102) && (arr[2] == 102)) {//off消息表示wifi模块离线
-                // if ((arr.length == 3)) {//off消息表示wifi模块离线
-                // $(".home_status_content").css('width','3.41rem');
-                // $("#current_state").css('width','0.67rem');
-                // $("#current_state").text(WORKING_STATE_OFFLINE);
                 mainDiv.jsqstate = "离线"
             }
 
@@ -208,7 +214,6 @@
 
             if ((arr[0] == 122) && (arr[1] == 122)) {//0x7A,0x7A
                 if (arr[index] == 49 && arr[4] == 45) { //回复状态查询或者正常的状态上报信息x31
-                    console.log("****************");
                     var jsqInfo = getDeviceStateInfo(arr);
                     updateDevicesState(jsqInfo);
                 } else if (arr[index] == 50 && arr[4] == 50) {//处理滤芯复位后的状态数据0x32
@@ -253,8 +258,16 @@
         //process filter info
         if (filterInfo.is_reset_success) {
             // resetresult(filterInfo.reset_series - 1, true);
+            loading.hide(function () {
+                console.log('重置滤芯成功');
+            });
+            weui.toast('重置滤芯成功', 3000);
         } else {
             // resetresult(filterInfo.reset_series - 1, false);
+            loading.hide(function () {
+                console.log('重置滤芯失败');
+            });
+            weui.alert('重置滤芯失败');
         }
     }
 
@@ -290,11 +303,12 @@
             mainDiv.sourcetds = jsqInfo.source_water_TDS;
             mainDiv.watertemp = jsqInfo.pure_water_temperature;
             mainDiv.jsqstate = jsqInfo.working_state;
-            console.log("========"+filters.length);
-            for (var i = 0; i < filterInfo.length;i++) {
+            console.log("========" + filters.length);
+            for (var i = 0; i < filterInfo.length; i++) {
                 mainDiv.updateProgress(i, jsqInfo.filter[i]);
             }
-            Rinse.rinse(jsqInfo.rinse_state);
+            updateResinStatus(jsqInfo.rinse_state);
+            // Rinse.rinse(jsqInfo.rinse_state);
         } else {//故障
             isError = 1;
             $(".index_module_page").hide();
@@ -334,18 +348,18 @@
                 ],
             }
         },
-        created:function(){
+        created: function () {
         },
         mounted: function () {
-            console.log("deviceId: "+deviceId);
+            console.log("deviceId: " + deviceId);
             this.devicemodel = model;
             this.devicesn = sn;
             if (deviceId == null || deviceId == "" || openid == null || openid == "") {
                 alert("您还没有绑定净水器设备！");
             } else {
                 mqttInit(host, port, openid);
-                console.log("filterInfo:"+filterInfo.length);
-                for(var i= 0; i< filterInfo.length; i++){
+                console.log("filterInfo:" + filterInfo.length);
+                for (var i = 0; i < filterInfo.length; i++) {
                     this.filters.splice(i, filterInfo.length, {name: filterInfo[i].name, progress: 0});
                 }
             }
@@ -363,14 +377,14 @@
                 filter.updateDonut(perunused[index]);
             },
             updateProgress: function (index, progress) {
-                console.log("new progress: "+progress)
+                console.log("new progress: " + progress)
                 Vue.set(mainDiv.filters, index, {name: filterInfo[index].name, progress: progress})
             }
         },
         watch: {
             filters: function (val) {
                 for (var i = 0; i < val.length; i++) {
-                    perunused[i]=val[i].progress;
+                    perunused[i] = val[i].progress;
                 }
             },
             jsqstate: function (val) {
@@ -390,7 +404,7 @@
             clickFilter: false,
             filtername: '滤芯名',
             filterdes: '滤芯膜的描述',
-            filterlife:'滤芯膜的寿命'
+            filterlife: '滤芯膜的寿命'
         },
         created() {
 
@@ -425,68 +439,109 @@
                 mainDiv.showMain = true;
             },
 
-            filterReset(){
+            filterReset() {
                 console.log("reset");
                 // $.MsgBox.Confirm(filterInfo[filterIndex].name, "");
                 // $.MsgBox.InformWait("重置","dddd");
                 resetFilter();
+            },
+            buyFilter() {
+                window.location.href = "https://shop.m.jd.com/?shopId=36858"
             }
-
         }
     });
 
     function resetFilter() {
-        $.MsgBox.Confirm(filterInfo[filterIndex].name, startResetFilter);
+        // $.MsgBox.Confirm(filterInfo[filterIndex].name, startResetFilter);
+        weui.confirm('重置滤芯会将滤芯的使用状态重置，并从头计数。此功能一般针对新购买滤芯替换后重置状态，重新计数。\n 确定要重置该滤芯吗？', function () {
+            console.log('yes')
+            reset()
+        }, function () {
+            console.log('no')
+        });
+    }
+
+    function reset() {
+        console.log("filterIndex:" + filterIndex);
+        sendCommand2Devices(COMMAND_FILTER_RESET, deviceId, filterIndex);
+        loading = weui.loading('重置中…');
+        setTimeout(function () {
+            loading.hide(function () {
+                weui.alert('重置滤芯失败');
+            });
+        }, 30000);
     }
 
     function startResetFilter() {
-        console.log("filterIndex:"+filterIndex);
+        console.log("filterIndex:" + filterIndex);
         sendCommand2Devices(COMMAND_FILTER_RESET, deviceId, filterIndex);
         dianCount = 1;
-        if(dianIntervalId!=null){
+        if (dianIntervalId != null) {
             clearInterval(dianIntervalId);
         }
-        dianIntervalId =  setInterval(function(){
-            var dian= "";
-            if(dianCount ==1){
-                dian= "·<span style=\"color: whitesmoke;\">·····</span>";
-            }else if(dianCount ==2){
-                dian= "··<span style=\"color: whitesmoke;\">····</span>";
-            }else if(dianCount ==3){
-                dian= "···<span style=\"color: whitesmoke;\">···</span>";
-            }else if(dianCount ==4){
-                dian= "····<span style=\"color: whitesmoke;\">··</span>";
-            }else if(dianCount ==5){
-                dian= "·····<span style=\"color: whitesmoke;\">·</span>";
-            }else if(dianCount ==6){
-                dian= "······";
+        dianIntervalId = setInterval(function () {
+            var dian = "";
+            if (dianCount == 1) {
+                dian = "·<span style=\"color: whitesmoke;\">·····</span>";
+            } else if (dianCount == 2) {
+                dian = "··<span style=\"color: whitesmoke;\">····</span>";
+            } else if (dianCount == 3) {
+                dian = "···<span style=\"color: whitesmoke;\">···</span>";
+            } else if (dianCount == 4) {
+                dian = "····<span style=\"color: whitesmoke;\">··</span>";
+            } else if (dianCount == 5) {
+                dian = "·····<span style=\"color: whitesmoke;\">·</span>";
+            } else if (dianCount == 6) {
+                dian = "······";
             }
-            var title= "";
-            var content = "正在重置中"+dian;
-            $.MsgBox.InformWait(title,content);
-            dianCount = dianCount+1;
-            if(dianCount>6){
+            var title = "";
+            var content = "正在重置中" + dian;
+            $.MsgBox.InformWait(title, content);
+            dianCount = dianCount + 1;
+            if (dianCount > 6) {
                 dianCount = 1;
             }
-        },200);
+        }, 200);
         filterResetTimer = setTimeout(function () {
-            if(dianIntervalId!=null){
+            if (dianIntervalId != null) {
                 clearInterval(dianIntervalId);
             }
             var title = "";
             var content = "响应超时";
-            $.MsgBox.InformFail(title,content);
+            $.MsgBox.InformFail(title, content);
         }, 10000);
     }
 
     function resineFilter() {
-        var currentState = $("#current_state").text();
+        var currentState = mainDiv.jsqstate;
+        // currentState = "水满"
+        console.log("currentState: " + currentState);
         if (currentState == '离线' || currentState == '未知') {
             weui.alert("设备状态" + currentState + ", 请稍后再试！");
         } else if (currentState == '冲洗') {
-            weui.alert("设备正在冲洗！");
+            if (loading.hidden == false) {
+                loading = weui.loading("正在冲洗…")
+            }
         } else {
-            Rinse.startRinse();
+            // Rinse.startRinse();
+            sendCommand2Devices(COMMAND_RINSE, deviceId);
+            loading = weui.loading("正在冲洗…")
+            setTimeout(function () {
+                loading.hide(function () {
+                    weui.alert('状态未知，请检查设备');
+                });
+            }, 30000);
+
+        }
+    }
+
+    function updateResinStatus(rinseState) {
+        console.log("rinseState: " + rinseState);
+        if (rinseState == RINSE_START) {
+        } else if (rinseState == RINSING) {
+        } else if (rinseState == RINSE_COMPLETED) {
+            loading.hide()
+            weui.toast('冲洗完成', 3000);
         }
     }
 

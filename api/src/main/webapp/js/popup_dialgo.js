@@ -44,7 +44,7 @@
             "                    </div>\n" +
             "                    <div class=\"popup_dialog_content\">\n" +
             "                        <div class=\"popup_dialog_content_comfirm\">\n" +
-            "                            <label style=\"font-size: 0.4rem;line-height:0.48rem\">重置滤芯会讲滤芯的使用状态重置，并从头计数。此功能针对新购买滤芯替换以后，重置状态，重新计数。\n" +
+            "                            <label style=\"font-size: 0.6rem;line-height:0.8rem\">重置滤芯会讲滤芯的使用状态重置，并从头计数。此功能针对新购买滤芯替换以后，重置状态，重新计数。\n" +
             "                                <b>是否确认对<label style=\"color:#5cd1e7\">"+ text +"</label>进行重置？</b>\n" +
             "                            </label>\n" +
             "                        </div>\n" +
