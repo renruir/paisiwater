@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -62,6 +63,35 @@ public class MiniProgramController {
                 }
             }
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+    @RequestMapping(value = "get-bind-list")
+    @ResponseBody
+    public String getBindListbyUnionId(HttpServletRequest request, @RequestParam("unionId") String unionId, Model model) {
+        logger.info("unionId: " + unionId);
+        try {
+            WxUserInfo wxUserInfo = weixinService.getWxUserInfoByUnionId(unionId);
+            WxBindInfo wxBindInfo = new WxBindInfo();
+            wxBindInfo.setOpenid(wxUserInfo.getOpenid());
+            wxBindInfo.setAppId(WeixinConstant.APP_ID);
+            List<WxBindInfo> wxBindInfoList = weixinService.getWxBindInfo(wxBindInfo);
+            List<DeviceInfo> deviceInfoList = new ArrayList<>();
+
+            if (wxBindInfoList != null) {
+                for (WxBindInfo bindInfo : wxBindInfoList) {
+                    DeviceInfo deviceInfo = weixinService.getDeviceInfo(bindInfo.getDeviceId());
+                    deviceInfoList.add(deviceInfo);
+                }
+                String strDevicesList = JSON.toJSONString(deviceInfoList);
+                Map<String, String> info = new HashMap<>();
+                info.put("deviceList", strDevicesList);
+                logger.info("deviceInfoList:" + strDevicesList);
+                return JSON.toJSONString(info);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
