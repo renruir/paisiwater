@@ -183,6 +183,7 @@
         client.connect({
             userName: "admin",
             password: "password",
+            useSSL: true,
             onSuccess: onConnect,
         });
     }
