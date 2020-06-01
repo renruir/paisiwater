@@ -186,14 +186,26 @@ public class WechatWebController {
     @RequestMapping(value = "my_devices.html")
     public String paisijsq(HttpServletRequest request, HttpServletResponse response, String code, Model model) {
         try {
+            DeviceVersionUpdate updateDeviceInfo = new DeviceVersionUpdate();
+            String deviceId = request.getParameter("deviceId");
+            String deviceType = request.getParameter("type");
+            String update = request.getParameter("update");
+            logger.info("devcieid: " + deviceId);
+            if (!"".equals(update) && update != null) {
+                updateDeviceInfo.setVersion(request.getParameter("version"));
+                updateDeviceInfo.setDeviceType(deviceType);
+                updateDeviceInfo.setDownloadUrl(request.getParameter("url"));
+                updateDeviceInfo.setPkgSize(request.getParameter("size"));
+                updateDeviceInfo.setMd5(request.getParameter("md5"));
+
+            }
             WxAppInfo wxAppInfo = new WxAppInfo();
             wxAppInfo.setGhId(JSQ_GH_ID);
             wxAppInfo = weixinService.getWxAppInfo(wxAppInfo);
             String appId = wxAppInfo.getAppId();
             String appSecret = wxAppInfo.getAppSecret();
-            logger.info("appId：" + appId);
             String cookieUid = CookieUtil.getCookie(appId + "_uid", request);
-            logger.info("cookieUid = " + cookieUid);
+//            WxJsApiTicket wxTicket = weixinService.getJsApiTicket(appId);
             if (cookieUid != null && !"".equals(cookieUid)) {
                 CookieUtil.setCookie(appId + "_uid", cookieUid, response);
             } else if (code != null && !"".equals(code)) {
@@ -219,42 +231,57 @@ public class WechatWebController {
             }
 
             if (StrUtil.strIsNotNull(cookieUid)) {
+                logger.info("cookieUid: " + cookieUid);
                 WxBindInfo wxBindInfo = new WxBindInfo();
                 wxBindInfo.setOpenid(cookieUid);
                 wxBindInfo.setAppId(appId);
-                wxBindInfo.setDeviceType(JSQ_DEVICE_TYPE);
+                wxBindInfo.setDeviceId(deviceId);
+                wxBindInfo.setDeviceType(deviceType);
 
-                if (weixinService.getWxBindInfo(wxBindInfo) != null && weixinService.getWxBindInfo(wxBindInfo).size() > 0) {
-                    wxBindInfo = weixinService.getWxBindInfo(wxBindInfo).get(0);
-                } else {
+                wxBindInfo = weixinService.getWxBindInfoByDevice(wxBindInfo);
+                logger.info("wxbindInfo: type= " + wxBindInfo.getDeviceType() + ", deviceid=" + wxBindInfo.getDeviceId() +
+                        ", deviceName=" + wxBindInfo.getDeviceName());
+                DeviceInfo deviceInfo;
 
-                }
-//                model.addAttribute("updateDeviceInfo", null);
-                DeviceInfo deviceInfo = null;
                 List<FilterInfo> filterInfos = null;
+                String jsTotal = null;
+
                 if (wxBindInfo != null && StrUtil.strIsNotNull(wxBindInfo.getDeviceId())) {
                     deviceInfo = weixinService.getDeviceInfo(wxBindInfo.getDeviceId());
-                    if (deviceInfo != null) {
-                        filterInfos = weixinService.getFilterInfo(deviceInfo.getModel());
+                    if ("1".equals(wxBindInfo.getDeviceType())) {
+                        if (deviceInfo != null) {
+                            filterInfos = weixinService.getFilterInfo(deviceInfo.getModel());
+                        }
+                    }
+                    if ("1".equals(wxBindInfo.getDeviceType())) {
+                        //从数据库中获取deviceid的最新一条净水量统计
+                        jsTotal = weixinService.getjsTotal(wxBindInfo.getDeviceId());
+                    }
+
+                    String url = "https://wx.mypraise.cn/web/wechat/my_devices.html?deviceId=" + deviceId + "&type=" + deviceType;
+                    model.addAttribute("wxBindInfo", wxBindInfo);
+                    Map<String, String> serverInfo = new HashMap<String, String>();
+                    serverInfo.put("host", MQTT_HOST);
+                    serverInfo.put("port", MQTT_PORT);
+                    serverInfo.put("noncestr", noncestr);
+                    serverInfo.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
+                    model.addAttribute("serverInfo", serverInfo);
+                    model.addAttribute("deviceInfo", deviceInfo);
+
+                    if (!"".equals(update) && update != null) {
+                        model.addAttribute("updateDeviceInfo", updateDeviceInfo);
+                    }
+                    if ("1".equals(wxBindInfo.getDeviceType())) {
+                        model.addAttribute("filterInfo", filterInfos);
+                        model.addAttribute("filterRank", request.getParameter("filterRank"));
+                    }
+
+                    if ("1".equals(wxBindInfo.getDeviceType())) {
+                        return "paisijsq";
+                    } else if ("2".equals(wxBindInfo.getDeviceType())) {
+                        return "air_purifier";
                     }
                 }
-
-                WxUserInfo wxUserInfo = weixinService.getWxUserInfo(cookieUid);
-                if (wxUserInfo.getUnionid() == null || "".equals(wxUserInfo.getUnionid())) {
-                    Map<String, Object> weixinUserInfo = WeixinServerEngin.getWxUserInfo(cookieUid, weixinService.getAccessToken(appId).getAccessToken());
-                    logger.info("wxUserInfo: " + weixinUserInfo.toString());
-                    String unionId = (String) weixinUserInfo.get("unionid");
-                    wxUserInfo.setUnionid(unionId);
-                    weixinService.saveWxUserInfo(wxUserInfo);
-                }
-                model.addAttribute("wxBindInfo", wxBindInfo);
-                Map<String, String> serverInfo = new HashMap<String, String>();
-                serverInfo.put("host", MQTT_HOST);
-                serverInfo.put("port", MQTT_PORT);
-                model.addAttribute("serverInfo", serverInfo);
-                model.addAttribute("deviceInfo", deviceInfo);
-                model.addAttribute("filterInfo", filterInfos);
-                return "paisijsq";
             }
         } catch (Exception e) {
             logger.error(e.getMessage());
