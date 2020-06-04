@@ -61,7 +61,7 @@ public class MiniProgramController {
                     zInfo.put("model", deviceInfo.getModel());
                     String filters = JSON.toJSONString(filterInfos);
                     zInfo.put("filters", filters);
-                    logger.info("infeo: " + JSON.toJSONString(zInfo));
+                    logger.info("zInfo: " + JSON.toJSONString(zInfo));
                     return JSON.toJSONString(zInfo);
                 }
             }
