@@ -180,7 +180,8 @@ public class DeviceApiController {
                 content.append(deviceInfo.getAppId());
                 content.append(deviceInfo.getMac());
                 content.append(deviceInfo.getSeqNum());
-                content.append(deviceInfo.getModel());
+//                content.append(deviceInfo.getModel());
+                content.append("PS-DO600");
                 content.append(deviceInfo.getChip());
                 content.append(deviceInfo.getVersion());
                 content.append(WeixinConstant.AUTH_KEY);

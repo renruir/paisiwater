@@ -298,18 +298,30 @@ public class WechatWebController {
             String appId = wxAppInfo.getAppId();
             String appSecret = wxAppInfo.getAppSecret();
             String cookieUid = CookieUtil.getCookie(appId + "_uid", request);
-            logger.info("cookieUid: " + cookieUid);
+            logger.info("cookieUid: " + cookieUid + ", code: " + code);
             if (cookieUid != null && !"".equals(cookieUid)) {
                 CookieUtil.setCookie(appId + "_uid", cookieUid, response);
             } else if (code != null && !"".equals(code)) {
                 Map<Object, Object> openidMap = WeixinServerEngin.getOauthUserId(code, appId, appSecret);
                 if (openidMap != null) {
                     cookieUid = StrUtil.objectToString(openidMap.get("openid"));
+                    logger.info("get new cookieUid: " + cookieUid);
 
                     if (cookieUid != null && !"".equals(cookieUid)) {
                         CookieUtil.setCookie(appId + "_uid", cookieUid, response);
                     }
                 }
+            } else {
+                String homeUrl = ServiceConstant.WX_DOMAIN + "web/wechat/index.html";
+                try {
+                    homeUrl = URLEncoder.encode(homeUrl, "utf-8");
+                } catch (UnsupportedEncodingException e) {
+                }
+                String homeMenuUrl = WeixinConstant.OAUTH_URL;
+                homeMenuUrl = homeMenuUrl.replace("${appid}", appId);
+                homeMenuUrl = homeMenuUrl.replace("${redirect_uri}", homeUrl);
+
+                return "redirect:" + homeMenuUrl;
             }
             if (StrUtil.strIsNotNull(cookieUid)) {
                 Map<String, String> serverInfo = new HashMap<String, String>();
@@ -335,8 +347,9 @@ public class WechatWebController {
             wxAppInfo = weixinService.getWxAppInfo(wxAppInfo);
             String appId = wxAppInfo.getAppId();
             String appSecret = wxAppInfo.getAppSecret();
-            String cookieUid = "oW5agwLRWH0kW-zuuOt0cbnQwhOs";
-            logger.info("cookieUid: " + cookieUid);
+//            String cookieUid = "oW5agwLRWH0kW-zuuOt0cbnQwhOs";
+            String cookieUid = "oW5agwMQMT9ifZAjU9Ja8Nn6nrPY";
+            logger.info("cookieUid: " + cookieUid + ", code: " + code);
             if (cookieUid != null && !"".equals(cookieUid)) {
                 CookieUtil.setCookie(appId + "_uid", cookieUid, response);
             } else if (code != null && !"".equals(code)) {
