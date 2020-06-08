@@ -434,7 +434,6 @@ public class WechatWebController {
         try {
             String openId = CookieUtil.getCookie(appId + "_uid", request);
 //            openId = "ovAFut6Jkhz9z2a6Egmh7CVSzorM"; // for test
-
             List<GeneralDeviceInfo> generalDeviceInfos;
             GeneralDeviceInfo info = new GeneralDeviceInfo();
             info.setOpen_id(openId);
@@ -541,7 +540,7 @@ public class WechatWebController {
 
     @RequestMapping(value = "update_general_device_name")
     @ResponseBody
-    public String updateGeneralDeviceName(HttpServletRequest request, String generalId, String name, String reminderCircle, String resetDate, Model model) {
+    public GeneralDeviceInfo updateGeneralDeviceName(HttpServletRequest request, String generalId, String name, String reminderCircle, String resetDate, Model model) {
         logger.info("name: " + name + ", generalId:" + generalId
                 + ", reminderCircle:" + reminderCircle + ", resetDate: " + resetDate);
         try {
@@ -557,10 +556,10 @@ public class WechatWebController {
             generalDeviceInfo.setReminder_circle(Integer.parseInt(reminderCircle));
             generalDeviceInfo.setReset_date(resetDate);
             weixinService.updateGeneralDeviceName(generalDeviceInfo);
-            return "SUCCESS";
+            return generalDeviceInfo;
         } catch (Exception e) {
             logger.error(e.getMessage());
-            return "FAILED";
+            return null;
         }
     }
 
