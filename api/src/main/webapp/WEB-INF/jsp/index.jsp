@@ -196,7 +196,7 @@
                 getGeneralBindInfo(appId);
                 setTimeout(function () {
                     getDevciesInfo(JSON.stringify(data));
-                }, 1000)
+                }, 500)
             },
             error: function () {
                 weui.alert('获取绑定信息失败，请重试!');

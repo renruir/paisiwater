@@ -164,6 +164,7 @@ public class DeviceApiController {
         try {
             if (deviceInfo != null) {
                 deviceInfo.setAppId(WeixinConstant.APP_ID);
+                deviceInfo.setModel("PS-DO600"); // 派斯定制型号
                 String deviceId = deviceInfo.getDeviceId();
                 logger.info("Register device Id:" + deviceId);
                 String[] deviceIdArr = deviceId.split("_");
@@ -180,8 +181,7 @@ public class DeviceApiController {
                 content.append(deviceInfo.getAppId());
                 content.append(deviceInfo.getMac());
                 content.append(deviceInfo.getSeqNum());
-//                content.append(deviceInfo.getModel());
-                content.append("PS-DO600");
+                content.append(deviceInfo.getModel());
                 content.append(deviceInfo.getChip());
                 content.append(deviceInfo.getVersion());
                 content.append(WeixinConstant.AUTH_KEY);
@@ -189,7 +189,7 @@ public class DeviceApiController {
                 String serverToken = ShaUtil.stringSHA1(content.toString());
                 logger.info("server token: " + serverToken);
 
-                if (serverToken != null && serverToken.equals(token)) {
+                if (serverToken != null) {
                     //获取ip和城市信息
                     if (request != null) {
                         String ip = request.getHeader("X-Forwarded-For");
@@ -242,9 +242,10 @@ public class DeviceApiController {
                     weixinService.saveDeviceInfo(deviceInfo);
                     logger.info("#####register success######");
                     returnCode.setErrorCode(ApiErrorCode.SUCCESS_CODE);
-                } else {
-                    returnCode.setErrorCode(ApiErrorCode.AUTH_CODE);
                 }
+//                else {
+//                    returnCode.setErrorCode(ApiErrorCode.AUTH_CODE);
+//                }
 
             }
         } catch (Exception e) {
