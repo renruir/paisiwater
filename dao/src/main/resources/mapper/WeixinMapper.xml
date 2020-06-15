@@ -205,7 +205,7 @@
 
     <select id="getBindUserOpenId" parameterType="java.lang.String" resultType="java.lang.String">
 		<![CDATA[
-		SELECT openid FROM wx_bind WHERE device_id=#{device_id} AND statu=0
+		SELECT openid FROM wx_bind WHERE device_id=#{device_id} AND statu=0 order by create_date desc
         ]]>
 	</select>
 
@@ -330,6 +330,21 @@
 	<select id="getMiniProgramInfo" parameterType="java.lang.String" resultType="MiniProgramInfo">
 		<![CDATA[
 		select gh_id ghId,app_id appId,app_secret appSecret,token token from miniprogram_info where gh_id=#{ghId}
+		 ]]>
+	</select>
+
+	<select id="saveFilterUseInfo" parameterType="FilterUseInfo">
+		<![CDATA[
+		replace into device_filter_use_data(device_id,openid, model,filter_1_name,filter_1_unused,filter_2_name,filter_2_unused,
+			filter_3_name,filter_3_unused,filter_4_name,filter_4_unused, update_date)
+			values (#{device_id},#{openid},#{model},#{filter_1_name},#{filter_1_unused},
+			#{filter_2_name},#{filter_2_unused},#{filter_3_name},#{filter_3_unused},#{filter_4_name},#{filter_4_unused}, sysdate())
+		 ]]>
+	</select>
+
+	<select id="getFilterUseInfos" resultType="FilterUseInfo">
+		<![CDATA[
+		select * from device_filter_use_data
 		 ]]>
 	</select>
 

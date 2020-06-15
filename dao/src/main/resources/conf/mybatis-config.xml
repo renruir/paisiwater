@@ -23,5 +23,7 @@
         <typeAlias alias="LeaseInfo" type="com.paisiwater.device.model.LeaseInfo"/>
         <typeAlias alias="GeneralDeviceInfo" type="com.paisiwater.api.model.GeneralDeviceInfo"/>
         <typeAlias alias="MiniProgramInfo" type="com.paisiwater.model.MiniProgramInfo"/>
+        <typeAlias alias="FilterUseInfo" type="com.paisiwater.device.model.FilterUseInfo"/>
+
     </typeAliases>
 </configuration>

@@ -9,6 +9,7 @@ import com.paisi.utils.CookieUtil;
 import com.paisi.utils.ShaUtil;
 import com.paisi.utils.StrUtil;
 import com.paisiwater.constant.WeixinConstant;
+import com.paisiwater.device.model.FilterUseInfo;
 import com.paisiwater.engin.WeixinServerEngin;
 import com.paisi.utils.HttpClientUtil;
 import com.paisiwater.model.*;
@@ -745,6 +746,17 @@ public class WechatWebController {
     @RequestMapping(value = "super_filter")
     public String superFilter() {
         return "super_filter";
+    }
+
+    @RequestMapping(value = "get-filter-infos.html")
+    @ResponseBody
+    public String getFilterUseInfo(){
+        try {
+            return JSON.toJSONString(weixinService.getFilterUseInfos());
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
     }
 
 

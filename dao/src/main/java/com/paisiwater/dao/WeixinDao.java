@@ -1,6 +1,7 @@
 package com.paisiwater.dao;
 
 import com.paisiwater.api.model.*;
+import com.paisiwater.device.model.FilterUseInfo;
 import com.paisiwater.device.model.LeaseInfo;
 import com.paisiwater.model.*;
 
@@ -317,6 +318,15 @@ public interface WeixinDao {
      */
     public MiniProgramInfo getMiniProgramInfo(String ghId);
 
+    /**
+     * 保存滤芯使用信息
+     */
+    public void saveFilterUseInfo(FilterUseInfo filterUseInfo);
+
+    /**
+     * 获取滤芯使用情况信息
+     */
+    public List<FilterUseInfo> getFilterUseInfos();
 }
 
 

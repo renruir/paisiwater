@@ -1,5 +1,6 @@
 package com.paisiwater.service;
 
+import com.paisiwater.device.model.FilterUseInfo;
 import com.paisiwater.model.WxAppInfo;
 import com.paisiwater.api.model.*;
 import com.paisiwater.device.model.LeaseInfo;
@@ -382,5 +383,14 @@ public interface WeixinService {
 //	 * 根据openid获取unionid
 //	 */
 //	public String getUnionId(String token, String openId) throws Exception;
+	/**
+	 * 保存滤芯使用信息
+	 */
+	public void saveFilterUseInfo(FilterUseInfo filterUseInfo) throws Exception;
+
+	/**
+	 * 获取滤芯使用情况信息
+	 */
+	public List<FilterUseInfo> getFilterUseInfos();
 
 }

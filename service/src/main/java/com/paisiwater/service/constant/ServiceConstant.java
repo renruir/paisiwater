@@ -32,7 +32,7 @@ public interface ServiceConstant {
 
 	String FILTER_RINSE_NOTICE_MODEL_ID = "sCIMXsUwr6kS6xFPkB7m-SN37LTOuRqzrZzbn23nsLk";
 
-	String[] filterInfo = new String[]{"超滤膜滤芯", "活性炭滤芯", "RO反渗透滤芯", "RO反渗透滤芯"};
+	String[] filterInfo = new String[]{"PP精密纤维", "CTO活性炭", "RO膜600GPD", "后置活性炭"};
 
 	int MODEL_MSG_FLAG_FILTER = 7001;
 	int MODEL_MSG_FLAG_FAULT = 7002;

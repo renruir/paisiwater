@@ -5,7 +5,9 @@ import com.paisiwater.api.model.BaseTemplateStruct;
 import com.paisiwater.api.model.DeviceDataStat;
 import com.paisiwater.api.model.DeviceInfo;
 import com.paisiwater.api.model.ModelMsg;
+import com.paisiwater.device.model.FilterUseInfo;
 import com.paisiwater.device.model.WaterModel;
+import com.paisiwater.model.WxBindInfo;
 import com.paisiwater.service.MqttServiceInterface;
 import com.paisiwater.service.WeixinService;
 import com.paisiwater.service.constant.ServiceConstant;
@@ -122,6 +124,9 @@ public class WaterPurifierMqttListener implements IMqttMessageListener, MqttServ
         setDeviceDataStat(data, recDeviceId);
     }
 
+    private void getBindInfo() {
+    }
+
 
     private void processFilterPackage(byte[] data) {
         byte[] deviceId = new byte[DEVICEID_LENGTH];
@@ -140,6 +145,12 @@ public class WaterPurifierMqttListener implements IMqttMessageListener, MqttServ
 
         deviceInfo = weixinService.getDeviceInfo(recDeviceId);
         String model = deviceInfo.getModel();
+        List<String> openIDArray = weixinService.getBindUserOpenId(recDeviceId);
+
+        FilterUseInfo filterUseInfo = new FilterUseInfo();
+        filterUseInfo.setDevice_id(recDeviceId);
+        filterUseInfo.setOpenid(openIDArray.get(0));
+        filterUseInfo.setModel(deviceInfo.getModel());
 
         WaterModel waterModel = new WaterModel();
         waterModel.setModel(model);
@@ -148,6 +159,20 @@ public class WaterPurifierMqttListener implements IMqttMessageListener, MqttServ
         for (int i = 0; i < FILTER_COUNT; i++) {
             filterState[i] = data[i + (index + 1)] & 0xff;
         }
+        filterUseInfo.setFilter_1_name(ServiceConstant.filterInfo[0]);
+        filterUseInfo.setFilter_2_name(ServiceConstant.filterInfo[1]);
+        filterUseInfo.setFilter_3_name(ServiceConstant.filterInfo[2]);
+        filterUseInfo.setFilter_4_name(ServiceConstant.filterInfo[3]);
+        filterUseInfo.setFilter_1_unused(String.valueOf(filterState[0]));
+        filterUseInfo.setFilter_2_unused(String.valueOf(filterState[1]));
+        filterUseInfo.setFilter_3_unused(String.valueOf(filterState[2]));
+        filterUseInfo.setFilter_4_unused(String.valueOf(filterState[3]));
+        try {
+            weixinService.saveFilterUseInfo(filterUseInfo);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
         waterModel.setFilterName(ServiceConstant.filterInfo);
         waterModel.setFilterSurplus(filterState);
         sendFilterNotify(waterModel);

@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.paisiwater.api.model.*;
 import com.paisi.utils.StrUtil;
 import com.paisiwater.dao.WeixinDao;
+import com.paisiwater.device.model.FilterUseInfo;
 import com.paisiwater.device.model.LeaseInfo;
 import com.paisiwater.engin.WeixinServerEngin;
 import com.paisiwater.model.*;
@@ -387,5 +388,15 @@ public class WeixinServiceImpl implements WeixinService {
     @Override
     public MiniProgramInfo getMiniProgramInfo(String ghId) throws Exception {
         return weixinDao.getMiniProgramInfo(ghId);
+    }
+
+    @Override
+    public void saveFilterUseInfo(FilterUseInfo filterUseInfo) throws Exception {
+        weixinDao.saveFilterUseInfo(filterUseInfo);
+    }
+
+    @Override
+    public List<FilterUseInfo> getFilterUseInfos() {
+        return weixinDao.getFilterUseInfos();
     }
 }

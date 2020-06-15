@@ -97,9 +97,9 @@ public class MqttService {
         return high + middle + low;
     }
 
-//    @Scheduled(cron = "0 45 16 * * ? ")
+    @Scheduled(cron = "59 * * * * ?  ")
 //    @Scheduled(cron = "0 0 2 * * ? ")
-    @Scheduled(cron = "0 0 0/8 * * ?")
+//    @Scheduled(cron = "0 0 0/8 * * ?")
     public void queryDevicesStatus() {
 //        logger.info("===update devices status and time is " + simpleDateFormat.format(new Date()) + "=====");
         byte[] data = new byte[19];
@@ -116,6 +116,7 @@ public class MqttService {
 
         try {
             MqttMessage msg = new MqttMessage(data);
+            logger.info("msg: "+byte2hex(data));
             mqttClient.publish(topic_query, msg);
         } catch (MqttException e) {
             logger.info(e.getMessage());
