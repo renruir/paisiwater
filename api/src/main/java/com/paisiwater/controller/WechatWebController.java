@@ -1,9 +1,13 @@
 package com.paisiwater.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.paisiwater.api.BaseButton;
 import com.paisiwater.api.SubButton;
 import com.paisiwater.api.UrlMenu;
+import com.paisiwater.api.controller.constant.ReturnMsg;
+import com.paisiwater.api.controller.constant.Status;
 import com.paisiwater.api.model.*;
 import com.paisi.utils.CookieUtil;
 import com.paisi.utils.ShaUtil;
@@ -751,17 +755,31 @@ public class WechatWebController {
         return "super_filter";
     }
 
-    @RequestMapping(value = "get-filter-infos.html")
+    @RequestMapping(value = "get-filter-infos")
     @ResponseBody
-    public String getFilterUseInfo(HttpServletRequest request, HttpServletResponse response){
+    public ReturnMsg getFilterUseInfo(HttpServletRequest request, HttpServletResponse response) {
+        PageHelper.startPage(1, 10);
+        Map<String, Object> filterInfo = new HashMap<>();
+        List<FilterUseInfo> filterUseInfoList = null;
+        PageInfo<FilterUseInfo> pageInfo = null;
         try {
-            return JSON.toJSONString(weixinService.getFilterUseInfos());
-        } catch (Exception e){
+            filterUseInfoList = weixinService.getFilterUseInfos();
+            if (filterUseInfoList != null && filterUseInfoList.size() != 0) {
+                pageInfo = new PageInfo<FilterUseInfo>(filterUseInfoList);
+            }
+            return ReturnMsg.resStatus(Status.SUCCESS, pageInfo);
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+        return ReturnMsg.resStatus(Status.ERROR);
     }
 
+    @RequestMapping(value = "get-wxuser-info", method = RequestMethod.GET)
+    @ResponseBody
+    public ReturnMsg getWxUserInfo(@RequestParam(value = "openid") String openid) {
+        System.out.println("openid: " + openid);
+        return ReturnMsg.resStatus(Status.ERROR);
+    }
 
     @RequestMapping(value = "getCityInfo")
     @ResponseBody

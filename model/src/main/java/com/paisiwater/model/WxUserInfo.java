@@ -13,6 +13,7 @@ public class WxUserInfo {
 	private String country;
 	private String headimgurl;
 	private String unionid;
+	private String phonenumber;
 
 	public String getOpenid() {
 		return openid;
@@ -84,5 +85,13 @@ public class WxUserInfo {
 
 	public void setUnionid(String unionid) {
 		this.unionid = unionid;
+	}
+
+	public String getPhonenumber() {
+		return phonenumber;
+	}
+
+	public void setPhonenumber(String phonenumber) {
+		this.phonenumber = phonenumber;
 	}
 }

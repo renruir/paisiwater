@@ -12,6 +12,7 @@ public class FilterUseInfo {
     private String filter_3_unused;
     private String filter_4_name;
     private String filter_4_unused;
+    private String update_date;
 
     public String getDevice_id() {
         return device_id;
@@ -99,5 +100,13 @@ public class FilterUseInfo {
 
     public void setFilter_4_unused(String filter_4_unused) {
         this.filter_4_unused = filter_4_unused;
+    }
+
+    public String getUpdate_date() {
+        return update_date;
+    }
+
+    public void setUpdate_date(String update_date) {
+        this.update_date = update_date;
     }
 }
