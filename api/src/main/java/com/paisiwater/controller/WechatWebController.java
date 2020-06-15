@@ -20,10 +20,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
@@ -40,6 +37,12 @@ import java.util.regex.Pattern;
 
 @Controller
 @RequestMapping("wechat")
+@CrossOrigin(
+        origins = "*",
+        allowedHeaders = "*",
+        allowCredentials = "true",
+        methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.OPTIONS, RequestMethod.HEAD}
+)
 public class WechatWebController {
 
     private static final Logger logger = LoggerFactory.getLogger(WechatWebController.class);
@@ -750,7 +753,7 @@ public class WechatWebController {
 
     @RequestMapping(value = "get-filter-infos.html")
     @ResponseBody
-    public String getFilterUseInfo(){
+    public String getFilterUseInfo(HttpServletRequest request, HttpServletResponse response){
         try {
             return JSON.toJSONString(weixinService.getFilterUseInfos());
         } catch (Exception e){
